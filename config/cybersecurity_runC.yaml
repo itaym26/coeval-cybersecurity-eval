@@ -1,0 +1,99 @@
+keys_file: keys.yaml
+
+experiment:
+  id: cybersecurity-run-C-large
+  storage_folder: C:/Users/itaym/CoEval/Runs
+
+# Run C — the final large-scale run. Seven local models spanning five vendors,
+# including two same-vendor size pairs (gemma2 2b<->9b, qwen2.5 3b<->7b) to test
+# directly whether bigger always means better. 20 datapoints per teacher.
+models:
+  - name: llama3-8b
+    interface: ollama
+    parameters:
+      model: llama3:8b
+    roles: [teacher, student, judge]
+
+  - name: gemma2-2b
+    interface: ollama
+    parameters:
+      model: gemma2:2b
+    roles: [teacher, student, judge]
+
+  - name: gemma2-9b
+    interface: ollama
+    parameters:
+      model: gemma2:9b
+    roles: [teacher, student, judge]
+
+  - name: qwen2.5-3b
+    interface: ollama
+    parameters:
+      model: qwen2.5:3b
+    roles: [teacher, student, judge]
+
+  - name: qwen2.5-7b
+    interface: ollama
+    parameters:
+      model: qwen2.5:7b
+    roles: [teacher, student, judge]
+
+  - name: phi3
+    interface: ollama
+    parameters:
+      model: phi3
+    roles: [teacher, student, judge]
+
+  - name: mistral-7b
+    interface: ollama
+    parameters:
+      model: mistral:7b
+    roles: [teacher, student, judge]
+
+tasks:
+  - name: cybersecurity
+    description: >
+      Cybersecurity knowledge and reasoning assessment.
+      Given a cybersecurity scenario, concept, or technical question,
+      the model must provide accurate, technically sound answers covering
+      topics such as network attacks, web vulnerabilities, cryptographic
+      concepts, malware behavior, and defensive security practices.
+      Responses should demonstrate both theoretical understanding and
+      practical reasoning ability.
+    output_description: >
+      A clear, structured response of 2-5 sentences that accurately
+      addresses the cybersecurity question with correct technical
+      terminology and practical insight.
+
+    # Explicit attributes + rubric (same approach proven reliable in Run B):
+    # small local models cannot reliably emit the complex JSON that auto-mode
+    # requires. Reusing the Run B rubric also keeps the runs comparable.
+    target_attributes:
+      domain:
+        - Network Security
+        - Web Application Security
+        - Cryptography
+        - Malware Analysis
+        - Defensive Practices
+      complexity_level:
+        - Fundamental
+        - Intermediate
+        - Advanced
+
+    nuanced_attributes:
+      question_type:
+        - concept
+        - scenario
+        - technical_question
+
+    rubric:
+      Technical Accuracy: "The response is factually correct and free of technical hallucinations, using cybersecurity terminology correctly."
+      Theoretical Understanding: "The response demonstrates clear understanding of the underlying cybersecurity concepts, mechanisms, and principles."
+      Practical Insight: "The response offers practical, actionable reasoning on how to address, exploit, or mitigate the issue."
+      Completeness: "The response fully addresses all parts of the question, covering both concept and application as required."
+      Clarity: "The response is well-structured, concise (2-5 sentences), and easy to follow."
+
+    sampling:
+      target: [1, 2]
+      nuance: [1]
+      total: 20

@@ -23,7 +23,7 @@ The runs cluster into three phases of the project:
 | 04 | `cybersecurity-run-04` | Cloud+local | llama3-8b, gpt-oss-20b, gemma-4-31b, qwen3-next-80b | ❌ Failed | `qwen3-next-80b:free` rate-limited (HTTP 429) in Phase 1 |
 | 05 | `cybersecurity-run-05` (**Run A**) | Cloud+local | llama3-8b, gpt-oss-20b, gemma-4-31b, nemotron-nano-9b | ⚠️ Partial success | Completed Phases 1–3; Phase 4–5 hit the **50-requests/day** account cap. Yielded a valid 2-model ranking. |
 | B | `cybersecurity-run-B-local` (**Run B**) | Local | llama3-8b, gemma2-2b, qwen2.5-3b, phi3 | ✅ Success | Complete 4-model ranking, 764/768 valid (99%). Winner: phi3 (3.8B) > llama3-8b (8B). ~3.5 h on 13.7 GB RAM with single-model loading. |
-| C | *(planned)* | Local | ~7 models, ~20 questions | 📅 Planned | Final large-scale quality run. |
+| C | `cybersecurity-run-C-large` (**Run C**) | Local | 7 models (incl. gemma2 2b/9b, qwen2.5 3b/7b size pairs), 20 questions | 🔄 Running | Final large-scale run (~8,000 calls, several nights). First launch aborted on a `--continue` flag misuse; relaunched without it and running. |
 
 ---
 
@@ -93,10 +93,25 @@ The runs cluster into three phases of the project:
 - **Next action:** Build the large-scale Run C (~7 models, ~20 questions) to confirm these findings
   at scale.
 
-### Run C — planned final run
-- **Goal:** demonstrate that CoEval scales — a single large, high-quality run over **~7 local models
-  and ~20 questions**, including same-family size pairs (gemma2 2b↔9b, qwen2.5 3b↔7b) for a
-  size-vs-performance analysis.
-- **Execution:** spans 2–3 nights using `--continue`; RAM kept safe via single-model loading.
+### Run C — final large-scale run
+- **Goal:** demonstrate that CoEval scales — a single large, high-quality run over **7 local models
+  and 20 questions** (980 responses, ~6,900 judgments, ~8,000 total calls), including same-family
+  size pairs (gemma2 2b↔9b, qwen2.5 3b↔7b) for a size-vs-performance analysis.
+- **Models:** llama3:8b (Meta), gemma2:2b + gemma2:9b (Google), qwen2.5:3b + qwen2.5:7b (Alibaba),
+  phi3 (Microsoft), mistral:7b (Mistral) — five vendors.
+- **Execution:** spans several nights. RAM kept safe via `OLLAMA_MAX_LOADED_MODELS=1` (one model in
+  memory at a time); checkpointing lets each night resume with `--continue`.
+
+- **Launch incident (resolved):** the very first launch was issued with `--continue` and aborted
+  immediately:
+  > `--continue specified but no existing experiment found ... (meta.json is missing)`
+
+  **Cause:** `--continue` resumes an *existing* experiment, but this was the first run, so there was
+  nothing to resume.
+  **Conclusion:** the first launch of any experiment must omit `--continue`; only subsequent resumes
+  use it.
+  **Action taken:** relaunched without `--continue` (started cleanly), and hardened
+  `scripts/run_C_overnight.ps1` to auto-detect `meta.json` — it now omits `--continue` on the first
+  night and adds it automatically on later nights. The run then proceeded normally into Phase 3.
 - **Purpose:** the capstone result, and the final step in the project's evolution from small
-  exploratory runs to one large, authoritative ranking.
+  exploratory runs to one large, authoritative ranking. Full analysis will be added once complete.
