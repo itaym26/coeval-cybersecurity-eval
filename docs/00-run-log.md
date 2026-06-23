@@ -22,7 +22,7 @@ The runs cluster into three phases of the project:
 | 03 | `cybersecurity-run-03` | Cloud+local | llama3-8b(local), gemini, mistral, qwen | ❌ Failed | `gemini-2.0-flash-exp:free` removed from OpenRouter (HTTP 404) |
 | 04 | `cybersecurity-run-04` | Cloud+local | llama3-8b, gpt-oss-20b, gemma-4-31b, qwen3-next-80b | ❌ Failed | `qwen3-next-80b:free` rate-limited (HTTP 429) in Phase 1 |
 | 05 | `cybersecurity-run-05` (**Run A**) | Cloud+local | llama3-8b, gpt-oss-20b, gemma-4-31b, nemotron-nano-9b | ⚠️ Partial success | Completed Phases 1–3; Phase 4–5 hit the **50-requests/day** account cap. Yielded a valid 2-model ranking. |
-| B | `cybersecurity-run-B-local` (**Run B**) | Local | llama3-8b, gemma2-2b, qwen2.5-3b, phi3 | 🔄 Finishing | First attempt failed Phase 1 (small models can't emit `auto` JSON); restarted with explicit rubric. Phases 1–4 complete, Phase 5 finishing overnight. |
+| B | `cybersecurity-run-B-local` (**Run B**) | Local | llama3-8b, gemma2-2b, qwen2.5-3b, phi3 | ✅ Success | Complete 4-model ranking, 764/768 valid (99%). Winner: phi3 (3.8B) > llama3-8b (8B). ~3.5 h on 13.7 GB RAM with single-model loading. |
 | C | *(planned)* | Local | ~7 models, ~20 questions | 📅 Planned | Final large-scale quality run. |
 
 ---
@@ -84,10 +84,14 @@ The runs cluster into three phases of the project:
 - **Result:** 🔄 Phases 1–4 complete (all 16 response sets); Phase 5 at 10/16 when the PC was
   rebooted. Resuming overnight via `--continue` with `OLLAMA_MAX_LOADED_MODELS=1` (the 13.7 GB
   machine froze when four models loaded simultaneously).
-- **Conclusion (interim):** Local inference removes the rate-limit wall; memory, not quota, is the
-  constraint, and it is solved by loading one model at a time.
-- **Next action:** Complete Phase 5, analyze, then build the large-scale Run C. Full analysis will be
-  in [`04-run-B-findings.md`](04-run-B-findings.md).
+- **Result:** ✅ **Complete success.** All phases finished; 764/768 valid judgments (99%). Final
+  ranking: phi3 0.898 > llama3-8b 0.860 > qwen2.5-3b 0.856 > gemma2-2b 0.798.
+- **Conclusion:** Local inference removes the rate-limit wall (and raised validity from 51% to 99%);
+  memory, not quota, was the constraint, solved by loading one model at a time. Key finding: the
+  3.8B phi3 beat the 8B llama3 — bigger is not always better. Consensus ranking stable across all
+  judges. Full analysis in [`04-run-B-findings.md`](04-run-B-findings.md).
+- **Next action:** Build the large-scale Run C (~7 models, ~20 questions) to confirm these findings
+  at scale.
 
 ### Run C — planned final run
 - **Goal:** demonstrate that CoEval scales — a single large, high-quality run over **~7 local models

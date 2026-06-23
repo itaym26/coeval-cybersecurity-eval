@@ -127,7 +127,18 @@ coeval analyze all --run Runs/cybersecurity-run-B-local --out reports
 | 🥇 | gpt-oss-20b | 0.919 |
 | 🥈 | llama3-8b | 0.775 |
 
-*Run B (local, complete)* — see [`docs/04-run-B-findings.md`](docs/04-run-B-findings.md). *(pending)*
+*Run B (local, complete)* — full four-model ranking over 764 valid judgments (99%):
+
+| Rank | Model | Vendor | Size | Mean normalized score |
+|------|-------|--------|------|-----------------------|
+| 🥇 | phi3 | Microsoft | 3.8B | 0.898 |
+| 🥈 | llama3-8b | Meta | 8B | 0.860 |
+| 🥉 | qwen2.5-3b | Alibaba | 3B | 0.856 |
+| 4 | gemma2-2b | Google | 2B | 0.798 |
+
+Headline finding: **bigger is not always better** — the 3.8B `phi3` outscored the 8B `llama3-8b`.
+The consensus ranking was stable across all four judges. See
+[`docs/04-run-B-findings.md`](docs/04-run-B-findings.md).
 
 Final comparative conclusions are in [`docs/05-conclusions.md`](docs/05-conclusions.md).
 

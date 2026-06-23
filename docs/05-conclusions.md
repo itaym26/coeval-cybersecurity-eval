@@ -23,8 +23,30 @@
    well-formed JSON in Run A, with smaller models contributing most of the failures. A model's
    ability to act as a reliable *judge* is distinct from its ability to be a strong *student*.
 
-## To be completed after Run B
-- A full four-model ranking and whether it agrees with Run A's two-model ordering.
-- Whether local small models reproduce the judge-bias pattern seen in the cloud pool.
-- Practical guidance: minimum pool size, role assignment, and datapoint count for a stable ranking
-  on a modest local setup.
+## Conclusions added after Run B
+
+5. **CoEval delivers a complete, reproducible ranking on commodity hardware.** Run B finished all
+   five phases fully locally (no API budget, no cloud) with a 99% judgment-validity rate, producing
+   the ordering phi3 > llama3-8b > qwen2.5-3b > gemma2-2b.
+6. **Model scale is not destiny.** The 3.8B `phi3` outscored the 8B `llama3-8b`; training quality and
+   domain focus rival raw parameter count on a knowledge-intensive task. Size still matters at the
+   low end (the 2B `gemma2-2b` finished last), so the scale–quality relation is real but
+   non-monotonic.
+7. **Judge bias generalizes across model pools.** Strictness differences and (bounded) self-preference
+   appeared again in the small local pool, independently reproducing the Run A pattern — single-judge
+   evaluation is unreliable in both settings.
+8. **The ensemble is robust.** Run B's consensus ranking was stable across all four judges, the
+   strongest single piece of evidence for the framework's central design claim.
+
+## Cross-run observation
+Both runs independently rank by an ensemble of diverse judges and both show the same qualitative
+story: individual judges disagree on absolute scores, yet the *aggregated* ranking is coherent and
+stable. (Absolute scores are **not** comparable across runs — each run has its own teachers,
+questions, and rubric — so we compare *patterns*, not numbers.)
+
+## Still to be completed after Run C
+- Whether the bigger-isn't-always-better finding holds when same-vendor **size pairs**
+  (gemma2 2b↔9b, qwen2.5 3b↔7b) compete directly.
+- Whether the ensemble stays stable as the pool grows to ~7 models and ~20 questions.
+- Final practical guidance: recommended pool size, role assignment, and question count for a stable
+  ranking on a modest local setup.
