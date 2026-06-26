@@ -113,5 +113,35 @@ The runs cluster into three phases of the project:
   **Action taken:** relaunched without `--continue` (started cleanly), and hardened
   `scripts/run_C_overnight.ps1` to auto-detect `meta.json` — it now omits `--continue` on the first
   night and adds it automatically on later nights. The run then proceeded normally into Phase 3.
+- **Runtime interruptions during Phase 5 (resolved repeatedly):** over its multi-day Phase 5
+  (evaluation), the run halted several times. Two distinct causes were identified and handled:
+
+  1. **Display/sleep interruption.** On the first night the laptop suspended despite a sleep-timeout
+     change, pausing the process. **Cause:** the power change covered AC idle timeout only, not the
+     lid-close action or the battery (DC) profile. **Action:** applied a comprehensive power policy —
+     `standby`, `hibernate`, and `monitor` timeouts set to 0 on **both** AC and DC, and the
+     lid-close action set to "do nothing" (`powercfg ... SUB_BUTTONS LIDACTION 0`). The machine then
+     ran continuously.
+
+  2. **`[Errno 22] Invalid argument` — `Phase 'evaluation' failed`.** The phase aborted three times
+     with this Windows I/O error. **Cause:** the launch redirected the native `coeval.exe` console
+     output to a log file with PowerShell's `*>>` operator; over a very long run the redirected
+     output handle intermittently becomes invalid on Windows (EINVAL), which kills the process. This
+     is an **output-plumbing fault, not a data fault** — every completed judgment is preserved on
+     disk by CoEval's phase checkpointing.
+
+  **How we decided to continue:** because all completed work is checkpointed, each interruption was
+  recovered by simply re-running `coeval run --config ... --continue`. CoEval re-probes the models,
+  skips the already-complete Phases 1–4 and every finished `(teacher, judge)` evaluation file, and
+  resumes only the incomplete ones — so no work is repeated and no data is lost. Each resume picked
+  up within seconds of where it stopped (e.g., 79% → continuing).
+
+  **How we will prevent it going forward:** (a) rely on CoEval's own internal `run.log` (written
+  inside the experiment folder) for progress instead of redirecting the native console with `*>>`,
+  sending console output to `$null` so there is no fragile redirected handle to fail; (b) keep the
+  comprehensive no-sleep power policy in place for the whole run; (c) treat `--continue` as the
+  standard recovery action — checkpointing makes interruptions cheap and harmless. These are the
+  practical lessons of running a multi-thousand-call ensemble evaluation on a single laptop.
+
 - **Purpose:** the capstone result, and the final step in the project's evolution from small
   exploratory runs to one large, authoritative ranking. Full analysis will be added once complete.
