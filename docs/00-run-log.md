@@ -143,5 +143,15 @@ The runs cluster into three phases of the project:
   standard recovery action — checkpointing makes interruptions cheap and harmless. These are the
   practical lessons of running a multi-thousand-call ensemble evaluation on a single laptop.
 
+  **Recurrence at 85% and the fix actually applied.** The `[Errno 22]` fault recurred a final time
+  after the run reached **5,870/6,860 judgments (85%)** — the evaluation phase again aborted with
+  `Phase 'evaluation' failed: [Errno 22] Invalid argument`, confirming the diagnosis that the
+  `*>>` console redirect (not the data) was the culprit. **Action taken:** on this resume we stopped
+  redirecting the native console output to the log file and instead sent it to `$null`
+  (`coeval run ... --continue *> $null`), eliminating the fragile Windows output handle entirely
+  while still relying on CoEval's internal `run.log` for monitoring. The run resumed cleanly from the
+  85% checkpoint to finish the remaining ~15%. This converts prevention measure (a) above from a
+  recommendation into the procedure we are now using.
+
 - **Purpose:** the capstone result, and the final step in the project's evolution from small
   exploratory runs to one large, authoritative ranking. Full analysis will be added once complete.
