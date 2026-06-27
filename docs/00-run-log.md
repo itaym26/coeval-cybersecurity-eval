@@ -153,5 +153,25 @@ The runs cluster into three phases of the project:
   85% checkpoint to finish the remaining ~15%. This converts prevention measure (a) above from a
   recommendation into the procedure we are now using.
 
+- **Outcome — the freeze is solved, and residual errors are recoverable.** After removing the `*>>`
+  redirect, the **phase-level crash never recurred**: the run continued past 85% toward completion
+  without halting. The `[Errno 22]` signal still appears occasionally, but now only as a
+  *per-evaluation* warning (e.g. `evaluation failed for (teacher=qwen2.5-7b, judge=phi3): [Errno 22]`)
+  that CoEval catches, marks as a failed record, and steps over — the process keeps running. In
+  total only **3 of 6,860 judgments (0.04%)** failed this way, with no effect on the ranking.
+
+  **Can the individual error be fixed, not just survived? Yes.** Two levels:
+  1. *Recovery (chosen approach).* CoEval ships a `coeval repair` command that scans the experiment's
+     JSONL files, flags invalid/failed records, and marks them for regeneration; a subsequent
+     `coeval run --continue` then re-creates only those records. Running `repair` + `--continue` after
+     the experiment completes brings the dataset to **100% valid judgments** with no code changes.
+  2. *Source hardening (optional).* The local `openai_compat` interface already retries 3× with
+     exponential backoff for transient errors; the rare `Errno 22` simply outlived all three short
+     attempts. More attempts / a longer backoff (as we did for the OpenRouter interface) would catch
+     them at the source, but for a 0.04% failure rate this is unnecessary — `repair` is cleaner.
+
+  **Net result:** the system is now robust (no crashes), and the path to a perfectly complete dataset
+  is the built-in `repair` + `--continue` cycle.
+
 - **Purpose:** the capstone result, and the final step in the project's evolution from small
   exploratory runs to one large, authoritative ranking. Full analysis will be added once complete.
