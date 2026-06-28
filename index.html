@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>CoEval × Cybersecurity — LLM Evaluation Study</title>
+<style>
+  :root{
+    --bg:#0b1220; --panel:#0f1d30; --panel2:#13243a; --line:#22364f;
+    --ink:#e2e8f0; --muted:#94a3b8; --cyan:#22d3ee; --green:#4ade80;
+    --amber:#fbbf24; --violet:#a78bfa; --red:#f87171;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:radial-gradient(1200px 600px at 20% -10%,#102338,#0b1220 60%);
+       color:var(--ink);font-family:'Segoe UI',Helvetica,Arial,sans-serif;line-height:1.55}
+  .wrap{max-width:1020px;margin:0 auto;padding:32px 20px 64px}
+  header{text-align:center;padding:28px 0 8px}
+  h1{font-size:40px;margin:.2em 0;font-weight:800;
+     background:linear-gradient(90deg,#22d3ee,#4ade80);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .sub{color:#7dd3fc;font-size:18px;font-weight:600;margin:0}
+  .tag{color:var(--muted);font-size:14px;margin-top:8px}
+  .chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:18px 0 6px}
+  .chip{background:var(--panel2);border:1px solid var(--line);border-radius:20px;
+        padding:5px 13px;font-size:13px;font-weight:600}
+  .chip.c{color:var(--cyan)} .chip.g{color:var(--green)} .chip.a{color:var(--amber)}
+  .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:26px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px;
+        text-decoration:none;color:inherit;transition:transform .12s,border-color .12s,background .12s;display:block}
+  .card:hover{transform:translateY(-3px);border-color:var(--cyan);background:var(--panel2)}
+  .card h3{margin:.1em 0 .35em;font-size:18px}
+  .card p{margin:0;color:var(--muted);font-size:14px}
+  .card .badge{font-size:12px;color:var(--green);font-weight:700}
+  h2{margin:40px 0 12px;font-size:22px;border-bottom:1px solid var(--line);padding-bottom:8px}
+  table{width:100%;border-collapse:collapse;margin-top:6px;font-size:14px}
+  th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:left}
+  th{color:var(--muted);font-weight:600}
+  td.s{font-variant-numeric:tabular-nums;font-weight:700}
+  .rank1{color:var(--green)} .last{color:var(--red)}
+  .imgwrap{margin-top:14px;border:1px solid var(--line);border-radius:12px;overflow:hidden;background:#0b1220}
+  .imgwrap img{width:100%;display:block}
+  .two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:720px){.two{grid-template-columns:1fr}}
+  footer{margin-top:48px;text-align:center;color:var(--muted);font-size:13px}
+  a.lnk{color:var(--cyan)}
+  .note{background:var(--panel);border:1px solid var(--line);border-left:3px solid var(--cyan);
+        border-radius:8px;padding:12px 16px;color:var(--muted);font-size:14px;margin-top:14px}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <p class="sub">🛡️ Capstone Study</p>
+    <h1>CoEval × Cybersecurity</h1>
+    <p class="tag">Ranking free Large Language Models on cybersecurity knowledge — without labels or leaky benchmarks</p>
+    <div class="chips">
+      <span class="chip c">3 experiments</span>
+      <span class="chip">7 models</span>
+      <span class="chip g">6,860 judgments</span>
+      <span class="chip a">$0.00 — fully local</span>
+      <span class="chip">Teacher · Student · Judge</span>
+    </div>
+    <p class="tag">📄 Built on the <a class="lnk" href="https://github.com/ApartsinProjects/CoEval">CoEval framework</a> ·
+       paper by <a class="lnk" href="https://apartsinprojects.github.io/CoEval/">Apartsin &amp; Aperstein</a></p>
+  </header>
+
+  <h2>🏆 Final ranking — Run C (7 models · 140 questions)</h2>
+  <table>
+    <tr><th>#</th><th>Model</th><th>Vendor</th><th>Size</th><th>Score</th></tr>
+    <tr><td>🥇</td><td class="rank1">phi3</td><td>Microsoft</td><td>3.8B</td><td class="s rank1">0.894</td></tr>
+    <tr><td>🥈</td><td>llama3</td><td>Meta</td><td>8B</td><td class="s">0.888</td></tr>
+    <tr><td>🥉</td><td>mistral</td><td>Mistral</td><td>7B</td><td class="s">0.885</td></tr>
+    <tr><td>4</td><td>gemma2</td><td>Google</td><td>9B</td><td class="s">0.881</td></tr>
+    <tr><td>5</td><td>qwen2.5</td><td>Alibaba</td><td>3B</td><td class="s">0.880</td></tr>
+    <tr><td>6</td><td>qwen2.5</td><td>Alibaba</td><td>7B</td><td class="s">0.869</td></tr>
+    <tr><td>7</td><td class="last">gemma2</td><td>Google</td><td>2B</td><td class="s last">0.840</td></tr>
+  </table>
+  <div class="note"><b>Headline finding:</b> bigger is <i>not</i> always better — a 3.8B model tops the field, and the 3B Qwen beats its own 7B sibling.</div>
+
+  <div class="two">
+    <div class="imgwrap"><img src="figures/runC_ranking.svg" alt="Run C ranking"/></div>
+    <div class="imgwrap"><img src="figures/size_vs_score.svg" alt="Size vs score"/></div>
+  </div>
+
+  <h2>📊 Interactive reports</h2>
+  <p class="tag">Live CoEval dashboards — click to open, fully rendered.</p>
+  <div class="grid">
+    <a class="card" href="runs/run-C-local/reports/index.html">
+      <span class="badge">RUN C · large</span>
+      <h3>7-model dashboard →</h3>
+      <p>The capstone run: rankings, judges, teachers, interaction matrix.</p>
+    </a>
+    <a class="card" href="runs/run-C-local/reports/student_report/index.html">
+      <span class="badge">RUN C</span>
+      <h3>Student report →</h3>
+      <p>Per-model scores and rubric-factor heatmaps.</p>
+    </a>
+    <a class="card" href="runs/run-C-local/reports/judge_report/index.html">
+      <span class="badge">RUN C</span>
+      <h3>Judge report →</h3>
+      <p>Judge bias, calibration and inter-rater reliability.</p>
+    </a>
+    <a class="card" href="runs/run-B-local/reports/index.html">
+      <span class="badge">RUN B · 4 models</span>
+      <h3>Run B dashboard →</h3>
+      <p>First complete local ranking.</p>
+    </a>
+    <a class="card" href="runs/run-A-cloud-free/reports/index.html">
+      <span class="badge">RUN A · cloud</span>
+      <h3>Run A dashboard →</h3>
+      <p>Partial cloud run that exposed free-tier limits.</p>
+    </a>
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval">
+      <span class="badge">SOURCE</span>
+      <h3>GitHub repository →</h3>
+      <p>README, full documentation, configs and raw data.</p>
+    </a>
+  </div>
+
+  <h2>📚 Documentation</h2>
+  <div class="grid">
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/00-run-log.md"><h3>Run log →</h3><p>Every run, with the cause &amp; fix of each issue.</p></a>
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/06-conclusions.md"><h3>Conclusions →</h3><p>Claim-by-claim alignment with the paper + limitations.</p></a>
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/07-quantitative-analysis.md"><h3>Quantitative analysis →</h3><p>Cohen's κ, self-preference, verbosity, rank stability.</p></a>
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/08-qualitative-examples.md"><h3>Worked examples →</h3><p>Real question / answer / judge-score walkthroughs.</p></a>
+  </div>
+
+  <footer>
+    Student capstone work built on the CoEval framework · © 2026 ·
+    Framework © Dr. Alexander Apartsin &amp; Dr. Yehudit Aperstein
+  </footer>
+
+</div>
+</body>
+</html>
