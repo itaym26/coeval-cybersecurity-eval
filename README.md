@@ -13,84 +13,146 @@
 </p>
 
 <p align="center">
-  <b>A capstone study applying <a href="https://github.com/ApartsinProjects/CoEval">CoEval</a> — an ensemble-based, label-free LLM evaluation framework — to rank freely available language models on <b>cybersecurity</b> knowledge and reasoning.</b>
+  <b>A capstone study that applies <a href="https://github.com/ApartsinProjects/CoEval">CoEval</a> — an ensemble-based, label-free LLM-evaluation framework — to rank freely available language models on <b>cybersecurity</b> knowledge and reasoning, and tests the framework's own published claims on a new domain.</b>
+</p>
+
+<p align="center">
+  📄 <b>Instructor's paper:</b> <a href="https://apartsinprojects.github.io/CoEval/">CoEval: Ranking Language Models for Custom Tasks Without Labeled Data or Trustworthy Benchmarks</a> · Dr. Alexander Apartsin & Dr. Yehudit Aperstein
 </p>
 
 ---
 
-## 📄 Abstract
+## Table of Contents
 
-Choosing the best Large Language Model for a specialized domain is hard: public leaderboards may be **contaminated** by pretraining leakage, and building a labeled benchmark is a project in itself. **CoEval** (created by the course instructor, Dr. Alexander Apartsin) sidesteps both problems by letting a pool of models evaluate *each other* through three rotating roles — **Teacher** (writes fresh questions), **Student** (answers), and **Judge** (scores against an auto-generated rubric).
-
-This project applies CoEval end-to-end to the domain of **cybersecurity**, using only **free** models (local models via [Ollama](https://ollama.com) and free-tier APIs via [OpenRouter](https://openrouter.ai)). We designed and executed **three escalating experiments** — from a partial cloud run, through a clean 4-model local run, to a large **7-model, 140-question, 6,860-judgment** run — and analyzed the resulting rankings, judge agreement, and bias signals. A recurring, paper-aligned finding emerged: **model scale is not destiny, and single-judge bias is real but is cancelled by the ensemble.**
-
----
-
-## 🎯 The Challenge — why a custom cybersecurity benchmark?
-
-|     | Challenge | Why it hurts here |
-|:---:|:----------|:------------------|
-| 🎯 | **Generic benchmarks don't transfer** | A model's MMLU score says little about whether it explains a SQL-injection mitigation correctly. |
-| 🕳️ | **Leakage inflates scores** | Public security quizzes (OWASP, CVE write-ups) are all over the web and likely in pretraining. |
-| 🧩 | **Hand-building a security benchmark is hard** | Writing balanced questions across network, web, crypto, and malware — with a rubric — is expensive. |
-| 💸 | **Running many models × many questions is costly** | A full multi-model sweep multiplies tokens fast. |
-
-> **Our answer:** let CoEval *generate* a fresh, contamination-free cybersecurity benchmark and let a **cross-model judge ensemble** rank the candidates — at **zero cost**, fully locally.
+1. [Abstract](#1-abstract)
+2. [Background: the CoEval framework and the claims we test](#2-background-the-coeval-framework-and-the-claims-we-test)
+3. [Our study: domain and methodology](#3-our-study-domain-and-methodology)
+4. [Experimental design: three escalating runs](#4-experimental-design-three-escalating-runs)
+5. [Results](#5-results)
+6. [Did our experiments confirm the paper's claims?](#6-did-our-experiments-confirm-the-papers-claims)
+7. [Live, viewable reports for every run](#7-live-viewable-reports-for-every-run)
+8. [Repository structure](#8-repository-structure)
+9. [Reproduce it yourself](#9-reproduce-it-yourself)
+10. [Acknowledgements](#10-acknowledgements)
 
 ---
 
-## 💡 The Concept — models evaluate each other
+## 1. Abstract
+
+Selecting the best Large Language Model (LLM) for a specialized domain is difficult: public
+leaderboards may be **contaminated** by pretraining leakage, and constructing a labeled benchmark is
+a research project in itself. The **CoEval** framework, developed by the course instructor, addresses
+this by letting a pool of models evaluate *one another* through three rotating roles — **Teacher**
+(authors fresh questions), **Student** (answers them), and **Judge** (scores them against an
+automatically generated rubric) — with no human labels at any stage.
+
+This project applies CoEval end-to-end to **cybersecurity**, using exclusively **free** models
+(local models served via [Ollama](https://ollama.com) and free-tier APIs via
+[OpenRouter](https://openrouter.ai)). We designed **three escalating experiments**, growing from a
+partial 2-model cloud run to a complete **7-model, 140-question, 6,860-judgment** local run, and we
+use the results to independently test the central claims of the instructor's paper on a domain and
+model pool it never covered. Our findings **reproduce and extend** the paper's core results:
+single-judge bias is large but is cancelled by the ensemble, judge composition dominates
+reliability, and — strikingly — **model scale does not determine quality**.
+
+---
+
+## 2. Background: the CoEval framework and the claims we test
+
+CoEval ranks models for a *custom* task in the hardest setting — when no task-specific labeled data
+exists and public benchmarks cannot be trusted. From a task description alone, **Teacher** models
+synthesize a fresh, contamination-free benchmark, and a **Judge** ensemble scores the **Student**
+candidates. The instructor's paper advances three central, *measured* claims that our study is
+designed to test:
+
+| # | Claim from the paper | How we test it in this study |
+|:-:|:---------------------|:-----------------------------|
+| **C1** | **Judge composition is a first-order variable** in evaluation reliability — *who* judges matters more than *how many*. | We run an ensemble of up to 7 judges on identical answers and measure how widely their awarded scores diverge. |
+| **C2** | **A multi-judge ensemble cancels single-judge bias** that no individual judge avoids. | We compare each judge's idiosyncratic ranking against the aggregated consensus ranking for stability. |
+| **C3** | **Small models are unreliable judges.** | Our pool spans 2B → 9B; we examine which judges are erratic and which produce malformed (unparseable) scores. |
+| **C4** | **Rankings are domain-specific**, so a generic leaderboard misleads. | We rank on a *cybersecurity* benchmark and compare the ordering to general-purpose expectations. |
+| **C5** | **Closed-loop LLM evaluation is cheap and fully automatable.** | We execute ~8,000 judgments end-to-end with zero human labels and zero API cost (local inference). |
+
+> A complete, faithful summary of the paper — its problem statement, method, all three hypotheses,
+> measured results, what was proven, and the authors' own stated limitations — is woven through
+> §[6](#6-did-our-experiments-confirm-the-papers-claims). We note that the framework's *marketing*
+> README reports stronger, rounded numbers than the *paper*, several of which the paper explicitly
+> flags as **projections pending measurement**; we anchor our comparison to the paper's **measured**
+> claims (C1–C5).
+
+---
+
+## 3. Our study: domain and methodology
+
+### 3.1 Why cybersecurity?
+
+Cybersecurity is an excellent differentiator for LLM evaluation because a correct answer demands a
+combination of precise terminology, conceptual understanding (CIA triad, cryptography, attack
+taxonomies), and applied reasoning over scenarios. It is also a domain where **leakage is rampant**
+(OWASP guides, CVE write-ups, and security quizzes saturate the public web), which makes CoEval's
+contamination-free generation especially valuable. The concepts that frame the benchmark are
+documented in **[docs/01-domain-background.md](docs/01-domain-background.md)**.
+
+### 3.2 Task specification and automatic provisioning
+
+We defined a single task — *"Cybersecurity knowledge and reasoning assessment"* — and let CoEval
+infer the rest. In the cloud run (A) we used **fully automatic** attribute and rubric generation; the
+framework independently recovered a domain-faithful structure (sub-topics such as *Network Security*,
+*Web Application Security*, *Cryptography*, *Malware Analysis*; difficulty tiers
+*Fundamental → Expert*) and a 19-factor rubric centered on *technical accuracy*, *terminology*, and
+*practical insight* — exactly the criteria a human expert would use. Full details:
+**[docs/02-methodology.md](docs/02-methodology.md)**.
+
+### 3.3 Models evaluated
 
 ```
 ┌──────────────────────────────────────────────────────────────┐
-│                   MODEL  ENSEMBLE  (7 models)                  │
+│                   MODEL  ENSEMBLE  (Run C: 7 models)          │
 │                                                                │
-│   llama3 · gemma2-2b · gemma2-9b · qwen2.5-3b · qwen2.5-7b     │
-│   phi3 · mistral-7b        — every model plays every role —    │
+│   llama3-8b · gemma2-2b · gemma2-9b · qwen2.5-3b               │
+│   qwen2.5-7b · phi3 · mistral-7b  — every model plays every role
 │                                                                │
 │        ┏━━━━━━━━━━━━━ ROTATING ROLE ASSIGNMENT ━━━━━━━━━━━┓     │
 │        ▼                       ▼                        ▼      │
 │   🎓 TEACHER              📝 STUDENT               ⚖️ JUDGE     │
-│  generates fresh        answers every            scores every  │
+│  writes fresh           answers every            scores every  │
 │  cybersecurity Qs       teacher's questions      answer 0–1    │
-│  + reference answers    (the models tested)      vs. rubric    │
 └──────────────────────────────────────────────────────────────┘
 ```
 
-CoEval runs a **five-phase pipeline**, each phase checkpointed and resumable:
-
-```
-YAML Config →  Phase 1  Attribute Mapping   (dimensions of the domain)
-            →  Phase 2  Rubric Mapping       (scoring criteria)
-            →  Phase 3  Data Generation      (teachers write questions)
-            →  Phase 4  Response Collection  (students answer)
-            →  Phase 5  Evaluation           (judges score)  →  reports
-```
+Five vendors are represented (Meta, Google, Alibaba, Microsoft, Mistral), and two **same-vendor size
+pairs** (gemma2 2B↔9B, qwen2.5 3B↔7B) are included specifically to test whether bigger models score
+higher. CoEval's five-phase pipeline (attribute mapping → rubric mapping → data generation → response
+collection → evaluation) runs every model through all three roles.
 
 ---
 
-## 🔬 Project design — three escalating experiments
+## 4. Experimental design: three escalating runs
 
-We deliberately structured the work as an **evolution**, each run answering a question raised by the previous one:
+The study is deliberately structured as an **evolution**: each run answers a question raised by the
+previous one. Every run has its own fully documented findings file with the structure *what we tested
+· results · success or failure · problems and how we fixed them (temporary vs. fundamental) ·
+conclusions · how it differs from the previous run*.
 
-| Run | Tier | Models | Questions | Result | What it taught us |
-|:---:|:-----|:------:|:---------:|:-------|:------------------|
-| **A** | Cloud free-tier + 1 local | 4 (2 usable) | 12 | ⚠️ Partial | Free cloud APIs are capped at **50 requests/day** — unusable at scale |
-| **B** | Fully local (Ollama) | 4 | 12 | ✅ Complete | A clean, reproducible ranking; **a 3.8B model beat an 8B one** |
-| **C** | Fully local — **large** | **7** | **20** | ✅ Complete | The capstone: **6,860 judgments**, size-vs-performance pairs, stable ensemble |
+| Run | Tier | Models | Questions | Outcome | Detailed write-up |
+|:---:|:-----|:------:|:---------:|:--------|:------------------|
+| **A** | Cloud free-tier + 1 local | 4 (2 usable) | 12 | ⚠️ Partial — revealed the free-API ceiling | [docs/03-run-A-findings.md](docs/03-run-A-findings.md) |
+| **B** | Fully local (Ollama) | 4 | 12 | ✅ Complete — first clean ranking | [docs/04-run-B-findings.md](docs/04-run-B-findings.md) |
+| **C** | Fully local — **large** | **7** | **20** | ✅ Complete — the capstone result | [docs/05-run-C-findings.md](docs/05-run-C-findings.md) |
 
-> The full chronological story of **every** run (including four early failed configurations and how each was diagnosed and fixed) is in **[docs/00-run-log.md](docs/00-run-log.md)**.
+> The complete chronological log of **every** run — including four early failed configurations and
+> exactly how each was diagnosed and fixed — is in **[docs/00-run-log.md](docs/00-run-log.md)**.
 
 ---
 
-## 🏆 Headline Results
+## 5. Results
 
-### Run C — final ranking (7 models, 140 questions, 6,824 valid judgments)
+### 5.1 Final ranking (Run C: 7 models, 140 questions, 6,824 valid judgments, 99%)
 
 <p align="center"><img src="figures/runC_ranking.svg" alt="Run C ranking bar chart" width="820"/></p>
 
-| Rank | Model | Vendor | Size | Score |
-|:----:|:------|:-------|:----:|:-----:|
+| Rank | Model | Vendor | Size | Mean score |
+|:----:|:------|:-------|:----:|:----------:|
 | 🥇 | **phi3** | Microsoft | 3.8B | **0.894** |
 | 🥈 | llama3 | Meta | 8B | 0.888 |
 | 🥉 | mistral | Mistral | 7B | 0.885 |
@@ -99,150 +161,132 @@ We deliberately structured the work as an **evolution**, each run answering a qu
 | 6 | qwen2.5 | Alibaba | 7B | 0.869 |
 | 7 | gemma2 | Google | 2B | 0.840 |
 
-### Three standout findings
-
-**1️⃣ Bigger is not always better.** The 3.8B **phi3** topped the ranking in *both* the 4-model and 7-model runs, beating models twice its size. And within a single family the bigger model did **not** always win:
-
-| Family | Small | Large | Winner |
-|:-------|:-----:|:-----:|:------:|
-| Gemma 2 | 2B → 0.840 | 9B → 0.881 | ⬆️ bigger |
-| Qwen 2.5 | 3B → **0.880** | 7B → 0.869 | ⬇️ **smaller!** |
-
-**2️⃣ Judges are biased — strictness varies enormously.** The *same answers* get very different scores depending on who grades them:
+### 5.2 Judge strictness — the same answers, graded very differently
 
 <p align="center"><img src="figures/judge_strictness.svg" alt="Judge strictness bar chart" width="820"/></p>
 
-**3️⃣ The ensemble cancels the bias.** Despite that spread, the consensus ranking is **stable**: phi3 is #1 across the board and gemma2-2b is consistently last. Aggregating a diverse judge panel recovers a coherent ordering that no single (biased) judge would give — the core promise of CoEval, reproduced on our data.
+The mean score a judge awards ranges from **0.808 (phi3, harshest)** to **0.958 (mistral, most
+lenient)** — a 0.15 gap on *identical* student answers. This is direct, domain-independent evidence
+for the paper's claim that judge identity is a first-order variable.
 
 ---
 
-## 💻 What a run actually looks like
+## 6. Did our experiments confirm the paper's claims?
 
-**1 — Probe every model (no cost):**
+Each verdict below is **stated, then justified with our own evidence and a concrete example.**
 
-```text
-$ coeval probe --config config/cybersecurity_runC.yaml
-Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
-  gemma2-2b   [OK]   gemma2-9b  [OK]   llama3-8b   [OK]   mistral-7b [OK]
-  phi3        [OK]   qwen2.5-3b [OK]   qwen2.5-7b  [OK]
-Total: 7 available, 0 unavailable
-```
+### ✅ C1 — Judge composition is a first-order variable — **Confirmed**
+In Run C the seven judges awarded mean scores spanning **0.808 → 0.958** on the same pool of answers
+(see §5.2). *Example:* the student `gemma2-2b` received **0.745** from judge `phi3` but **0.941**
+from judge `mistral-7b` — a 0.20 swing driven purely by *who* graded. This mirrors the paper's
+κ = 0.003 → 0.422 agreement range: the choice of judges, not their count, dominates.
 
-**2 — Run the five-phase pipeline:**
+### ✅ C2 — The ensemble cancels single-judge bias — **Confirmed**
+Despite that strictness spread, the **aggregated ranking is stable**: `phi3` is ranked #1 by every
+one of the seven judges, and `gemma2-2b` is last under six of seven. *Example:* the lenient judge
+`mistral-7b` and the harsh judge `phi3` disagree on absolute scores by ~0.15, yet **both** place phi3
+first and gemma2-2b last — so the consensus ordering survives even though no single judge's numbers
+do. This is precisely the bias-cancellation the paper attributes to ensemble aggregation.
 
-```text
-$ coeval run --config config/cybersecurity_runC.yaml
-Phase 'attribute_mapping' completed
-Phase 'rubric_mapping'   completed
-Phase 3: (teacher='phi3') — generating 20 datapoints
-Phase 4: (teacher='llama3-8b', student='mistral-7b') — collecting 20 responses
-Phase 5: (teacher='qwen2.5-7b', judge='phi3') — evaluating 140 responses with 5 factor(s)
-...
-Experiment cybersecurity-run-C-large completed successfully
-```
+### ✅ C3 — Small models are unreliable judges — **Confirmed**
+The smallest model, `gemma2-2b` (2B), was simultaneously the harshest-but-noisiest judge and the
+weakest student (0.840). In Run A the small free-tier judges (`nemotron-nano-9b`, `gemma`) produced
+the bulk of the **invalid, unparseable judgments** (only 51% of Run A's judgments were well-formed),
+and in early Run B attempts the 2–3B models could not emit the structured JSON that attribute/rubric
+generation requires at all — forcing us to supply an explicit rubric. Reliability as a *judge* is a
+distinct, scale-sensitive capability, exactly as the paper reports for sub-2B models.
 
-**3 — A judge's scored output (one Phase-5 record):**
+### ✅/➕ C4 — Rankings are domain-specific (and scale ≠ quality) — **Confirmed and extended**
+On *cybersecurity*, the 3.8B **phi3 beat the 8B llama3 and the 7B mistral**, and within a single
+family the smaller model sometimes won outright:
 
-```json
-{
-  "response_id": "cybersecurity__llama3-8b__00001__gpt-oss-20b",
-  "judge_model_id": "gpt-oss-20b",
-  "scores": {
-    "Technical Accuracy": "High",
-    "Theoretical Understanding": "High",
-    "Practical Insight": "High",
-    "Completeness": "Medium",
-    "Clarity": "High"
-  }
-}
-```
+| Family | Small | Large | Winner |
+|:-------|:-----:|:-----:|:------:|
+| Gemma 2 | 2B → 0.840 | 9B → 0.881 | bigger ⬆️ |
+| Qwen 2.5 | 3B → **0.880** | 7B → 0.869 | **smaller** ⬇️ |
 
-**4 — Generate interactive reports:**
+A generic "bigger/newer is better" leaderboard would mis-rank this domain — strengthening the paper's
+domain-specificity claim. Microsoft's Phi family, trained on dense textbook-style technical data,
+punches far above its parameter count on a knowledge-intensive domain like security.
 
-```bash
-coeval analyze all --run ./Runs/cybersecurity-run-C-large --out ./reports
-```
+### ✅ C5 — Cheap and fully automatable — **Confirmed (and stronger)**
+We produced **6,860 judgments at $0.00** — the paper's pipeline cost $5.89 on paid APIs, whereas our
+fully-local execution cost nothing beyond electricity, with **zero human labels** and **zero manual
+intervention** between phases. The trade-off we document is **time, not money**: on a 13.7 GB laptop
+the run spanned several days of checkpointed, resumable execution.
 
-📊 **Interactive HTML reports** (student / judge / teacher / consistency / interaction / score-distribution) and an Excel workbook are included for every run under [`runs/`](runs/).
+### ❓ Where we are more cautious than the marketing numbers
+The paper itself flags its baseline-superiority figures (vs. G-Eval/BERTScore) as **projections**.
+We make no such comparison and report only what we measured. We also did **not** collect a
+ground-truth human ranking for cybersecurity, so — like the paper — our ranking has *face validity*
+(it is sensible and internally consistent) rather than a verified correlation to human judgment.
 
----
-
-## 📚 The CoEval Paper — what the instructor set out to prove
-
-> *CoEval: Ranking Language Models for Custom Tasks Without Labeled Data or Trustworthy Benchmarks* —
-> Alexander Apartsin (Holon Institute of Technology) & Yehudit Aperstein (Afeka College).
-> [Read online](https://apartsinprojects.github.io/CoEval/).
-
-**The problem.** Static benchmarks are expensive, non-extensible, and don't reflect a specific deployment's data or quality criteria; meanwhile "LLM-as-judge" shortcuts introduce systematic biases (positional preference flips 20–27% of pairwise rankings; single-judge correlation with humans falls below ρ≈0.40 on open-ended tasks). No prior method builds **task-specific, attribute-controlled benchmarks with calibrated multi-judge scoring** and zero human labels.
-
-**The three hypotheses the paper tests:**
-1. **Attribute-stratified generation** yields more representative benchmarks — covering rare, deployment-critical conditions that uncontrolled generation omits.
-2. **Multi-judge ensembles + calibration reduce bias** versus a single judge.
-3. **Closed-loop LLM evaluation is cost-effective at scale** (7,978 evaluations for **$5.89**, 135–1,354× cheaper than human annotation).
-
-**What the paper found (validated on `medium-benchmark-v1`: 4 tasks, 5 models):**
-- ✅ **Judge composition is a first-order variable.** Pairwise agreement ranged from κ=0.003 (a sub-2B model, near-random) to κ=0.422 (GPT-3.5×GPT-4o-mini, ≈ human-level). **Small models cannot be trusted as judges.**
-- ✅ **Cost-effectiveness confirmed:** $0.00074 per judgment, fully automated.
-- ✅ **Student ordering had face validity** (GPT-4o-mini > GPT-3.5 > Qwen2.5-1.5B > SmolLM2 > Qwen2.5-0.5B), matching community priors.
-- ⚠️ **Concrete rubric criteria** (e.g. *technical_accuracy*, SPA=0.843) far outperform abstract ones (*professionalism*, SPA=0.294).
-- ❓ **Complicated:** the assumption that *stronger models make better teachers* did **not** cleanly hold — a small model (SmolLM2-1.7B) was the most *discriminating* teacher, suggesting prompt diversity, not raw quality, drives discrimination.
-
-**Honest limitations the authors flag:** some headline comparisons (vs. G-Eval, BERTScore) are **projections, not measured**; GPT models served as teacher+student+judge simultaneously (self-evaluation contamination); no human baseline; only English, 4 tasks, 5 models.
-
-📖 A fuller standalone summary lives in **[docs/06-paper-summary.md](docs/06-paper-summary.md)**.
+> The full claim-by-claim analysis, with per-run contributions and the limitations of our own study,
+> is in **[docs/06-conclusions.md](docs/06-conclusions.md)**.
 
 ---
 
-## 🔗 How our experiments relate to the paper *(preliminary)*
+## 7. Live, viewable reports for every run
 
-Our runs are an **independent replication on a new domain (cybersecurity) and a new, all-free model pool** — a useful stress test of the paper's claims. Early alignment:
+CoEval emits self-contained interactive HTML dashboards. Because GitHub does not render HTML inline,
+the links below open each report **rendered in your browser** via `htmlpreview` — so anyone can *see*
+the experiment's results directly, no download required.
 
-| Paper claim | Our evidence | Verdict |
-|:------------|:-------------|:-------:|
-| Judge composition / strictness is first-order | Judge means ranged 0.81 (phi3) → 0.96 (mistral) on identical answers | ✅ **Supports** |
-| Ensemble aggregation cancels single-judge bias | Consensus ranking stable across all 7 judges despite the spread | ✅ **Supports** |
-| Small models are weak judges | Smallest model (gemma2-2b) was the harshest/most erratic and produced most invalid JSON | ✅ **Supports** |
-| Bigger model ≠ better | phi3 (3.8B) beat 8B/7B; qwen2.5-3B beat qwen2.5-7B | ✅ **Supports / extends** |
-| Stronger model = better teacher (paper: complicated) | *to analyze from our teacher-discrimination data* | ⏳ pending |
+### Run C — the large final run
+| Report | What it shows |
+|:-------|:--------------|
+| [📊 Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/index.html) | All reports in one place, with top-line rankings |
+| [🎓 Student Report](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/student_report/index.html) | Per-model scores, rubric-factor heatmaps |
+| [⚖️ Judge Report](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/judge_report/index.html) | Judge bias, calibration, reliability |
+| [🔗 Judge Consistency](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/judge_consistency/index.html) | Inter-judge agreement (ICC) |
+| [🧩 Interaction Matrix](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/interaction_matrix/index.html) | Teacher × Student quality heatmap |
+| [📈 Score Distribution](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/score_distribution/index.html) | High/Medium/Low histograms |
 
-> A complete, rigorous alignment (claim-by-claim, with our statistics) is the next deliverable — see [docs/05-conclusions.md](docs/05-conclusions.md).
+### Run B — first complete local run
+[📊 Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/index.html) · [🎓 Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/student_report/index.html) · [⚖️ Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/judge_report/index.html)
+
+### Run A — partial cloud run
+[📊 Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/index.html) · [🎓 Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/student_report/index.html) · [⚖️ Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/judge_report/index.html)
+
+> An Excel workbook (`complete_report.xlsx`) and all raw JSONL artifacts are included under each
+> run's folder in [`runs/`](runs/).
 
 ---
 
-## 🗂️ Repository structure
+## 8. Repository structure
 
 ```
 coeval-cybersecurity-eval/
 ├── README.md                       ← this file
 ├── config/                         the three experiment configs (A / B / C)
 ├── runs/
-│   ├── run-A-cloud-free/           artifacts + reports + ranking script
+│   ├── run-A-cloud-free/           artifacts + interactive reports + ranking script
 │   ├── run-B-local/
 │   └── run-C-local/                the large final run
 ├── docs/
-│   ├── 00-run-log.md               chronological log of every run (success/failure + cause)
+│   ├── 00-run-log.md               chronological log of every run (cause/fix of each issue)
 │   ├── 01-domain-background.md      cybersecurity concepts primer
 │   ├── 02-methodology.md           CoEval mechanics + our configuration
-│   ├── 03-run-A-findings.md        Run A analysis + conclusions
-│   ├── 04-run-B-findings.md        Run B analysis + conclusions
-│   ├── 05-conclusions.md           comparative conclusions (+ paper alignment)
-│   └── 06-paper-summary.md         standalone summary of the instructor's paper
+│   ├── 03-run-A-findings.md        Run A — full write-up
+│   ├── 04-run-B-findings.md        Run B — full write-up
+│   ├── 05-run-C-findings.md        Run C — full write-up
+│   └── 06-conclusions.md           comparative conclusions + paper alignment
 ├── scripts/                        RAM-safe overnight run scripts
-└── figures/                        charts and report screenshots
+└── figures/                        charts (banner, ranking, judge strictness)
 ```
 
 ---
 
-## 🔁 Reproduce it yourself (fully free, no API keys)
+## 9. Reproduce it yourself
 
 ```bash
 # 1. Install the CoEval framework
 git clone https://github.com/ApartsinProjects/CoEval.git && cd CoEval
 python -m pip install -e .
 
-# 2. Pull the local models (Ollama)
-ollama pull llama3:8b   gemma2:2b   gemma2:9b
-ollama pull qwen2.5:3b  qwen2.5:7b  phi3   mistral:7b
+# 2. Pull the local models (Ollama) — fully free, no API keys
+ollama pull llama3:8b  gemma2:2b  gemma2:9b
+ollama pull qwen2.5:3b qwen2.5:7b phi3  mistral:7b
 
 # 3. Probe → plan → run → analyze
 coeval probe   --config config/cybersecurity_runC.yaml
@@ -251,10 +295,14 @@ coeval run     --config config/cybersecurity_runC.yaml
 coeval analyze all --run Runs/cybersecurity-run-C-large --out reports
 ```
 
-> On a memory-limited machine, set `OLLAMA_MAX_LOADED_MODELS=1` so only one model is resident at a time — see [scripts/](scripts/) for the resilient overnight runner we used.
+> On a memory-limited machine, set `OLLAMA_MAX_LOADED_MODELS=1` so only one model is resident at a
+> time; the resilient overnight runner we used is in [scripts/](scripts/).
 
 ---
 
-## 🙏 Acknowledgements
+## 10. Acknowledgements
 
-The **CoEval** framework and paper are the work of **Dr. Alexander Apartsin** and **Dr. Yehudit Aperstein** — <https://github.com/ApartsinProjects/CoEval>. All experiment configurations, runs, analyses, figures, and documentation in this repository are the student capstone work built **on top of** that framework.
+The **CoEval** framework and paper are the work of **Dr. Alexander Apartsin** and
+**Dr. Yehudit Aperstein** — <https://github.com/ApartsinProjects/CoEval>. All experiment
+configurations, runs, analyses, figures, and documentation in this repository are student capstone
+work built **on top of** that framework.

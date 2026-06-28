@@ -1,5 +1,10 @@
 # 04 — Run B Findings: Fully Local (Complete)
 
+> **Interactive reports for this run** (rendered in browser):
+> [Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/index.html) ·
+> [Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/student_report/index.html) ·
+> [Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/judge_report/index.html)
+
 ## 1. Setup
 
 Run B used a **fully local** pool of four models served through Ollama, eliminating every cloud
@@ -134,3 +139,20 @@ memory freeze on the 13.7 GB machine.
 - **Carry all four analyses** (ranking, size-vs-performance, judge bias, ensemble robustness) into
   Run C at larger scale, completing the project's arc from small exploratory runs to one
   authoritative result.
+
+## 10. How Run B differs from Run A
+
+| Dimension | Run A (cloud) | Run B (local) |
+|-----------|---------------|---------------|
+| Provider | OpenRouter free-tier + 1 local | Fully local (Ollama) |
+| Outcome | Partial (rate-limited) | **Complete** |
+| Usable students | 2 | **4** |
+| Valid judgments | 194 / 384 (**51%**) | 764 / 768 (**99%**) |
+| Provisioning | `auto` attributes + rubric | **explicit** rubric (small models can't emit the JSON) |
+| Blocking issue | account-wide 50-requests/day cap | RAM freeze — solved by single-model loading |
+| Role of the run | exposed the *problem* (free cloud doesn't scale) | delivered the first *clean result* |
+
+In short, Run A proved that a free **cloud** ensemble run is infeasible and surfaced judge bias on a
+2-model ranking; Run B removed the infrastructure ceiling by going **local**, lifting data validity
+from 51% to 99% and producing the project's first complete, reproducible 4-model ranking — the
+foundation that Run C then scales up.

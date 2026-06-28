@@ -1,5 +1,10 @@
 # 03 — Run A Findings: Cloud Free-Tier (Partial)
 
+> **Interactive reports for this run** (rendered in browser):
+> [Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/index.html) ·
+> [Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/student_report/index.html) ·
+> [Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/judge_report/index.html)
+
 ## 1. Setup
 
 Run A used a vendor-diverse pool of four free models — one local (Meta `llama3-8b` via Ollama) and
