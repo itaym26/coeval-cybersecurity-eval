@@ -169,6 +169,20 @@ The mean score a judge awards ranges from **0.808 (phi3, harshest)** to **0.958 
 lenient)** — a 0.15 gap on *identical* student answers. This is direct, domain-independent evidence
 for the paper's claim that judge identity is a first-order variable.
 
+### 5.3 A worked example — why the ensemble matters
+
+A single real Network-Security answer from Run C received a **full 1.00 from six judges and a 0.00
+from phi3** — the maximum possible disagreement:
+
+| Judge | gemma2-2b | gemma2-9b | llama3-8b | mistral-7b | **phi3** | qwen2.5-3b | qwen2.5-7b |
+|-------|:---------:|:---------:|:---------:|:----------:|:--------:|:----------:|:----------:|
+| Score | 1.00 | 0.70 | 0.90 | 1.00 | **0.00** | 1.00 | 1.00 |
+
+A single-judge evaluation using phi3 would have scored this reasonable answer a flat zero; the
+**ensemble mean (0.80)** is the defensible verdict. Two more examples — a strong answer with
+near-unanimous agreement, and a wrong RSA-cryptography answer the panel *unanimously* failed — are in
+**[docs/08-qualitative-examples.md](docs/08-qualitative-examples.md)**.
+
 ---
 
 ## 6. Did our experiments confirm the paper's claims?
@@ -289,7 +303,8 @@ coeval-cybersecurity-eval/
 │   ├── 04-run-B-findings.md        Run B — full write-up
 │   ├── 05-run-C-findings.md        Run C — full write-up
 │   ├── 06-conclusions.md           comparative conclusions + paper alignment
-│   └── 07-quantitative-analysis.md κ, self-preference, verbosity, rank stability
+│   ├── 07-quantitative-analysis.md κ, self-preference, verbosity, rank stability
+│   └── 08-qualitative-examples.md  real question/answer/judge-score walkthroughs
 ├── scripts/                        RAM-safe overnight run scripts
 └── figures/                        charts (banner, ranking, judge strictness)
 ```
