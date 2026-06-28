@@ -1,12 +1,15 @@
 # Figures
 
-This folder holds charts and screenshots referenced by the documentation.
+Vector charts (SVG) used by the README, the landing page, and the documentation.
 
-| File | Source | Used in |
-|------|--------|---------|
-| `runA_student_report.png` | Run A `reports/student_report` | docs/03 |
-| `runA_judge_report.png` | Run A `reports/judge_report` | docs/03 |
-| `runA_summary.png` | Run A `reports/summary` | docs/03 |
-| `runB_*` | Run B reports | docs/04 |
+| File | Description | Used in |
+|------|-------------|---------|
+| `banner.svg` | Project banner (shield motif + Teacher/Student/Judge roles) | README, landing page |
+| `runC_ranking.svg` | Run C — final 7-model ranking bar chart | README §5, landing page |
+| `judge_strictness.svg` | Run C — mean score awarded per judge (bias) | README §5 |
+| `size_vs_score.svg` | Model size vs. score scatter (non-monotonic) | README §5, landing page |
 
-*Screenshots are captured from the interactive HTML reports produced by `coeval analyze all`.*
+All charts are generated from the run data; the underlying numbers are reproducible via
+`runs/run-C-local/compute_ranking.py` and `runs/run-C-local/analyze_stats.py`. The full interactive
+CoEval reports (rendered, with live Plotly charts) are linked from the README and the
+[landing page](https://itaym26.github.io/coeval-cybersecurity-eval/).
