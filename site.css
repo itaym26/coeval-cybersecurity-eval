@@ -33,8 +33,7 @@ h1{font-size:38px;margin:.2em 0;font-weight:800;
 .run .k{font-size:13px;font-weight:700;letter-spacing:.08em}
 .run.A .k{color:var(--amber)} .run.B .k{color:var(--green)} .run.C .k{color:var(--cyan)}
 .run h2{margin:.25em 0 .35em;font-size:24px;border:none;padding:0}
-.run p{margin:0 0 12px;color:var(--muted);font-size:14px}
-.run .go{font-weight:700;color:var(--cyan)}
+.run p{margin:0;color:var(--muted);font-size:14px}
 .run .st{font-size:12px;font-weight:700;border-radius:6px;padding:2px 8px}
 .st.ok{background:#0c2a18;color:var(--green)} .st.part{background:#2a230c;color:var(--amber)}
 h2{margin:38px 0 12px;font-size:22px;border-bottom:1px solid var(--line);padding-bottom:8px}
