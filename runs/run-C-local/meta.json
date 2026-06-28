@@ -1,0 +1,1 @@
+{"experiment_id": "cybersecurity-run-C-large", "status": "completed", "created_at": "2026-06-23T07:24:32Z", "updated_at": "2026-06-28T04:17:10Z", "phases_completed": ["attribute_mapping", "rubric_mapping", "data_generation", "response_collection", "evaluation"], "phases_in_progress": [], "resume_from": null}

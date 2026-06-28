@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="lenient" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#f59e0b"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <linearGradient id="strict" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#7c3aed"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="860" height="460" fill="#0b1220"/>
+  <text x="40" y="44" fill="#e2e8f0" font-size="24" font-weight="700">Run C — Judge Strictness (bias)</text>
+  <text x="40" y="70" fill="#94a3b8" font-size="14">Average score each judge awards to all students. Same answers, very different grading.</text>
+
+  <!-- scale: 0.80 -> x=300, 0.96 -> x=780 (480px per 0.16 => 3000px/unit) -->
+  <line x1="300" y1="110" x2="300" y2="430" stroke="#334155" stroke-width="1"/>
+  <text x="300" y="450" fill="#64748b" font-size="11" text-anchor="middle">0.80</text>
+  <line x1="540" y1="110" x2="540" y2="430" stroke="#1e293b" stroke-width="1"/>
+  <text x="540" y="450" fill="#64748b" font-size="11" text-anchor="middle">0.88</text>
+  <line x1="780" y1="110" x2="780" y2="430" stroke="#1e293b" stroke-width="1"/>
+  <text x="780" y="450" fill="#64748b" font-size="11" text-anchor="middle">0.96</text>
+
+  <!-- mistral 0.958 -> (0.958-0.80)*3000=474 -->
+  <g>
+    <text x="290" y="131" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">mistral-7b</text>
+    <rect x="300" y="118" width="474" height="22" rx="3" fill="url(#lenient)"/>
+    <text x="782" y="134" fill="#fde68a" font-size="13" font-weight="700">0.958</text>
+    <text x="312" y="134" fill="#7c2d12" font-size="11" font-weight="700">most lenient</text>
+  </g>
+  <!-- llama3 0.929 -> 387 -->
+  <g>
+    <text x="290" y="177" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">llama3-8b</text>
+    <rect x="300" y="164" width="387" height="22" rx="3" fill="url(#lenient)"/>
+    <text x="695" y="180" fill="#fde68a" font-size="13" font-weight="700">0.929</text>
+  </g>
+  <!-- gemma2-2b 0.891 -> 273 -->
+  <g>
+    <text x="290" y="223" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">gemma2-2b</text>
+    <rect x="300" y="210" width="273" height="22" rx="3" fill="#64748b"/>
+    <text x="581" y="226" fill="#cbd5e1" font-size="13" font-weight="700">0.891</text>
+  </g>
+  <!-- qwen2.5-3b 0.863 -> 189 -->
+  <g>
+    <text x="290" y="269" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">qwen2.5-3b</text>
+    <rect x="300" y="256" width="189" height="22" rx="3" fill="#64748b"/>
+    <text x="497" y="272" fill="#cbd5e1" font-size="13" font-weight="700">0.863</text>
+  </g>
+  <!-- gemma2-9b 0.845 -> 135 -->
+  <g>
+    <text x="290" y="315" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">gemma2-9b</text>
+    <rect x="300" y="302" width="135" height="22" rx="3" fill="url(#strict)"/>
+    <text x="443" y="318" fill="#ddd6fe" font-size="13" font-weight="700">0.845</text>
+  </g>
+  <!-- qwen2.5-7b 0.843 -> 129 -->
+  <g>
+    <text x="290" y="361" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">qwen2.5-7b</text>
+    <rect x="300" y="348" width="129" height="22" rx="3" fill="url(#strict)"/>
+    <text x="437" y="364" fill="#ddd6fe" font-size="13" font-weight="700">0.843</text>
+  </g>
+  <!-- phi3 0.808 -> 24 -->
+  <g>
+    <text x="290" y="407" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">phi3</text>
+    <rect x="300" y="394" width="24" height="22" rx="3" fill="url(#strict)"/>
+    <text x="332" y="410" fill="#ddd6fe" font-size="13" font-weight="700">0.808</text>
+    <text x="360" y="410" fill="#a78bfa" font-size="11" font-weight="700">most strict</text>
+  </g>
+</svg>

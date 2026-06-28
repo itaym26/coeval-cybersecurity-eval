@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 220" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#0f2236"/>
+      <stop offset="1" stop-color="#08111d"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#4ade80"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="220" fill="url(#bg)"/>
+
+  <!-- subtle grid -->
+  <g stroke="#13283d" stroke-width="1">
+    <line x1="0" y1="55" x2="1000" y2="55"/><line x1="0" y1="110" x2="1000" y2="110"/><line x1="0" y1="165" x2="1000" y2="165"/>
+  </g>
+
+  <!-- shield / lock motif -->
+  <g transform="translate(70,110)">
+    <path d="M0,-46 L40,-30 L40,6 C40,34 22,52 0,60 C-22,52 -40,34 -40,6 L-40,-30 Z" fill="none" stroke="url(#accent)" stroke-width="3"/>
+    <rect x="-15" y="-6" width="30" height="26" rx="4" fill="url(#accent)"/>
+    <path d="M-9,-6 L-9,-16 a9,9 0 0 1 18,0 L9,-6" fill="none" stroke="url(#accent)" stroke-width="3"/>
+  </g>
+
+  <text x="150" y="92" fill="#e2e8f0" font-size="40" font-weight="800">CoEval × Cybersecurity</text>
+  <text x="152" y="126" fill="#7dd3fc" font-size="19" font-weight="600">Ranking Free LLMs on Security Knowledge — Without Labels or Leaky Benchmarks</text>
+  <text x="152" y="160" fill="#94a3b8" font-size="14">Teacher · Student · Judge ensemble  ·  3 escalating experiments  ·  7 models  ·  6,860 ensemble judgments</text>
+
+  <!-- role chips -->
+  <g font-size="13" font-weight="700">
+    <rect x="152" y="178" width="96" height="26" rx="13" fill="#13324a"/><text x="200" y="195" fill="#7dd3fc" text-anchor="middle">🎓 TEACHER</text>
+    <rect x="258" y="178" width="96" height="26" rx="13" fill="#13324a"/><text x="306" y="195" fill="#86efac" text-anchor="middle">📝 STUDENT</text>
+    <rect x="364" y="178" width="90" height="26" rx="13" fill="#13324a"/><text x="409" y="195" fill="#fcd34d" text-anchor="middle">⚖️ JUDGE</text>
+  </g>
+</svg>

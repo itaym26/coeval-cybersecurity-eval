@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coverage Summary — cybersecurity-run-C-large</title>
+  <script src="../plotly.min.js"></script>
+  <script>
+const DATA = {"teachers": ["gemma2-2b", "gemma2-9b", "llama3-8b", "mistral-7b", "phi3", "qwen2.5-3b", "qwen2.5-7b"], "students": ["gemma2-2b", "gemma2-9b", "llama3-8b", "mistral-7b", "phi3", "qwen2.5-3b", "qwen2.5-7b"], "judges": ["gemma2-2b", "gemma2-9b", "llama3-8b", "mistral-7b", "phi3", "qwen2.5-3b", "qwen2.5-7b"], "teacher_stacks": {"task": {"gemma2-2b": {"cybersecurity": 20}, "gemma2-9b": {"cybersecurity": 20}, "llama3-8b": {"cybersecurity": 20}, "mistral-7b": {"cybersecurity": 20}, "phi3": {"cybersecurity": 20}, "qwen2.5-3b": {"cybersecurity": 20}, "qwen2.5-7b": {"cybersecurity": 20}}, "complexity_level": {"gemma2-2b": {"Intermediate": 4, "(none)": 8, "Advanced": 3, "Fundamental": 5}, "gemma2-9b": {"Fundamental": 7, "Intermediate": 3, "(none)": 4, "Advanced": 6}, "llama3-8b": {"Fundamental": 6, "Advanced": 5, "(none)": 2, "Intermediate": 7}, "mistral-7b": {"Advanced": 5, "Fundamental": 6, "(none)": 4, "Intermediate": 5}, "phi3": {"Intermediate": 4, "(none)": 5, "Fundamental": 6, "Advanced": 5}, "qwen2.5-3b": {"Intermediate": 3, "(none)": 5, "Advanced": 7, "Fundamental": 5}, "qwen2.5-7b": {"Advanced": 4, "Intermediate": 6, "Fundamental": 5, "(none)": 5}}, "domain": {"gemma2-2b": {"Malware Analysis": 2, "Web Application Security": 2, "Network Security": 5, "(none)": 3, "Cryptography": 5, "Defensive Practices": 3}, "gemma2-9b": {"Malware Analysis": 9, "Cryptography": 5, "Web Application Security": 2, "Defensive Practices": 1, "Network Security": 2, "(none)": 1}, "llama3-8b": {"(none)": 5, "Malware Analysis": 4, "Cryptography": 4, "Network Security": 3, "Web Application Security": 3, "Defensive Practices": 1}, "mistral-7b": {"Cryptography": 3, "Defensive Practices": 5, "(none)": 7, "Web Application Security": 3, "Network Security": 2}, "phi3": {"Cryptography": 3, "Web Application Security": 3, "Network Security": 2, "(none)": 9, "Malware Analysis": 1, "Defensive Practices": 2}, "qwen2.5-3b": {"(none)": 8, "Cryptography": 4, "Malware Analysis": 4, "Network Security": 3, "Defensive Practices": 1}, "qwen2.5-7b": {"Cryptography": 4, "Malware Analysis": 6, "Defensive Practices": 4, "(none)": 4, "Network Security": 1, "Web Application Security": 1}}}, "student_stacks": {"task": {"gemma2-2b": {"cybersecurity": 140}, "gemma2-9b": {"cybersecurity": 140}, "llama3-8b": {"cybersecurity": 140}, "mistral-7b": {"cybersecurity": 140}, "phi3": {"cybersecurity": 140}, "qwen2.5-3b": {"cybersecurity": 140}, "qwen2.5-7b": {"cybersecurity": 140}}, "complexity_level": {"gemma2-2b": {"Intermediate": 32, "(none)": 33, "Advanced": 35, "Fundamental": 40}, "gemma2-9b": {"Intermediate": 32, "(none)": 33, "Advanced": 35, "Fundamental": 40}, "llama3-8b": {"Intermediate": 32, "(none)": 33, "Advanced": 35, "Fundamental": 40}, "mistral-7b": {"Intermediate": 32, "(none)": 33, "Advanced": 35, "Fundamental": 40}, "phi3": {"Intermediate": 32, "(none)": 33, "Advanced": 35, "Fundamental": 40}, "qwen2.5-3b": {"Intermediate": 32, "(none)": 33, "Advanced": 35, "Fundamental": 40}, "qwen2.5-7b": {"Intermediate": 32, "(none)": 33, "Advanced": 35, "Fundamental": 40}}, "domain": {"gemma2-2b": {"Malware Analysis": 26, "Web Application Security": 14, "Network Security": 18, "(none)": 37, "Cryptography": 28, "Defensive Practices": 17}, "gemma2-9b": {"Malware Analysis": 26, "Web Application Security": 14, "Network Security": 18, "(none)": 37, "Cryptography": 28, "Defensive Practices": 17}, "llama3-8b": {"Malware Analysis": 26, "Web Application Security": 14, "Network Security": 18, "(none)": 37, "Cryptography": 28, "Defensive Practices": 17}, "mistral-7b": {"Malware Analysis": 26, "Web Application Security": 14, "Network Security": 18, "(none)": 37, "Cryptography": 28, "Defensive Practices": 17}, "phi3": {"Malware Analysis": 26, "Web Application Security": 14, "Network Security": 18, "(none)": 37, "Cryptography": 28, "Defensive Practices": 17}, "qwen2.5-3b": {"Malware Analysis": 26, "Web Application Security": 14, "Network Security": 18, "(none)": 37, "Cryptography": 28, "Defensive Practices": 17}, "qwen2.5-7b": {"Malware Analysis": 26, "Web Application Security": 14, "Network Security": 18, "(none)": 37, "Cryptography": 28, "Defensive Practices": 17}}}, "judge_stacks": {"task": {"gemma2-2b": {"cybersecurity": 974}, "gemma2-9b": {"cybersecurity": 978}, "llama3-8b": {"cybersecurity": 975}, "mistral-7b": {"cybersecurity": 975}, "phi3": {"cybersecurity": 968}, "qwen2.5-3b": {"cybersecurity": 978}, "qwen2.5-7b": {"cybersecurity": 976}}, "complexity_level": {"gemma2-2b": {"Intermediate": 224, "(none)": 230, "Advanced": 242, "Fundamental": 278}, "gemma2-9b": {"Intermediate": 224, "(none)": 231, "Advanced": 244, "Fundamental": 279}, "llama3-8b": {"Intermediate": 223, "(none)": 229, "Advanced": 245, "Fundamental": 278}, "mistral-7b": {"Intermediate": 223, "(none)": 230, "Advanced": 245, "Fundamental": 277}, "phi3": {"Intermediate": 221, "(none)": 226, "Advanced": 241, "Fundamental": 280}, "qwen2.5-3b": {"Intermediate": 224, "(none)": 231, "Advanced": 245, "Fundamental": 278}, "qwen2.5-7b": {"Intermediate": 222, "(none)": 231, "Advanced": 245, "Fundamental": 278}}, "domain": {"gemma2-2b": {"Malware Analysis": 181, "Web Application Security": 97, "Network Security": 126, "(none)": 256, "Cryptography": 195, "Defensive Practices": 119}, "gemma2-9b": {"Malware Analysis": 181, "Web Application Security": 98, "Network Security": 126, "(none)": 258, "Cryptography": 196, "Defensive Practices": 119}, "llama3-8b": {"Malware Analysis": 179, "Web Application Security": 98, "Network Security": 126, "(none)": 258, "Cryptography": 195, "Defensive Practices": 119}, "mistral-7b": {"Malware Analysis": 182, "Web Application Security": 97, "Network Security": 124, "(none)": 259, "Cryptography": 194, "Defensive Practices": 119}, "phi3": {"Malware Analysis": 178, "Web Application Security": 98, "Network Security": 125, "(none)": 258, "Cryptography": 194, "Defensive Practices": 115}, "qwen2.5-3b": {"Malware Analysis": 182, "Web Application Security": 97, "Network Security": 125, "(none)": 259, "Cryptography": 196, "Defensive Practices": 119}, "qwen2.5-7b": {"Malware Analysis": 182, "Web Application Security": 98, "Network Security": 125, "(none)": 257, "Cryptography": 195, "Defensive Practices": 119}}, "teacher": {"gemma2-2b": {"gemma2-2b": 138, "gemma2-9b": 140, "llama3-8b": 139, "mistral-7b": 140, "phi3": 140, "qwen2.5-3b": 137, "qwen2.5-7b": 140}, "gemma2-9b": {"gemma2-2b": 140, "gemma2-9b": 139, "llama3-8b": 140, "mistral-7b": 140, "phi3": 140, "qwen2.5-3b": 139, "qwen2.5-7b": 140}, "llama3-8b": {"gemma2-2b": 139, "gemma2-9b": 137, "llama3-8b": 139, "mistral-7b": 140, "phi3": 140, "qwen2.5-3b": 140, "qwen2.5-7b": 140}, "mistral-7b": {"gemma2-2b": 139, "gemma2-9b": 140, "llama3-8b": 136, "mistral-7b": 140, "phi3": 140, "qwen2.5-3b": 140, "qwen2.5-7b": 140}, "phi3": {"gemma2-2b": 137, "gemma2-9b": 140, "llama3-8b": 138, "mistral-7b": 140, "phi3": 140, "qwen2.5-3b": 138, "qwen2.5-7b": 135}, "qwen2.5-3b": {"gemma2-2b": 140, "gemma2-9b": 140, "llama3-8b": 138, "mistral-7b": 140, "phi3": 140, "qwen2.5-3b": 140, "qwen2.5-7b": 140}, "qwen2.5-7b": {"gemma2-2b": 140, "gemma2-9b": 140, "llama3-8b": 136, "mistral-7b": 140, "phi3": 140, "qwen2.5-3b": 140, "qwen2.5-7b": 140}}}, "teacher_dims": ["task", "complexity_level", "domain"], "student_dims": ["task", "complexity_level", "domain"], "judge_dims": ["task", "complexity_level", "domain", "teacher"], "dim_labels": {"task": "Task", "teacher": "Teacher Model", "complexity_level": "Complexity Level (target attr)", "domain": "Domain (target attr)"}, "meta_panel": {"experiment_id": "cybersecurity-run-C-large", "status": "completed", "created_at": "2026-06-23T07:24:32Z", "updated_at": "2026-06-28T04:17:10Z", "phases_completed": ["attribute_mapping", "rubric_mapping", "data_generation", "response_collection", "evaluation"], "phases_in_progress": [], "tasks": 1, "teachers": 7, "students": 7, "judges": 7, "datapoints": 140, "total_evals": 6860, "valid_evals": 6824}, "tips": {"tasks": {"cybersecurity": "Cybersecurity knowledge and reasoning assessment. Given a cybersecurity scenario, concept, or technical question, the model must provide accurate, technically sound answers covering topics such as network attacks, web vulnerabilities, cryptographic concepts, malware behavior, and defensive security practices. Responses should demonstrate both theoretical understanding and practical reasoning ability.\n"}, "aspects": {"Technical Accuracy": "The response is factually correct and free of technical hallucinations, using cybersecurity terminology correctly.", "Theoretical Understanding": "The response demonstrates clear understanding of the underlying cybersecurity concepts, mechanisms, and principles.", "Practical Insight": "The response offers practical, actionable reasoning on how to address, exploit, or mitigate the issue.", "Completeness": "The response fully addresses all parts of the question, covering both concept and application as required.", "Clarity": "The response is well-structured, concise (2-5 sentences), and easy to follow."}, "attrs": {"complexity_level=Advanced": "complexity_level: one of [Advanced, Fundamental, Intermediate]", "complexity_level=Fundamental": "complexity_level: one of [Advanced, Fundamental, Intermediate]", "complexity_level=Intermediate": "complexity_level: one of [Advanced, Fundamental, Intermediate]", "domain=Cryptography": "domain: one of [Cryptography, Defensive Practices, Malware Analysis, Network Security, Web Application Security]", "domain=Defensive Practices": "domain: one of [Cryptography, Defensive Practices, Malware Analysis, Network Security, Web Application Security]", "domain=Malware Analysis": "domain: one of [Cryptography, Defensive Practices, Malware Analysis, Network Security, Web Application Security]", "domain=Network Security": "domain: one of [Cryptography, Defensive Practices, Malware Analysis, Network Security, Web Application Security]", "domain=Web Application Security": "domain: one of [Cryptography, Defensive Practices, Malware Analysis, Network Security, Web Application Security]"}}};
+  </script>
+  <style>
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Inter', sans-serif;
+  background: #f0f4f8; color: #1e293b; font-size: 14px; line-height: 1.5;
+}
+/* ---- Header ---- */
+#header {
+  background: linear-gradient(135deg, #0f172a 0%, #1e3a5f 60%, #1e40af 100%);
+  color: #fff; padding: 14px 24px;
+  display: flex; flex-wrap: wrap; gap: 14px; align-items: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,.35);
+}
+#header h1 { font-size: 1.05rem; font-weight: 700; letter-spacing: 0.01em; }
+#header h1 .report-type { opacity: 0.75; font-weight: 400; }
+.header-meta { font-size: 0.76rem; opacity: 0.78; }
+.header-badge {
+  background: rgba(255,255,255,.18); border: 1px solid rgba(255,255,255,.25);
+  border-radius: 12px; padding: 2px 10px; font-size: 0.72rem; font-weight: 600;
+}
+.header-badge.tag-completed { background: rgba(34,197,94,.25); border-color: rgba(34,197,94,.4); }
+.header-badge.tag-partial   { background: rgba(245,158,11,.25); border-color: rgba(245,158,11,.4); }
+.partial-notice {
+  background: linear-gradient(90deg, #f59e0b, #fbbf24);
+  color: #1c1917; padding: 7px 24px; font-size: 0.82rem; font-weight: 600;
+  border-bottom: 2px solid #d97706;
+}
+/* ---- Filter Panel ---- */
+#filter-panel {
+  background: #fff; border-bottom: 1px solid #dde3ed;
+  padding: 9px 24px; display: flex; flex-wrap: wrap; gap: 14px;
+  align-items: center; box-shadow: 0 1px 3px rgba(0,0,0,.06);
+  position: sticky; top: 0; z-index: 100;
+}
+.filter-group { display: flex; align-items: center; gap: 7px; }
+.filter-group label {
+  font-size: 0.76rem; font-weight: 600; color: #475569;
+  text-transform: uppercase; letter-spacing: 0.04em;
+}
+.filter-group select {
+  font-size: 0.8rem; border: 1px solid #cbd5e1; border-radius: 6px;
+  padding: 4px 8px; background: #f8fafc; cursor: pointer; color: #1e293b;
+  transition: border-color .15s;
+}
+.filter-group select:focus { outline: none; border-color: #3b82f6; }
+/* ---- Stats Bar ---- */
+#stats-bar {
+  background: linear-gradient(90deg, #dbeafe 0%, #e0f2fe 100%);
+  padding: 6px 24px; font-size: 0.77rem; color: #1e40af;
+  border-bottom: 1px solid #bfdbfe; letter-spacing: 0.01em;
+}
+/* ---- Main Content ---- */
+#main { padding: 18px 24px; max-width: 1400px; margin: 0 auto; }
+.view-section {
+  background: #fff; border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(15,23,42,.08), 0 0 0 1px rgba(15,23,42,.04);
+  padding: 20px 22px; margin-bottom: 20px;
+  border-top: 3px solid transparent;
+}
+.view-section:hover { border-top-color: #3b82f6; }
+.view-section h2 {
+  font-size: 1rem; font-weight: 700; margin-bottom: 14px; color: #0f172a;
+  display: flex; align-items: center; gap: 8px;
+}
+.view-section h2::before {
+  content: ''; display: inline-block; width: 4px; height: 18px;
+  background: linear-gradient(180deg, #3b82f6, #6366f1);
+  border-radius: 2px; flex-shrink: 0;
+}
+.view-section p.note {
+  font-size: 0.8rem; color: #78350f; background: #fffbeb;
+  border-left: 4px solid #f59e0b; padding: 8px 12px;
+  margin-bottom: 12px; border-radius: 0 6px 6px 0;
+}
+.chart-container { min-height: 360px; }
+/* ---- Data Tables ---- */
+table.data-table { border-collapse: collapse; width: 100%; font-size: 0.81rem; }
+table.data-table th {
+  background: linear-gradient(180deg, #f1f5f9 0%, #e9eef4 100%);
+  text-align: left; padding: 8px 12px;
+  border-bottom: 2px solid #cbd5e1; border-top: 1px solid #e2e8f0;
+  font-weight: 700; color: #334155; white-space: nowrap;
+  font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em;
+}
+table.data-table td { padding: 6px 12px; border-bottom: 1px solid #f1f5f9; color: #334155; }
+table.data-table tbody tr:nth-child(odd) td  { background: #fafbfc; }
+table.data-table tbody tr:nth-child(even) td { background: #fff; }
+table.data-table tr:hover td { background: #eff6ff !important; }
+/* ---- Utility classes ---- */
+.warn-flag { color: #d97706; font-size: 0.85em; cursor: help; margin-left: 3px; }
+.degenerate-notice {
+  background: linear-gradient(90deg, #fef9c3, #fef3c7);
+  border: 1px solid #fcd34d; border-radius: 8px;
+  padding: 11px 16px; margin-bottom: 14px; font-size: 0.82rem; color: #78350f;
+}
+.na { color: #94a3b8; font-style: italic; }
+.tag { display: inline-block; font-size: 0.7rem; border-radius: 12px;
+       padding: 2px 8px; margin: 0 2px; font-weight: 600; }
+.tag-partial   { background: #fef3c7; color: #92400e; border: 1px solid #fde68a; }
+.tag-completed { background: #d1fae5; color: #065f46; border: 1px solid #a7f3d0; }
+footer {
+  text-align: center; padding: 20px; font-size: 0.74rem; color: #94a3b8;
+  border-top: 1px solid #e2e8f0; margin-top: 8px;
+  background: linear-gradient(180deg, #f8fafc, #f0f4f8);
+}
+/* ---- Collapsible figure explanations ---- */
+details.fig-explain {
+  margin-top: 14px; border-top: 1px dashed #e2e8f0; padding-top: 10px;
+}
+details.fig-explain summary {
+  font-size: 0.75rem; color: #64748b; cursor: pointer; user-select: none;
+  display: inline-flex; align-items: center; gap: 6px; outline: none;
+  list-style: none; padding: 4px 8px; border-radius: 6px;
+  transition: background .12s, color .12s;
+}
+details.fig-explain summary::-webkit-details-marker { display: none; }
+details.fig-explain summary::before {
+  content: "ℹ"; color: #94a3b8; font-size: 0.85rem;
+}
+details.fig-explain summary:hover {
+  background: #f1f5f9; color: #1e40af;
+}
+details.fig-explain[open] summary { color: #1e40af; background: #eff6ff; }
+details.fig-explain[open] summary::before { content: "ℹ"; color: #3b82f6; }
+details.fig-explain .explain-body {
+  font-size: 0.79rem; color: #475569; line-height: 1.7; margin-top: 10px;
+  padding: 12px 16px; background: #f8fafc; border-radius: 8px;
+  border-left: 4px solid #3b82f6;
+}
+details.fig-explain .explain-body b { color: #1e293b; }
+details.fig-explain .explain-body code {
+  background: #e2e8f0; padding: 1px 5px; border-radius: 4px;
+  font-size: 0.84em; font-family: 'SF Mono', 'Fira Code', monospace;
+}
+/* ---- Inline definition tooltips ---- */
+[data-tip] {
+  border-bottom: 1px dashed #93c5fd; cursor: help; position: relative;
+  text-decoration-skip-ink: none;
+}
+[data-tip]::after {
+  content: attr(data-tip);
+  position: absolute; bottom: 130%; left: 50%; transform: translateX(-50%);
+  white-space: normal; max-width: 320px; min-width: 160px;
+  background: #0f172a; color: #e2e8f0;
+  font-size: 0.72rem; font-weight: 400; line-height: 1.55;
+  padding: 8px 12px; border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.4), 0 0 0 1px rgba(99,102,241,.3);
+  z-index: 9999; opacity: 0; pointer-events: none;
+  transition: opacity .18s ease;
+}
+[data-tip]:hover::after { opacity: 1; }
+/* ---- Sortable table headers ---- */
+table.data-table th.sortable { cursor: pointer; user-select: none; }
+table.data-table th.sortable:hover { background: linear-gradient(180deg,#e8eef8,#dde5f0); color:#1e40af; }
+table.data-table th .sort-arrow { margin-left: 4px; opacity: 0.5; font-size: 0.7em; }
+table.data-table th.sort-asc  .sort-arrow { opacity: 1; }
+table.data-table th.sort-desc .sort-arrow { opacity: 1; }
+/* ---- CSV export button (shared across reports) ---- */
+.csv-export-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 4px 12px; background: var(--accent); color: #fff;
+  border: none; border-radius: 5px; cursor: pointer;
+  font-size: 0.8rem; font-weight: 600; margin-bottom: 6px;
+}
+.csv-export-btn:hover { opacity: 0.85; }
+/* ---- Figure controls popup (Filter By) ---- */
+.fc-popup-wrap { position: relative; display: inline-block; }
+.fc-popup-btn {
+  border: 1px solid #cbd5e1; border-radius: 5px; padding: 4px 10px;
+  font-size: .77rem; background: #fff; cursor: pointer; color: #475569;
+  display: inline-flex; align-items: center; gap: 5px; transition: border-color .15s, color .15s;
+}
+.fc-popup-btn:hover, .fc-popup-btn.open { border-color: #3b82f6; color: #1e40af; }
+.fc-popup {
+  display: none; position: absolute; top: calc(100% + 4px); left: 0;
+  background: #fff; border: 1px solid #e2e8f0; border-radius: 8px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.14); z-index: 500;
+  min-width: 190px; max-width: 280px; padding: 10px 12px;
+}
+.fc-popup.open { display: block; }
+.fc-popup-title { font-size: .71rem; font-weight: 700; color: #475569;
+  text-transform: uppercase; letter-spacing: .04em; margin-bottom: 8px; }
+.fc-popup-checks { max-height: 180px; overflow-y: auto; border: 1px solid #f1f5f9;
+  border-radius: 5px; padding: 4px 6px; margin-bottom: 8px; }
+.fc-popup-checks label {
+  display: flex; align-items: center; gap: 6px; font-size: .77rem;
+  padding: 3px 0; cursor: pointer; color: #334155; user-select: none;
+}
+.fc-popup-checks label:hover { color: #1e40af; }
+.fc-popup-checks input[type=checkbox] { width: 13px; height: 13px; cursor: pointer; flex-shrink: 0; }
+.fc-popup-actions { display: flex; gap: 6px; justify-content: flex-end; }
+.fc-popup-actions button {
+  font-size: .72rem; padding: 3px 10px; border-radius: 5px; cursor: pointer; border: 1px solid;
+}
+.fc-popup-apply { background: #3b82f6; color: #fff; border-color: #2563eb; }
+.fc-popup-apply:hover { background: #2563eb; }
+.fc-popup-clear { background: #f8fafc; color: #475569; border-color: #cbd5e1; }
+.fc-popup-clear:hover { background: #e2e8f0; }
+
+  </style>
+</head>
+<body>
+
+
+<div id="header">
+  <h1>CoEval EEA &nbsp;·&nbsp; <span class="report-type">Coverage Summary</span></h1>
+  <span class="header-meta">Experiment:&nbsp;<b>cybersecurity-run-C-large</b></span>
+  <span class="header-badge tag-completed">completed</span>
+  <span class="header-meta">Tasks:&nbsp;1</span>
+  <span class="header-meta">Models:&nbsp;7</span>
+  <span class="header-meta">Datapoints:&nbsp;140</span>
+   <span class="header-badge" title="Self-judging evaluations detected">⚠ 980 self-judging</span> <span class="header-badge" title="Self-teaching evaluations detected">⚠ 980 self-teaching</span>
+  <span class="header-meta" style="margin-left:auto;opacity:.6">Analyzed:&nbsp;2026-06-28T06:02:10Z</span>
+</div>
+<div id="stats-bar">Total eval records: 6860 | Valid: 6824 | Invalid: 36</div>
+
+<div id="main">
+
+<style>
+/* ---- Coverage Summary ---- */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+.stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 13px 14px;
+  text-align: center;
+}
+.stat-card .stat-val { font-size: 1.9rem; font-weight: 700; color: #1e3a5f; line-height: 1; }
+.stat-card .stat-lbl { font-size: 0.71rem; color: #64748b; margin-top: 4px; text-transform: uppercase; letter-spacing:.04em; }
+.stat-card.good .stat-val { color: #16a34a; }
+.stat-card.warn .stat-val { color: #d97706; }
+.stat-card.bad  .stat-val { color: #dc2626; }
+
+.phase-timeline { display:flex; flex-wrap:wrap; gap:7px; margin-top:10px; }
+.phase-badge {
+  display:inline-flex; align-items:center; gap:4px;
+  padding:3px 11px; border-radius:20px; font-size:.72rem; font-weight:600; border:1px solid;
+}
+.phase-badge.done    { background:#dcfce7; color:#15803d; border-color:#86efac; }
+.phase-badge.running { background:#fef3c7; color:#b45309; border-color:#fcd34d; }
+.phase-badge.pending { background:#f1f5f9; color:#64748b; border-color:#cbd5e1; }
+.phase-badge .ph-dot { width:7px; height:7px; border-radius:50%; background:currentColor; }
+
+.fig-controls {
+  display:flex; align-items:center; gap:12px; flex-wrap:wrap;
+  padding:9px 13px; background:#f8fafc; border:1px solid #e2e8f0;
+  border-radius:8px; margin-bottom:10px;
+}
+.fig-controls label { font-size:.77rem; font-weight:600; color:#475569; }
+.fig-controls select {
+  border:1px solid #cbd5e1; border-radius:5px; padding:4px 8px;
+  font-size:.77rem; background:#fff; cursor:pointer;
+}
+.fig-controls select:disabled { opacity:.4; cursor:default; }
+.fig-controls .fc-tip { font-size:.71rem; color:#94a3b8; margin-left:auto; }
+</style>
+
+<!-- ====================================================== -->
+<!-- Overview                                               -->
+<!-- ====================================================== -->
+<div class="view-section" id="view-meta">
+  <h2>Experiment Overview</h2>
+  <div id="stat-grid-container"></div>
+  <div id="phase-timeline-container"></div>
+  <details class="fig-explain">
+    <summary>About this panel</summary>
+    <div class="explain-body">
+      <b>Stat cards</b> summarise the experiment at a glance: tasks, teacher/student/judge counts,
+      generated datapoints, and overall valid-evaluation coverage.<br>
+      <b>Coverage&nbsp;%</b> = valid evaluations ÷ total evaluations. ≥&nbsp;100&nbsp;% is green;
+      ≥&nbsp;90&nbsp;% amber; below 80&nbsp;% red.<br>
+      <b>Phase timeline</b> shows pipeline phase status.
+    </div>
+  </details>
+</div>
+
+<!-- ====================================================== -->
+<!-- Figure 1 — Teacher Coverage                            -->
+<!-- ====================================================== -->
+<div class="view-section" id="view-teacher">
+  <h2>Teacher Coverage</h2>
+  <div class="fig-controls">
+    <label for="teacher-stack-sel">Stack by:</label>
+    <select id="teacher-stack-sel" onchange="renderTeacherCoverage()"></select>
+    <label for="teacher-group-sel">Group by:</label>
+    <select id="teacher-group-sel" onchange="_onGroupChange('teacher', renderTeacherCoverage)"></select>
+    <div class="fc-popup-wrap">
+      <button class="fc-popup-btn" id="teacher-filter-btn"
+        onclick="_toggleFilterPopup('teacher'); return false;">⊟ Filter ▾</button>
+      <div class="fc-popup" id="teacher-filter-popup">
+        <div class="fc-popup-title">Show stack values</div>
+        <div class="fc-popup-checks" id="teacher-filter-checks"></div>
+        <div class="fc-popup-actions">
+          <button class="fc-popup-clear" onclick="_clearFilter('teacher', renderTeacherCoverage)">All</button>
+          <button class="fc-popup-apply" onclick="_applyFilter('teacher', renderTeacherCoverage)">Apply</button>
+        </div>
+      </div>
+    </div>
+    <span class="fc-tip">Bars show datapoints generated; hover for counts.</span>
+  </div>
+  <div id="teacher-coverage-chart" class="chart-container"></div>
+  <details class="fig-explain">
+    <summary>About this figure</summary>
+    <div class="explain-body">
+      <b>What it shows:</b> Total datapoints generated by each teacher model
+      (Phase&nbsp;3), broken down by the selected stacking dimension.<br>
+      <b>Stack by</b>&nbsp;— controls bar colour coding (task, attribute, etc.).<br>
+      <b>Group by</b>&nbsp;— when set to a dimension (not Model), flips axes: that
+      dimension's values appear on the x-axis and models become separate traces.<br>
+      <b>Filter</b>&nbsp;— hides/shows specific stack values.<br>
+      <b>How to read it:</b> A balanced stack indicates the teacher generated a
+      representative sample across all attribute values.
+    </div>
+  </details>
+</div>
+
+<!-- ====================================================== -->
+<!-- Figure 2 — Student Coverage                            -->
+<!-- ====================================================== -->
+<div class="view-section" id="view-student">
+  <h2>Student Coverage</h2>
+  <div class="fig-controls">
+    <label for="student-stack-sel">Stack by:</label>
+    <select id="student-stack-sel" onchange="renderStudentCoverage()"></select>
+    <label for="student-group-sel">Group by:</label>
+    <select id="student-group-sel" onchange="_onGroupChange('student', renderStudentCoverage)"></select>
+    <div class="fc-popup-wrap">
+      <button class="fc-popup-btn" id="student-filter-btn"
+        onclick="_toggleFilterPopup('student'); return false;">⊟ Filter ▾</button>
+      <div class="fc-popup" id="student-filter-popup">
+        <div class="fc-popup-title">Show stack values</div>
+        <div class="fc-popup-checks" id="student-filter-checks"></div>
+        <div class="fc-popup-actions">
+          <button class="fc-popup-clear" onclick="_clearFilter('student', renderStudentCoverage)">All</button>
+          <button class="fc-popup-apply" onclick="_applyFilter('student', renderStudentCoverage)">Apply</button>
+        </div>
+      </div>
+    </div>
+    <span class="fc-tip">Bars show responses collected; hover for counts.</span>
+  </div>
+  <div id="student-coverage-chart" class="chart-container"></div>
+  <details class="fig-explain">
+    <summary>About this figure</summary>
+    <div class="explain-body">
+      <b>What it shows:</b> Total responses collected from each student model
+      (Phase&nbsp;4), broken down by the selected stacking dimension.<br>
+      <b>How to read it:</b> All student bars should be roughly equal in height — large
+      differences indicate that a student model failed on certain tasks or attribute
+      combinations and produced fewer responses than expected.
+    </div>
+  </details>
+</div>
+
+<!-- ====================================================== -->
+<!-- Figure 3 — Judge Coverage                              -->
+<!-- ====================================================== -->
+<div class="view-section" id="view-judge">
+  <h2>Judge Coverage</h2>
+  <div class="fig-controls">
+    <label for="judge-stack-sel">Stack by:</label>
+    <select id="judge-stack-sel" onchange="renderJudgeCoverage()"></select>
+    <label for="judge-group-sel">Group by:</label>
+    <select id="judge-group-sel" onchange="_onGroupChange('judge', renderJudgeCoverage)"></select>
+    <div class="fc-popup-wrap">
+      <button class="fc-popup-btn" id="judge-filter-btn"
+        onclick="_toggleFilterPopup('judge'); return false;">⊟ Filter ▾</button>
+      <div class="fc-popup" id="judge-filter-popup">
+        <div class="fc-popup-title">Show stack values</div>
+        <div class="fc-popup-checks" id="judge-filter-checks"></div>
+        <div class="fc-popup-actions">
+          <button class="fc-popup-clear" onclick="_clearFilter('judge', renderJudgeCoverage)">All</button>
+          <button class="fc-popup-apply" onclick="_applyFilter('judge', renderJudgeCoverage)">Apply</button>
+        </div>
+      </div>
+    </div>
+    <span class="fc-tip">Bars show valid evaluations; hover for counts.</span>
+  </div>
+  <div id="judge-coverage-chart" class="chart-container"></div>
+  <details class="fig-explain">
+    <summary>About this figure</summary>
+    <div class="explain-body">
+      <b>What it shows:</b> Total <em>valid</em> evaluations produced by each judge model
+      (Phase&nbsp;5), broken down by the selected stacking dimension.<br>
+      <b>Teacher stacking</b>&nbsp;— reveals whether a judge evaluated all teacher
+      models equally, or concentrated effort on certain teacher-student pairs.<br>
+      <b>Task stacking</b>&nbsp;— shows whether evaluation load is balanced across tasks.<br>
+      <b>How to read it:</b> A very short bar for a judge means it produced few valid
+      evaluations, which may degrade ensemble reliability for that task or teacher.
+    </div>
+  </details>
+</div>
+
+</div>
+<footer>Generated by CoEval EEA &mdash; 2026-06-28T06:02:10Z</footer>
+<script>
+
+function getFilter(id) {
+  var el = document.getElementById('flt_' + id);
+  return el ? el.value : '__all__';
+}
+
+function applyFilters() {
+  if (typeof renderAll === 'function') renderAll();
+}
+
+function fmt(v, decimals) {
+  if (v === null || v === undefined) return '<span class="na">N/A</span>';
+  return parseFloat(v).toFixed(decimals !== undefined ? decimals : 3);
+}
+
+function fmtPct(v) {
+  if (v === null || v === undefined) return '<span class="na">N/A</span>';
+  return (parseFloat(v) * 100).toFixed(1) + '%';
+}
+
+function selfFlag(is_self_judging, is_self_teaching) {
+  var flags = [];
+  if (is_self_judging) flags.push('<span class="warn-flag" title="Self-evaluation: judge model = student model.">⚠SJ</span>');
+  if (is_self_teaching) flags.push('<span class="warn-flag" title="Self-teaching: teacher model = student model.">⚠ST</span>');
+  return flags.join(' ');
+}
+
+// Colour helpers
+function scoreColor(v) {
+  if (v === null || v === undefined) return '#eee';
+  var r = Math.round(255 * (1 - v));
+  var g = Math.round(200 * v);
+  return 'rgb(' + r + ',' + g + ',60)';
+}
+
+// ---- CSV export ----
+// _csvExportTable(containerId, filename) — download the rendered table as UTF-8 CSV.
+function _csvExportTable(idOrEl, filename) {
+  var container = typeof idOrEl === 'string' ? document.getElementById(idOrEl) : idOrEl;
+  if (!container) return;
+  var tbl = (container.tagName === 'TABLE') ? container : container.querySelector('table');
+  if (!tbl) return;
+  var rows = [];
+  tbl.querySelectorAll('tr').forEach(function(tr) {
+    var cells = [];
+    tr.querySelectorAll('th, td').forEach(function(td) {
+      var text = td.textContent.replace(/[\u2014\u2026]/g, '-').replace(/[",\n\r]/g, ' ').trim();
+      cells.push('"' + text + '"');
+    });
+    rows.push(cells.join(','));
+  });
+  var csv = '\uFEFF' + rows.join('\r\n');
+  var blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  var url = URL.createObjectURL(blob);
+  var a = document.createElement('a');
+  a.href = url; a.download = filename || 'table.csv';
+  document.body.appendChild(a); a.click();
+  setTimeout(function() { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
+}
+
+// ---- Sortable table ----
+// Call after rendering a table; pass the container element or id string.
+function _makeSortable(idOrEl) {
+  var container = typeof idOrEl === 'string' ? document.getElementById(idOrEl) : idOrEl;
+  if (!container) return;
+  var tbl = (container.tagName === 'TABLE') ? container : container.querySelector('table');
+  if (!tbl) return;
+  var ths = Array.prototype.slice.call(tbl.querySelectorAll('th'));
+  ths.forEach(function(th, col) {
+    th.classList.add('sortable');
+    var arrow = document.createElement('span');
+    arrow.className = 'sort-arrow'; arrow.textContent = '⇅';
+    th.appendChild(arrow);
+    th._sortDir = 0;
+    th.addEventListener('click', function() {
+      var dir = (th._sortDir === 1) ? -1 : 1;
+      ths.forEach(function(h) {
+        h._sortDir = 0;
+        h.classList.remove('sort-asc','sort-desc');
+        var a = h.querySelector('.sort-arrow');
+        if (a) a.textContent = '⇅';
+      });
+      th._sortDir = dir;
+      th.classList.add(dir === 1 ? 'sort-asc' : 'sort-desc');
+      var a = th.querySelector('.sort-arrow');
+      if (a) a.textContent = dir === 1 ? '▲' : '▼';
+      var rows = Array.prototype.slice.call(tbl.querySelectorAll('tr')).slice(1);
+      rows.sort(function(a, b) {
+        var ac = a.querySelectorAll('td')[col];
+        var bc = b.querySelectorAll('td')[col];
+        var at = ac ? ac.textContent.trim() : '';
+        var bt = bc ? bc.textContent.trim() : '';
+        var an = parseFloat(at), bn = parseFloat(bt);
+        if (!isNaN(an) && !isNaN(bn)) return dir * (an - bn);
+        return dir * at.localeCompare(bt);
+      });
+      rows.forEach(function(r) { tbl.appendChild(r); });
+    });
+  });
+}
+
+// ---- Floating chart element tooltip system ----
+var _ft = (function() {
+  var _el = null;
+  function _init() {
+    if (_el) return;
+    _el = document.createElement('div');
+    _el.style.cssText = (
+      'position:fixed;display:none;background:#0f172a;color:#e2e8f0;'
+      + 'font-size:.72rem;line-height:1.55;padding:7px 11px;border-radius:7px;'
+      + 'box-shadow:0 6px 20px rgba(0,0,0,.35),0 0 0 1px rgba(99,102,241,.25);'
+      + 'z-index:9999;pointer-events:none;max-width:260px;white-space:normal;'
+    );
+    document.body.appendChild(_el);
+  }
+  return {
+    show: function(html, x, y) {
+      _init();
+      _el.innerHTML = html;
+      _el.style.display = 'block';
+      _el.style.left = Math.min(x + 14, window.innerWidth - 280) + 'px';
+      _el.style.top  = Math.max(y - 40, 4) + 'px';
+    },
+    hide: function() { if (_el) _el.style.display = 'none'; }
+  };
+})();
+
+var _AXIS_TIPS = {
+  'Rubric aspect': 'Evaluation criterion in the rubric (e.g. Accuracy, Clarity). Each response is scored on each aspect.',
+  'Teacher model': 'LLM that generated the evaluation datapoints (Phase 3 — Data Generation).',
+  'Student model': 'LLM whose responses are being evaluated (Phase 4 — Response Collection).',
+  'Judge model': 'LLM that scores student responses against rubric criteria (Phase 5 — Evaluation).',
+  'Task': 'Evaluation task defined in the experiment configuration.',
+  'Model': 'Model identifier. Role (teacher / student / judge) depends on context.',
+  'Datapoints generated': 'Number of evaluation prompts produced in Phase 3.',
+  'Responses collected': 'Number of student model responses collected in Phase 4.',
+  'Valid evaluations': 'Number of successful judge-produced evaluations in Phase 5.',
+  'Mean normalised score (0–1)': 'Average score normalised: Low = 0, Medium = 0.5, High = 1.',
+  'Mean score (Low=0, Med=0.5, High=1)': 'Average normalised score across evaluations.',
+  'Fraction of evaluations': 'Fraction of all evaluations in this group.',
+  'Fraction High': 'Fraction of evaluations scored High.',
+  'Fraction Medium': 'Fraction of evaluations scored Medium.',
+  'Fraction Low': 'Fraction of evaluations scored Low.',
+  'Score': 'Normalised evaluation score in [0, 1].',
+  'Normalised score (0–1)': 'Score normalised to [0, 1]: Low = 0, Medium = 0.5, High = 1.',
+  'High': 'Highest score level (normalised = 1.0).',
+  'Medium': 'Middle score level (normalised = 0.5).',
+  'Low': 'Lowest score level (normalised = 0.0).',
+};
+
+function _buildTipMap(extra) {
+  var m = {};
+  var tips = (typeof DATA !== 'undefined') ? (DATA.tips || {}) : {};
+  var asp = tips.aspects || {}, tsk = tips.tasks || {}, att = tips.attrs || {};
+  Object.keys(asp).forEach(function(k) { m[k] = asp[k]; });
+  Object.keys(tsk).forEach(function(k) { m[k] = tsk[k]; });
+  Object.keys(att).forEach(function(k) {
+    m[k] = att[k];
+    var eq = k.indexOf('=');
+    if (eq >= 0) { var v = k.slice(eq+1); if (v && !m[v]) m[v] = att[k]; }
+  });
+  Object.keys(_AXIS_TIPS).forEach(function(k) { m[k] = _AXIS_TIPS[k]; });
+  if (extra) Object.keys(extra).forEach(function(k) { m[k] = extra[k]; });
+  return m;
+}
+
+function _bindFt(el, raw) {
+  if (!el || !raw) return;
+  el.style.cursor = 'help';
+  var html = String(raw).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  function _mv(ev) { _ft.show(html, ev.clientX, ev.clientY); }
+  el.addEventListener('mouseenter', function(e) {
+    _ft.show(html, e.clientX, e.clientY);
+    el.addEventListener('mousemove', _mv);
+  });
+  el.addEventListener('mouseleave', function() {
+    _ft.hide();
+    el.removeEventListener('mousemove', _mv);
+  });
+}
+
+function _addPlotTooltips(divId, extra) {
+  var cont = document.getElementById(divId);
+  if (!cont) return;
+  var tipMap = _buildTipMap(extra || {});
+  function _run() {
+    ['.xtick text','.ytick text','.legendtext','.g-xtitle text','.g-ytitle text'].forEach(function(sel) {
+      cont.querySelectorAll(sel).forEach(function(el) {
+        var t = (el.textContent || '').trim();
+        if (t && tipMap[t]) _bindFt(el, tipMap[t]);
+      });
+    });
+  }
+  setTimeout(_run, 350);
+}
+
+// ---- Filter popup state & helpers ----
+var _stackFilters = {};
+
+function _syncFilterPopup(prefix, dim, allVals) {
+  var state = _stackFilters[prefix];
+  if (!state || state.dim !== dim) {
+    state = { dim: dim, vals: {} };
+    allVals.forEach(function(v) { state.vals[v] = true; });
+    _stackFilters[prefix] = state;
+  } else {
+    allVals.forEach(function(v) { if (!(v in state.vals)) state.vals[v] = true; });
+    Object.keys(state.vals).forEach(function(v) { if (allVals.indexOf(v) < 0) delete state.vals[v]; });
+  }
+  var el = document.getElementById(prefix + '-filter-checks');
+  if (!el) return;
+  el.innerHTML = '';
+  allVals.forEach(function(v) {
+    var lbl = document.createElement('label');
+    var cb = document.createElement('input');
+    cb.type = 'checkbox'; cb.value = v; cb.checked = !!state.vals[v];
+    (function(val) { cb.addEventListener('change', function() { state.vals[val] = cb.checked; }); })(v);
+    lbl.appendChild(cb);
+    lbl.appendChild(document.createTextNode(' ' + (v === '(none)' ? '(unset)' : v)));
+    el.appendChild(lbl);
+  });
+}
+
+function _getFilteredVals(prefix, dim, allVals) {
+  var state = _stackFilters[prefix];
+  if (!state || state.dim !== dim) return allVals;
+  return allVals.filter(function(v) { return !!state.vals[v]; });
+}
+
+function _toggleFilterPopup(prefix) {
+  var popup = document.getElementById(prefix + '-filter-popup');
+  var btn   = document.getElementById(prefix + '-filter-btn');
+  if (!popup || !btn) return;
+  var open = popup.classList.contains('open');
+  document.querySelectorAll('.fc-popup.open').forEach(function(el) { el.classList.remove('open'); });
+  document.querySelectorAll('.fc-popup-btn.open').forEach(function(el) { el.classList.remove('open'); });
+  if (!open) { popup.classList.add('open'); btn.classList.add('open'); }
+}
+
+function _applyFilter(prefix, renderFn) {
+  var p = document.getElementById(prefix + '-filter-popup');
+  var b = document.getElementById(prefix + '-filter-btn');
+  if (p) p.classList.remove('open');
+  if (b) b.classList.remove('open');
+  if (typeof renderFn === 'function') renderFn();
+}
+
+function _clearFilter(prefix, renderFn) {
+  var state = _stackFilters[prefix];
+  if (state) Object.keys(state.vals).forEach(function(v) { state.vals[v] = true; });
+  _applyFilter(prefix, renderFn);
+}
+
+// Close popups on outside click
+document.addEventListener('click', function(e) {
+  if (!e.target || !e.target.closest || !e.target.closest('.fc-popup-wrap')) {
+    document.querySelectorAll('.fc-popup.open').forEach(function(el) { el.classList.remove('open'); });
+    document.querySelectorAll('.fc-popup-btn.open').forEach(function(el) { el.classList.remove('open'); });
+  }
+});
+
+// -----------------------------------------------------------------------
+// Shared colour palette
+// -----------------------------------------------------------------------
+var _PALETTE = [
+  '#3b82f6','#22c55e','#f59e0b','#ef4444','#8b5cf6',
+  '#06b6d4','#ec4899','#84cc16','#f97316','#14b8a6',
+  '#6366f1','#a3e635','#fb923c','#38bdf8','#e879f9',
+  '#4ade80','#fbbf24','#f43f5e','#34d399','#818cf8',
+];
+function _colour(i) { return _PALETTE[i % _PALETTE.length]; }
+
+function escHtml(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')
+         .replace(/"/g,'&quot;');
+}
+
+function _dimLabel(dim) {
+  return (DATA.dim_labels || {})[dim] || dim.replace(/_/g,' ').replace(/\b\w/g,function(c){return c.toUpperCase();});
+}
+
+// -----------------------------------------------------------------------
+// Populate stack-by and group-by dropdowns
+// -----------------------------------------------------------------------
+function _populateDimSelect(selectId, dims) {
+  var sel = document.getElementById(selectId);
+  if (!sel) return;
+  sel.innerHTML = '';
+  dims.forEach(function(dim) {
+    var opt = document.createElement('option');
+    opt.value = dim;
+    opt.textContent = _dimLabel(dim);
+    sel.appendChild(opt);
+  });
+}
+
+function _populateGroupSelect(selectId, dims) {
+  var sel = document.getElementById(selectId);
+  if (!sel) return;
+  sel.innerHTML = '';
+  var modelOpt = document.createElement('option');
+  modelOpt.value = 'model'; modelOpt.textContent = 'Model (default)';
+  sel.appendChild(modelOpt);
+  dims.forEach(function(dim) {
+    var opt = document.createElement('option');
+    opt.value = dim; opt.textContent = _dimLabel(dim);
+    sel.appendChild(opt);
+  });
+}
+
+// When group-by changes, enable/disable stack-sel and filter button
+function _onGroupChange(prefix, renderFn) {
+  var groupSel = document.getElementById(prefix + '-group-sel');
+  var stackSel = document.getElementById(prefix + '-stack-sel');
+  var filterBtn = document.getElementById(prefix + '-filter-btn');
+  var groupDim = groupSel ? groupSel.value : 'model';
+  if (stackSel) stackSel.disabled = (groupDim !== 'model');
+  if (filterBtn) filterBtn.disabled = (groupDim !== 'model');
+  renderFn();
+}
+
+// -----------------------------------------------------------------------
+// Core stacked-bar renderer
+// params:
+//   divId      : DOM id
+//   models     : array of model names
+//   stacks     : DATA.teacher_stacks etc  → {dim: {model: {value: count}}}
+//   stackDim   : selected stacking dimension string
+//   yLabel     : y-axis label
+//   groupDim   : 'model' (default) or a dimension name
+//   filterPrefix: prefix for filter state ('teacher'/'student'/'judge')
+// -----------------------------------------------------------------------
+function _renderStackedBar(divId, models, stacks, stackDim, yLabel, groupDim, filterPrefix) {
+  groupDim = groupDim || 'model';
+
+  if (!models || models.length === 0) {
+    document.getElementById(divId).innerHTML =
+      '<p style="color:#94a3b8;padding:20px">No data available.</p>';
+    return;
+  }
+
+  if (groupDim === 'model') {
+    // ---- Current mode: models on x-axis, stacked by stackDim ----
+    var dimData = stacks[stackDim] || {};
+
+    var allValSet = {};
+    models.forEach(function(m) {
+      Object.keys(dimData[m] || {}).forEach(function(v) { allValSet[v] = true; });
+    });
+    var allValues = Object.keys(allValSet).sort();
+
+    if (!allValues.length) {
+      document.getElementById(divId).innerHTML =
+        '<p style="color:#94a3b8;padding:20px">No stacking data for this dimension.</p>';
+      return;
+    }
+
+    // Sync filter popup
+    if (filterPrefix) _syncFilterPopup(filterPrefix, stackDim, allValues);
+    var values = filterPrefix ? _getFilteredVals(filterPrefix, stackDim, allValues) : allValues;
+
+    var traces = values.map(function(val, i) {
+      var traceName = val === '(none)' ? '(unset)' : val;
+      var y = models.map(function(m) { return (dimData[m] || {})[val] || 0; });
+      return {
+        type: 'bar', name: traceName, x: models, y: y,
+        marker: { color: _colour(i) },
+        hovertemplate: '<b>' + escHtml(traceName) + '</b><br>Model: %{x}<br>Count: %{y}<extra></extra>',
+      };
+    });
+
+    var heightPx = Math.max(340, models.length * 36 + 140);
+    Plotly.newPlot(divId, traces, {
+      barmode: 'stack',
+      xaxis: { title: 'Model', tickangle: models.length > 5 ? -35 : 0, automargin: true },
+      yaxis: { title: yLabel, rangemode: 'tozero', gridcolor: '#f1f5f9' },
+      legend: {
+        orientation: values.length > 8 ? 'v' : 'h',
+        y: values.length > 8 ? 0.5 : -0.28,
+        x: values.length > 8 ? 1.02 : 0.5,
+        xanchor: values.length > 8 ? 'left' : 'center',
+        font: { size: 11 },
+      },
+      margin: { t: 20, b: values.length > 8 ? 80 : 120, l: 60, r: values.length > 8 ? 180 : 40 },
+      height: heightPx, paper_bgcolor: '#fff', plot_bgcolor: '#f8fafc',
+    }, { responsive: true });
+
+  } else {
+    // ---- Group-by mode: groupDim values on x-axis, models as traces ----
+    var gDimData = stacks[groupDim] || {};
+    var xSet = {};
+    models.forEach(function(m) {
+      Object.keys(gDimData[m] || {}).forEach(function(v) { xSet[v] = true; });
+    });
+    var xVals = Object.keys(xSet).sort();
+
+    if (!xVals.length) {
+      document.getElementById(divId).innerHTML =
+        '<p style="color:#94a3b8;padding:20px">No data for this dimension.</p>';
+      return;
+    }
+
+    var traces = models.map(function(m, mi) {
+      return {
+        type: 'bar', name: m,
+        x: xVals,
+        y: xVals.map(function(v) { return (gDimData[m] || {})[v] || 0; }),
+        marker: { color: _colour(mi) },
+        hovertemplate: '<b>%{x}</b><br>Model: ' + escHtml(m) + '<br>Count: %{y}<extra></extra>',
+      };
+    });
+
+    var heightPx = Math.max(340, xVals.length * 36 + 140);
+    Plotly.newPlot(divId, traces, {
+      barmode: 'group',
+      xaxis: { title: _dimLabel(groupDim), tickangle: xVals.length > 5 ? -35 : 0, automargin: true },
+      yaxis: { title: yLabel, rangemode: 'tozero', gridcolor: '#f1f5f9' },
+      legend: { orientation: 'h', y: -0.28, x: 0.5, xanchor: 'center', font: { size: 11 } },
+      margin: { t: 20, b: 120, l: 60, r: 40 },
+      height: heightPx, paper_bgcolor: '#fff', plot_bgcolor: '#f8fafc',
+    }, { responsive: true });
+  }
+
+  _addPlotTooltips(divId);
+}
+
+// -----------------------------------------------------------------------
+// Render functions
+// -----------------------------------------------------------------------
+function renderTeacherCoverage() {
+  var stackDim = document.getElementById('teacher-stack-sel').value || 'task';
+  var groupDim = (document.getElementById('teacher-group-sel') || {}).value || 'model';
+  _renderStackedBar('teacher-coverage-chart', DATA.teachers,
+    DATA.teacher_stacks, stackDim, 'Datapoints generated', groupDim, 'teacher');
+}
+
+function renderStudentCoverage() {
+  var stackDim = document.getElementById('student-stack-sel').value || 'task';
+  var groupDim = (document.getElementById('student-group-sel') || {}).value || 'model';
+  _renderStackedBar('student-coverage-chart', DATA.students,
+    DATA.student_stacks, stackDim, 'Responses collected', groupDim, 'student');
+}
+
+function renderJudgeCoverage() {
+  var stackDim = document.getElementById('judge-stack-sel').value || 'task';
+  var groupDim = (document.getElementById('judge-group-sel') || {}).value || 'model';
+  _renderStackedBar('judge-coverage-chart', DATA.judges,
+    DATA.judge_stacks, stackDim, 'Valid evaluations', groupDim, 'judge');
+}
+
+// -----------------------------------------------------------------------
+// Overview: stat cards + phase timeline
+// -----------------------------------------------------------------------
+function renderMeta() {
+  var m = DATA.meta_panel;
+  var validPct = m.total_evals > 0
+    ? Math.round(m.valid_evals / m.total_evals * 100) : 100;
+  var statClass = validPct === 100 ? 'good' : (validPct >= 90 ? 'warn' : 'bad');
+
+  var stats = [
+    { val: m.tasks,        lbl: 'Tasks',       cls: '' },
+    { val: m.teachers,     lbl: 'Teachers',    cls: '' },
+    { val: m.students,     lbl: 'Students',    cls: '' },
+    { val: m.judges,       lbl: 'Judges',      cls: '' },
+    { val: m.datapoints,   lbl: 'Datapoints',  cls: '' },
+    { val: m.total_evals,  lbl: 'Total Evals', cls: '' },
+    { val: m.valid_evals,  lbl: 'Valid Evals', cls: statClass },
+    { val: validPct + '%', lbl: 'Coverage',    cls: statClass },
+  ];
+
+  var gridHtml = '<div class="stat-grid">';
+  stats.forEach(function(s) {
+    gridHtml += '<div class="stat-card ' + s.cls + '">'
+              + '<div class="stat-val">' + s.val + '</div>'
+              + '<div class="stat-lbl">' + s.lbl + '</div>'
+              + '</div>';
+  });
+  gridHtml += '</div>';
+  document.getElementById('stat-grid-container').innerHTML = gridHtml;
+
+  var allPhases = [
+    'attribute_mapping','rubric_mapping','data_generation',
+    'response_collection','evaluation'
+  ];
+  var phaseLabels = {
+    attribute_mapping:   'Attr Mapping',
+    rubric_mapping:      'Rubric Mapping',
+    data_generation:     'Data Gen',
+    response_collection: 'Resp Collection',
+    evaluation:          'Evaluation'
+  };
+  var completed  = new Set(m.phases_completed  || []);
+  var inProgress = new Set(m.phases_in_progress || []);
+
+  var tlHtml = '<div class="phase-timeline">';
+  allPhases.forEach(function(ph) {
+    var cls  = completed.has(ph) ? 'done' : (inProgress.has(ph) ? 'running' : 'pending');
+    var icon = completed.has(ph) ? '✓'    : (inProgress.has(ph) ? '…'       : '○');
+    tlHtml += '<span class="phase-badge ' + cls + '">'
+            + '<span class="ph-dot"></span>'
+            + icon + ' ' + (phaseLabels[ph] || ph)
+            + '</span>';
+  });
+  tlHtml += '</div>';
+  document.getElementById('phase-timeline-container').innerHTML = tlHtml;
+}
+
+// -----------------------------------------------------------------------
+// Main entry
+// -----------------------------------------------------------------------
+function renderAll() {
+  renderMeta();
+
+  _populateDimSelect('teacher-stack-sel', DATA.teacher_dims || ['task']);
+  _populateDimSelect('student-stack-sel', DATA.student_dims || ['task']);
+  _populateDimSelect('judge-stack-sel',   DATA.judge_dims   || ['task']);
+
+  _populateGroupSelect('teacher-group-sel', DATA.teacher_dims || ['task']);
+  _populateGroupSelect('student-group-sel', DATA.student_dims || ['task']);
+  _populateGroupSelect('judge-group-sel',   DATA.judge_dims   || ['task']);
+
+  renderTeacherCoverage();
+  renderStudentCoverage();
+  renderJudgeCoverage();
+}
+
+document.addEventListener('DOMContentLoaded', renderAll);
+
+</script>
+</body>
+</html>

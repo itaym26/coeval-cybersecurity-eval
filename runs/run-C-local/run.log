@@ -1,0 +1,889 @@
+2026-06-23T07:24:32Z [INFO] Experiment cybersecurity-run-C-large started
+2026-06-23T07:24:32Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-23T07:24:32Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-23T07:24:32Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-23T07:24:36Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-23T07:24:36Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-23T07:24:39Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-23T07:24:39Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-23T07:24:41Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-23T07:24:41Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-23T07:24:43Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-23T07:24:43Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-23T07:24:46Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-23T07:24:46Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-23T07:24:48Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-23T07:24:48Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-23T07:24:50Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-23T07:24:50Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-23T07:24:50Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-23T07:24:50Z [INFO] Phase 'attribute_mapping' starting (mode=New)
+2026-06-23T07:24:50Z [INFO] Phase 1: task 'cybersecurity' target_attributes — static map, writing directly
+2026-06-23T07:24:50Z [INFO] Phase 1: task 'cybersecurity' nuanced_attributes — static map, writing directly
+2026-06-23T07:24:50Z [INFO] Phase 'attribute_mapping' completed
+2026-06-23T07:24:50Z [INFO] Phase 'rubric_mapping' starting (mode=New)
+2026-06-23T07:24:50Z [INFO] Phase 2: task 'cybersecurity' rubric — static map, writing directly
+2026-06-23T07:24:50Z [INFO] Phase 'rubric_mapping' completed
+2026-06-23T07:24:50Z [INFO] Phase 'data_generation' starting (mode=New)
+2026-06-23T07:24:51Z [INFO] Phase 3: (task='cybersecurity', teacher='mistral-7b') — generating 20 datapoints
+2026-06-23T07:24:51Z [INFO] Phase 3: (task='cybersecurity', teacher='qwen2.5-3b') — generating 20 datapoints
+2026-06-23T07:24:51Z [INFO] Phase 3: (task='cybersecurity', teacher='phi3') — generating 20 datapoints
+2026-06-23T07:24:51Z [INFO] Phase 3: (task='cybersecurity', teacher='qwen2.5-7b') — generating 20 datapoints
+2026-06-23T07:24:51Z [INFO] Phase 3: (task='cybersecurity', teacher='gemma2-2b') — generating 20 datapoints
+2026-06-23T07:24:51Z [INFO] Phase 3: (task='cybersecurity', teacher='llama3-8b') — generating 20 datapoints
+2026-06-23T07:24:51Z [INFO] Phase 3: (task='cybersecurity', teacher='gemma2-9b') — generating 20 datapoints
+2026-06-23T07:56:04Z [WARNING] Phase 3: (task='cybersecurity', teacher='llama3-8b') datapoint 5 attempt 1/3 failed (JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)), retrying
+2026-06-23T08:40:11Z [INFO] Phase 3: (task='cybersecurity', teacher='qwen2.5-7b') — done, 20 total datapoints in file
+2026-06-23T08:41:04Z [INFO] Phase 3: (task='cybersecurity', teacher='gemma2-9b') — done, 20 total datapoints in file
+2026-06-23T08:42:42Z [INFO] Phase 3: (task='cybersecurity', teacher='mistral-7b') — done, 20 total datapoints in file
+2026-06-23T08:46:33Z [INFO] Phase 3: (task='cybersecurity', teacher='qwen2.5-3b') — done, 20 total datapoints in file
+2026-06-23T08:47:44Z [INFO] Phase 3: (task='cybersecurity', teacher='phi3') — done, 20 total datapoints in file
+2026-06-23T08:50:43Z [INFO] Phase 3: (task='cybersecurity', teacher='gemma2-2b') — done, 20 total datapoints in file
+2026-06-23T08:51:19Z [INFO] Phase 3: (task='cybersecurity', teacher='llama3-8b') — done, 20 total datapoints in file
+2026-06-23T08:51:19Z [INFO] Phase 'data_generation' completed
+2026-06-23T08:51:19Z [INFO] Phase 'response_collection' starting (mode=New)
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='llama3-8b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-2b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-9b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-7b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='phi3') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-2b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='mistral-7b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='llama3-8b') — collecting 20 responses
+2026-06-23T08:51:19Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-9b') — collecting 20 responses
+2026-06-23T09:10:00Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='llama3-8b') — done
+2026-06-23T09:10:00Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T09:10:21Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='llama3-8b') — done
+2026-06-23T09:10:21Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='qwen2.5-7b') — collecting 20 responses
+2026-06-23T10:34:36Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='phi3') — done
+2026-06-23T10:34:36Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='phi3') — collecting 20 responses
+2026-06-23T10:39:25Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='qwen2.5-3b') — done
+2026-06-23T10:39:25Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='mistral-7b') — collecting 20 responses
+2026-06-23T10:39:55Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='qwen2.5-7b') — done
+2026-06-23T10:39:55Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='llama3-8b') — collecting 20 responses
+2026-06-23T10:40:45Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-2b') — done
+2026-06-23T10:40:45Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-2b') — collecting 20 responses
+2026-06-23T10:41:33Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='mistral-7b') — done
+2026-06-23T10:41:33Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-9b') — collecting 20 responses
+2026-06-23T10:42:24Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-9b') — done
+2026-06-23T10:42:24Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T10:42:24Z [ERROR] Phase 4: response collection failed for (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-3b'): [Errno 22] Invalid argument
+2026-06-23T10:42:24Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-7b') — collecting 20 responses
+2026-06-23T10:42:38Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-2b') — done
+2026-06-23T10:42:38Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='phi3') — collecting 20 responses
+2026-06-23T10:43:11Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-3b') — done
+2026-06-23T10:43:11Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='mistral-7b') — collecting 20 responses
+2026-06-23T10:44:06Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-7b') — done
+2026-06-23T10:44:06Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='llama3-8b') — collecting 20 responses
+2026-06-23T10:45:00Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-9b') — done
+2026-06-23T10:45:00Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-2b') — collecting 20 responses
+2026-06-23T12:14:37Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-23T12:14:37Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-23T12:14:37Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-23T12:14:37Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-23T12:14:43Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-23T12:14:43Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-23T12:14:45Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-23T12:14:45Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-23T12:14:48Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-23T12:14:48Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-23T12:14:50Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-23T12:14:50Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-23T12:14:53Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-23T12:14:53Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-23T12:14:55Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-23T12:14:55Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-23T12:14:57Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-23T12:14:57Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-23T12:14:57Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-23T12:14:57Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'rubric_mapping']
+2026-06-23T12:14:57Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-23T12:14:57Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-23T12:14:57Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-23T12:14:57Z [INFO] Phase 'response_collection' starting (mode=Extend)
+2026-06-23T12:14:57Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-2b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:57Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='llama3-8b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:57Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-9b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-3b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-7b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='phi3') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='mistral-7b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='llama3-8b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-9b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-2b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-3b') — Extend mode, 20 remaining datapoints
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='qwen2.5-3b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='llama3-8b') — Extend mode, 18 remaining datapoints
+
+sponded, skipping
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='phi3') — Extend mode, 17 remaining datapoints
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-2b') — Extend mode, 18 remaining datapoints
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-7b') — Extend mode, 18 remaining datapoints
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='phi3') — Extend mode, 19 remaining datapoints
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-9b') — Extend mode, 18 remaining datapoints
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='mistral-7b') — Extend mode, 19 remaining datapoints
+2026-06-23T12:14:58Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='llama3-8b') — Extend mode, 19 remaining datapoints
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='phi3') — collecting 19 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-2b') — collecting 18 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='phi3') — collecting 17 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-7b') — collecting 18 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='llama3-8b') — collecting 19 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='llama3-8b') — collecting 18 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='mistral-7b') — collecting 19 responses
+2026-06-23T12:14:59Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='mistral-7b') — collecting 18 responses
+2026-06-23T12:15:00Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-9b') — collecting 18 responses
+2026-06-23T12:30:16Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='phi3') — done
+2026-06-23T12:30:16Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-2b') — Extend mode, 19 remaining datapoints
+2026-06-23T12:30:16Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-2b') — collecting 19 responses
+2026-06-23T12:59:37Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='mistral-7b') — done
+2026-06-23T12:59:38Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-9b') — Extend mode, 20 remaining datapoints
+2026-06-23T12:59:38Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-9b') — collecting 20 responses
+2026-06-23T13:00:30Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='mistral-7b') — done
+2026-06-23T13:00:30Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-3b') — Extend mode, 20 remaining datapoints
+2026-06-23T13:00:30Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T13:07:21Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='phi3') — done
+2026-06-23T13:07:21Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T13:07:21Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-7b') — collecting 20 responses
+2026-06-23T13:49:50Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-23T13:49:50Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-23T13:49:50Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-23T13:49:50Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-23T13:49:57Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-23T13:49:57Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-23T13:50:00Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-23T13:50:00Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-23T13:50:03Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-23T13:50:03Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-23T13:50:05Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-23T13:50:05Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-23T13:50:08Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-23T13:50:08Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-23T13:50:11Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-23T13:50:11Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-23T13:50:13Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-23T13:50:13Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-23T13:50:13Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-23T13:50:13Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'rubric_mapping']
+2026-06-23T13:50:13Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-23T13:50:13Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-23T13:50:13Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-23T13:50:13Z [INFO] Phase 'response_collection' starting (mode=Extend)
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-2b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='gemma2-9b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-3b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='llama3-8b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='qwen2.5-7b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='phi3') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-2b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='llama3-8b', student='mistral-7b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='qwen2.5-7b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='llama3-8b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='gemma2-9b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='phi3') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='qwen2.5-3b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='llama3-8b') — Extend mode, 16 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-2b', student='mistral-7b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-2b') — Extend mode, 16 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-9b') — Extend mode, 16 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-7b') — Extend mode, 3 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='mistral-7b') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-3b') — Extend mode, 18 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-9b') — Extend mode, 18 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='llama3-8b') — Extend mode, 18 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='phi3') — Extend mode, all datapoints already responded, skipping
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-2b') — Extend mode, 17 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-3b') — Extend mode, 18 remaining datapoints
+2026-06-23T13:50:13Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-7b') — Extend mode, 7 remaining datapoints
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='llama3-8b') — collecting 16 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-7b') — collecting 7 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-2b') — collecting 17 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-2b') — collecting 16 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='llama3-8b') — collecting 18 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-9b') — collecting 18 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-3b') — collecting 18 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-3b') — collecting 18 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-7b') — collecting 3 responses
+2026-06-23T13:50:15Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-9b') — collecting 16 responses
+2026-06-23T13:59:57Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-2b') — done
+2026-06-23T13:59:57Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='phi3') — Extend mode, 20 remaining datapoints
+2026-06-23T13:59:58Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='phi3') — collecting 20 responses
+2026-06-23T14:00:08Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-2b') — done
+2026-06-23T14:00:08Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='mistral-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T14:00:09Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='mistral-7b') — collecting 20 responses
+2026-06-23T14:26:24Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='llama3-8b') — done
+2026-06-23T14:26:24Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='llama3-8b') — Extend mode, 20 remaining datapoints
+2026-06-23T14:26:24Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='llama3-8b') — collecting 20 responses
+2026-06-23T14:28:08Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='llama3-8b') — done
+2026-06-23T14:28:08Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='gemma2-2b') — Extend mode, 20 remaining datapoints
+2026-06-23T14:28:08Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='gemma2-2b') — collecting 20 responses
+2026-06-23T14:32:53Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-7b') — done
+2026-06-23T14:32:53Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='gemma2-9b') — Extend mode, 20 remaining datapoints
+2026-06-23T14:32:53Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='gemma2-9b') — collecting 20 responses
+2026-06-23T15:04:45Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='gemma2-9b') — done
+2026-06-23T15:04:45Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='qwen2.5-3b') — Extend mode, 20 remaining datapoints
+2026-06-23T15:04:45Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T15:10:24Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='gemma2-9b') — done
+2026-06-23T15:10:25Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='qwen2.5-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T15:10:25Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='qwen2.5-7b') — collecting 20 responses
+2026-06-23T15:10:55Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='gemma2-9b') — done
+2026-06-23T15:10:55Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='phi3') — Extend mode, 20 remaining datapoints
+2026-06-23T15:10:55Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='phi3') — collecting 20 responses
+2026-06-23T15:35:33Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='phi3') — done
+2026-06-23T15:35:33Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='mistral-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T15:35:33Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='mistral-7b') — collecting 20 responses
+2026-06-23T15:40:46Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='phi3') — done
+2026-06-23T15:40:46Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='llama3-8b') — Extend mode, 20 remaining datapoints
+2026-06-23T15:40:46Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='llama3-8b') — collecting 20 responses
+2026-06-23T16:01:32Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='llama3-8b') — done
+2026-06-23T16:01:32Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='gemma2-2b') — Extend mode, 20 remaining datapoints
+2026-06-23T16:01:32Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='gemma2-2b') — collecting 20 responses
+2026-06-23T16:05:56Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-7b') — done
+2026-06-23T16:05:56Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='gemma2-9b') — Extend mode, 20 remaining datapoints
+2026-06-23T16:05:56Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='gemma2-9b') — collecting 20 responses
+2026-06-23T16:22:03Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='llama3-8b') — done
+2026-06-23T16:22:03Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='qwen2.5-3b') — Extend mode, 20 remaining datapoints
+2026-06-23T16:22:03Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T16:30:35Z [INFO] Phase 4: (task='cybersecurity', teacher='gemma2-9b', student='qwen2.5-3b') — done
+2026-06-23T16:30:35Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='qwen2.5-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T16:30:35Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='qwen2.5-7b') — collecting 20 responses
+2026-06-23T17:04:54Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='qwen2.5-3b') — done
+2026-06-23T17:04:54Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='phi3') — Extend mode, 20 remaining datapoints
+2026-06-23T17:04:54Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='phi3') — collecting 20 responses
+2026-06-23T17:24:15Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-3b', student='mistral-7b') — done
+2026-06-23T17:24:15Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='mistral-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T17:24:15Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='mistral-7b') — collecting 20 responses
+2026-06-23T17:24:29Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='gemma2-2b') — done
+2026-06-23T17:24:29Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='llama3-8b') — Extend mode, 20 remaining datapoints
+2026-06-23T17:24:29Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='llama3-8b') — collecting 20 responses
+2026-06-23T17:27:44Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='qwen2.5-3b') — done
+2026-06-23T17:27:44Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='gemma2-2b') — Extend mode, 20 remaining datapoints
+2026-06-23T17:27:44Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='gemma2-2b') — collecting 20 responses
+2026-06-23T17:34:21Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='qwen2.5-3b') — done
+2026-06-23T17:34:21Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='gemma2-9b') — Extend mode, 20 remaining datapoints
+2026-06-23T17:34:21Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='gemma2-9b') — collecting 20 responses
+2026-06-23T17:36:58Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='mistral-7b') — done
+2026-06-23T17:36:58Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='qwen2.5-3b') — Extend mode, 20 remaining datapoints
+2026-06-23T17:36:58Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='qwen2.5-3b') — collecting 20 responses
+2026-06-23T17:41:35Z [INFO] Phase 4: (task='cybersecurity', teacher='qwen2.5-7b', student='qwen2.5-7b') — done
+2026-06-23T17:41:35Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='qwen2.5-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T17:41:35Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='qwen2.5-7b') — collecting 20 responses
+2026-06-23T17:50:49Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='gemma2-2b') — done
+2026-06-23T17:50:49Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='phi3') — Extend mode, 20 remaining datapoints
+2026-06-23T17:50:49Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='phi3') — collecting 20 responses
+2026-06-23T18:05:10Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='phi3') — done
+2026-06-23T18:05:10Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='mistral-7b') — Extend mode, 20 remaining datapoints
+2026-06-23T18:05:10Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='mistral-7b') — collecting 20 responses
+2026-06-23T18:06:34Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='gemma2-9b') — done
+2026-06-23T18:28:04Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='mistral-7b') — done
+2026-06-23T18:44:04Z [INFO] Phase 4: (task='cybersecurity', teacher='phi3', student='qwen2.5-7b') — done
+2026-06-23T18:50:17Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='mistral-7b') — done
+2026-06-23T18:57:24Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='phi3') — done
+2026-06-23T19:16:24Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='llama3-8b') — done
+2026-06-23T19:16:52Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='gemma2-2b') — done
+2026-06-23T19:20:03Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='gemma2-9b') — done
+2026-06-23T19:20:23Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='qwen2.5-3b') — done
+2026-06-23T19:20:55Z [INFO] Phase 4: (task='cybersecurity', teacher='mistral-7b', student='qwen2.5-7b') — done
+2026-06-23T19:20:55Z [INFO] Phase 'response_collection' completed
+2026-06-23T19:20:55Z [INFO] Phase 'evaluation' starting (mode=Extend)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-23T19:20:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:07Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-24T03:56:07Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-24T03:56:07Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-24T03:56:07Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-24T03:56:14Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-24T03:56:14Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-24T03:56:16Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-24T03:56:16Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-24T03:56:19Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-24T03:56:19Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-24T03:56:21Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-24T03:56:21Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-24T03:56:24Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-24T03:56:24Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-24T03:56:26Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-24T03:56:26Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-24T03:56:29Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-24T03:56:29Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-24T03:56:29Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-24T03:56:29Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'response_collection', 'rubric_mapping']
+2026-06-24T03:56:29Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-24T03:56:29Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-24T03:56:29Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-24T03:56:29Z [INFO] Phase 'response_collection' already completed, skipping
+2026-06-24T03:56:29Z [INFO] Phase 'evaluation' starting (mode=Extend)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — Extend mode, 98 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — Extend mode, 94 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T03:56:32Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T05:26:57Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00006__llama3-8b' (judge='llama3-8b'): Request timed out.
+2026-06-24T05:26:58Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00006__llama3-8b' (judge='gemma2-2b'): Request timed out.
+2026-06-24T05:26:58Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00006__llama3-8b' (judge='llama3-8b'): Request timed out.
+2026-06-24T05:27:39Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00004__llama3-8b' (judge='phi3'): Request timed out.
+2026-06-24T05:28:48Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00007__llama3-8b' (judge='mistral-7b'): Request timed out.
+2026-06-24T05:29:45Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00008__llama3-8b' (judge='qwen2.5-7b'): Request timed out.
+2026-06-24T05:30:08Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00007__llama3-8b' (judge='qwen2.5-3b'): Request timed out.
+2026-06-24T05:30:28Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00007__llama3-8b' (judge='gemma2-2b'): Request timed out.
+2026-06-24T06:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — done
+2026-06-24T06:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T06:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T06:11:43Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — done
+2026-06-24T06:11:43Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T06:11:43Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T06:58:04Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00005__llama3-8b' (judge='phi3'): Request timed out.
+2026-06-24T06:59:14Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00008__llama3-8b' (judge='mistral-7b'): Request timed out.
+2026-06-24T07:00:10Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00009__llama3-8b' (judge='qwen2.5-7b'): Request timed out.
+2026-06-24T07:00:34Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00008__llama3-8b' (judge='qwen2.5-3b'): Request timed out.
+2026-06-24T07:00:53Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00008__llama3-8b' (judge='gemma2-2b'): Request timed out.
+2026-06-24T07:10:51Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-24T07:10:51Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-24T07:10:51Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-24T07:10:51Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-24T07:10:56Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-24T07:10:56Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-24T07:10:58Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-24T07:10:58Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-24T07:11:00Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-24T07:11:00Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-24T07:11:02Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-24T07:11:02Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-24T07:11:05Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-24T07:11:05Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-24T07:11:07Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-24T07:11:07Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-24T07:11:09Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-24T07:11:09Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-24T07:11:09Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-24T07:11:09Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'response_collection', 'rubric_mapping']
+2026-06-24T07:11:09Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-24T07:11:09Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-24T07:11:09Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-24T07:11:09Z [INFO] Phase 'response_collection' already completed, skipping
+2026-06-24T07:11:09Z [INFO] Phase 'evaluation' starting (mode=Extend)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — Extend mode, 93 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — Extend mode, 92 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — Extend mode, 95 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — Extend mode, 20 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — Extend mode, 92 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — Extend mode, 92 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — Extend mode, 20 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — Extend mode, 91 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T07:11:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:11:10Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:30Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-24T07:26:30Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-24T07:26:30Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-24T07:26:30Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-24T07:26:37Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-24T07:26:37Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-24T07:26:40Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-24T07:26:40Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-24T07:26:42Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-24T07:26:42Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-24T07:26:45Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-24T07:26:45Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-24T07:26:48Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-24T07:26:48Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-24T07:26:50Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-24T07:26:50Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-24T07:26:53Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-24T07:26:53Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-24T07:26:53Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-24T07:26:53Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'response_collection', 'rubric_mapping']
+2026-06-24T07:26:53Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-24T07:26:53Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-24T07:26:53Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-24T07:26:53Z [INFO] Phase 'response_collection' already completed, skipping
+2026-06-24T07:26:53Z [INFO] Phase 'evaluation' starting (mode=Extend)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — Extend mode, 20 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — Extend mode, 94 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — Extend mode, 89 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — Extend mode, 92 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — Extend mode, 20 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — Extend mode, 91 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — Extend mode, 85 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — Extend mode, 91 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — Extend mode, 139 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:53Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — Extend mode, 139 new response(s) to evaluate (no new rubric factors)
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T07:26:55Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T08:09:44Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — done
+2026-06-24T08:09:44Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T08:09:44Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T08:31:09Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — done
+2026-06-24T08:31:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T08:31:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T08:31:35Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — done
+2026-06-24T08:31:35Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T08:31:35Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T08:31:35Z [ERROR] Phase 5: evaluation failed for (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b'): [Errno 22] Invalid argument
+2026-06-24T08:31:35Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T08:31:35Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T09:03:36Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00018__llama3-8b' (judge='mistral-7b'): Request timed out.
+2026-06-24T09:03:36Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T09:03:38Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T09:04:14Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00009__llama3-8b' (judge='phi3'): Request timed out.
+2026-06-24T09:04:14Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T09:04:14Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T09:05:17Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00015__llama3-8b' (judge='qwen2.5-7b'): Request timed out.
+2026-06-24T09:05:17Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T09:05:17Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T09:23:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — done
+2026-06-24T09:23:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T09:23:56Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T09:24:18Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — done
+2026-06-24T09:24:18Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='mistral-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T09:24:18Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T11:52:12Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00003__gemma2-9b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-24T11:52:12Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T11:52:12Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T14:27:45Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — done
+2026-06-24T14:27:46Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T14:27:46Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T17:13:54Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00001__mistral-7b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-24T17:13:54Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T17:13:54Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T17:25:09Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-2b') — done
+2026-06-24T17:25:09Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T17:25:09Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T17:56:18Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-3b') — done
+2026-06-24T17:56:18Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T17:56:18Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T18:57:02Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00003__gemma2-2b' (judge='gemma2-9b'): Request timed out.
+2026-06-24T18:57:02Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T18:57:02Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T18:57:20Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00004__gemma2-9b' (judge='gemma2-2b'): Request timed out.
+2026-06-24T18:57:20Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='mistral-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T18:57:20Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T18:58:51Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00012__mistral-7b' (judge='mistral-7b'): Request timed out.
+2026-06-24T18:58:52Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T18:58:52Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T18:59:32Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00011__mistral-7b' (judge='gemma2-9b'): Request timed out.
+2026-06-24T18:59:32Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T18:59:32Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T19:18:20Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-7b') — done
+2026-06-24T19:18:20Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-9b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T19:18:20Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-24T19:19:41Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — done
+2026-06-24T19:19:41Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-24T19:19:41Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T01:24:06Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00011__llama3-8b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-25T01:24:06Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T01:24:06Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T02:09:33Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-7b') — done
+2026-06-25T02:09:34Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T02:09:34Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T02:10:59Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='mistral-7b') — done
+2026-06-25T02:10:59Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='mistral-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T02:10:59Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T02:16:58Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-3b') — done
+2026-06-25T02:16:58Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T02:16:58Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T04:55:04Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='llama3-8b') — done
+2026-06-25T04:55:04Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T04:55:04Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-9b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T04:55:04Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T05:36:55Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00010__gemma2-9b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-25T05:36:55Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T05:36:55Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T05:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-3b') — done
+2026-06-25T05:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T05:56:29Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T10:36:33Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='mistral-7b') — done
+2026-06-25T10:36:33Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='phi3') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T10:36:33Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T10:37:47Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-9b') — done
+2026-06-25T10:37:47Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='mistral-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T10:37:47Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T10:38:35Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='llama3-8b') — done
+2026-06-25T10:38:35Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T10:38:35Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T10:38:55Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-2b') — done
+2026-06-25T10:38:55Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T10:38:55Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T18:03:47Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-7b') — done
+2026-06-25T18:03:47Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-9b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T18:03:47Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T18:06:58Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-3b') — done
+2026-06-25T18:06:58Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-3b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T18:06:58Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-3b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T18:44:46Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='mistral-7b') — done
+2026-06-25T18:44:46Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T18:44:46Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T19:06:10Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='llama3-8b') — done
+2026-06-25T19:06:10Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='phi3') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T19:06:10Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T21:56:27Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-9b') — done
+2026-06-25T21:56:27Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='mistral-7b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-25T21:56:27Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-25T22:39:07Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-7b') — done
+2026-06-25T23:32:50Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__phi3__00019__phi3' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T01:51:16Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='mistral-7b') — done
+2026-06-26T01:56:17Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='llama3-8b') — done
+2026-06-26T01:56:33Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-2b') — done
+2026-06-26T05:16:38Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-9b') — done
+2026-06-26T05:16:58Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-3b') — done
+2026-06-26T05:28:35Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-7b') — done
+2026-06-26T05:40:22Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='phi3') — done
+2026-06-26T05:51:25Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='mistral-7b') — done
+2026-06-26T05:51:25Z [ERROR] Phase 'evaluation' failed: [Errno 22] Invalid argument
+2026-06-26T06:45:00Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-26T06:45:00Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-26T06:45:00Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-26T06:45:00Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-26T06:45:05Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-26T06:45:05Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-26T06:45:07Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-26T06:45:07Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-26T06:45:09Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-26T06:45:09Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-26T06:45:12Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-26T06:45:12Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-26T06:45:14Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-26T06:45:14Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-26T06:45:16Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-26T06:45:16Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-26T06:45:19Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-26T06:45:19Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-26T06:45:19Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-26T06:45:19Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'response_collection', 'rubric_mapping']
+2026-06-26T06:45:19Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-26T06:45:19Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-26T06:45:19Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-26T06:45:19Z [INFO] Phase 'response_collection' already completed, skipping
+2026-06-26T06:45:19Z [INFO] Phase 'evaluation' starting (mode=Extend)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — Extend mode, 83 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — Extend mode, 86 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — Extend mode, 92 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — Extend mode, 69 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — Extend mode, 80 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — Extend mode, 70 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — Extend mode, 118 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — Extend mode, 117 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:19Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — Extend mode, 138 new response(s) to evaluate (no new rubric factors)
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T06:45:21Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T07:16:53Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00012__mistral-7b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T07:16:53Z [ERROR] Phase 5: evaluation failed for (task='cybersecurity', teacher='gemma2-2b', judge='phi3'): [Errno 22] Invalid argument
+2026-06-26T07:16:53Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:16:53Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:16:53Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — Extend mode, 90 new response(s) to evaluate (no new rubric factors)
+2026-06-26T07:16:53Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T07:56:16Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00011__mistral-7b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T07:56:16Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:56:16Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:56:16Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:56:16Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:56:16Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:56:16Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T07:56:17Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — Extend mode, 111 new response(s) to evaluate (no new rubric factors)
+2026-06-26T07:56:17Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T08:15:47Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00003__gemma2-2b' (judge='gemma2-9b'): Request timed out.
+2026-06-26T08:15:47Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00004__gemma2-9b' (judge='gemma2-2b'): Request timed out.
+2026-06-26T08:15:47Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00001__gemma2-2b' (judge='llama3-8b'): Request timed out.
+2026-06-26T08:15:47Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00015__llama3-8b' (judge='qwen2.5-7b'): Request timed out.
+2026-06-26T08:15:47Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-2b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-26T08:15:47Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:47Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T08:15:47Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:47Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:47Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='phi3') — Extend mode, 42 new response(s) to evaluate (no new rubric factors)
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:15:48Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T08:17:26Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00013__mistral-7b' (judge='mistral-7b'): Request timed out.
+2026-06-26T08:19:13Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00019__llama3-8b' (judge='mistral-7b'): Request timed out.
+2026-06-26T08:23:24Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00004__phi3' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T08:26:54Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00008__llama3-8b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T08:44:00Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — done
+2026-06-26T08:52:58Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='phi3') — done
+2026-06-26T09:21:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-2b') — done
+2026-06-26T09:21:57Z [ERROR] Phase 'evaluation' failed: [Errno 22] Invalid argument
+2026-06-26T11:46:30Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-26T11:46:30Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-26T11:46:30Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-26T11:46:30Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-26T11:46:36Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-26T11:46:36Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-26T11:46:38Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-26T11:46:38Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-26T11:46:40Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-26T11:46:40Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-26T11:46:43Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-26T11:46:43Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-26T11:46:45Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-26T11:46:45Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-26T11:46:47Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-26T11:46:47Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-26T11:46:50Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-26T11:46:50Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-26T11:46:50Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-26T11:46:50Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'response_collection', 'rubric_mapping']
+2026-06-26T11:46:50Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-26T11:46:50Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-26T11:46:50Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-26T11:46:50Z [INFO] Phase 'response_collection' already completed, skipping
+2026-06-26T11:46:50Z [INFO] Phase 'evaluation' starting (mode=Extend)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — Extend mode, 86 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — Extend mode, 82 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — Extend mode, evaluating 5 new factor(s) across 140 response(s)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — Extend mode, 69 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — Extend mode, 68 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — Extend mode, 70 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — Extend mode, 57 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — Extend mode, 117 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — Extend mode, 138 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T11:46:50Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — Extend mode, 70 new response(s) to evaluate (no new rubric factors)
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:46:52Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T11:56:08Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00014__mistral-7b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T12:44:33Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00007__qwen2.5-3b' (judge='phi3'): 'list' object has no attribute 'get'
+2026-06-26T12:45:02Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00001__qwen2.5-3b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T12:49:05Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00003__qwen2.5-3b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — done
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — Extend mode, 93 new response(s) to evaluate (no new rubric factors)
+2026-06-26T12:58:26Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-26T13:04:24Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00010__llama3-8b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T13:15:24Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00007__qwen2.5-7b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-26T13:17:18Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00015__llama3-8b' (judge='qwen2.5-7b'): Request timed out.
+2026-06-26T13:17:18Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00003__gemma2-2b' (judge='gemma2-9b'): Request timed out.
+2026-06-26T13:17:18Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00004__gemma2-9b' (judge='gemma2-2b'): Request timed out.
+2026-06-26T13:17:18Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00001__gemma2-2b' (judge='llama3-8b'): Request timed out.
+2026-06-26T13:17:19Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00011__mistral-7b' (judge='gemma2-9b'): Request timed out.
+2026-06-26T13:18:04Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00002__mistral-7b' (judge='phi3'): 'list' object has no attribute 'get'
+2026-06-26T13:18:42Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00020__llama3-8b' (judge='mistral-7b'): Request timed out.
+2026-06-26T13:20:30Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-2b__00014__mistral-7b' (judge='mistral-7b'): Request timed out.
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — done
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:45Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:20:46Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-26T13:26:50Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — done
+2026-06-26T14:40:38Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — done
+2026-06-26T14:47:44Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00002__gemma2-2b' (judge='llama3-8b'): Request timed out.
+2026-06-26T14:47:44Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00005__gemma2-9b' (judge='gemma2-2b'): Request timed out.
+2026-06-26T16:11:36Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00008__qwen2.5-7b' (judge='mistral-7b'): Request timed out.
+2026-06-26T16:12:07Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00015__mistral-7b' (judge='phi3'): Request timed out.
+2026-06-26T16:12:53Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__llama3-8b__00017__llama3-8b' (judge='qwen2.5-7b'): Request timed out.
+2026-06-26T16:18:16Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-3b__00006__gemma2-9b' (judge='gemma2-2b'): Request timed out.
+2026-06-26T16:18:16Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__gemma2-9b__00003__gemma2-2b' (judge='llama3-8b'): Request timed out.
+2026-06-26T16:35:26Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — done
+2026-06-26T17:22:59Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — done
+2026-06-26T17:40:38Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00010__phi3' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-27T19:08:28Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00010__qwen2.5-3b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-27T19:08:28Z [ERROR] Phase 5: evaluation failed for (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3'): [Errno 22] Invalid argument
+2026-06-27T20:56:46Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — done
+2026-06-27T21:31:26Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — done
+2026-06-27T22:04:14Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — done
+2026-06-27T22:15:34Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — done
+2026-06-27T22:15:34Z [ERROR] Phase 'evaluation' failed: [Errno 22] Invalid argument
+2026-06-28T04:04:37Z [INFO] Experiment cybersecurity-run-C-large continued
+2026-06-28T04:04:37Z [INFO] Running model availability probe (mode='full', on_fail='abort') …
+2026-06-28T04:04:37Z [INFO] Probe: testing 7 model(s) (mode='full', on_fail='abort') ...
+2026-06-28T04:04:37Z [INFO] Probe: testing 'llama3-8b' (ollama) ...
+2026-06-28T04:04:43Z [INFO] Probe: 'llama3-8b' - available [OK]
+2026-06-28T04:04:43Z [INFO] Probe: testing 'gemma2-2b' (ollama) ...
+2026-06-28T04:04:45Z [INFO] Probe: 'gemma2-2b' - available [OK]
+2026-06-28T04:04:45Z [INFO] Probe: testing 'gemma2-9b' (ollama) ...
+2026-06-28T04:04:48Z [INFO] Probe: 'gemma2-9b' - available [OK]
+2026-06-28T04:04:48Z [INFO] Probe: testing 'qwen2.5-3b' (ollama) ...
+2026-06-28T04:04:50Z [INFO] Probe: 'qwen2.5-3b' - available [OK]
+2026-06-28T04:04:50Z [INFO] Probe: testing 'qwen2.5-7b' (ollama) ...
+2026-06-28T04:04:52Z [INFO] Probe: 'qwen2.5-7b' - available [OK]
+2026-06-28T04:04:52Z [INFO] Probe: testing 'phi3' (ollama) ...
+2026-06-28T04:04:55Z [INFO] Probe: 'phi3' - available [OK]
+2026-06-28T04:04:55Z [INFO] Probe: testing 'mistral-7b' (ollama) ...
+2026-06-28T04:04:57Z [INFO] Probe: 'mistral-7b' - available [OK]
+2026-06-28T04:04:57Z [INFO] Probe results written to C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large\probe_results.json
+2026-06-28T04:04:57Z [INFO] Probe: all 7 model(s) available [OK]
+2026-06-28T04:04:57Z [INFO] Continue mode — phases already completed: ['attribute_mapping', 'data_generation', 'response_collection', 'rubric_mapping']
+2026-06-28T04:04:57Z [INFO] Phase 'attribute_mapping' already completed, skipping
+2026-06-28T04:04:57Z [INFO] Phase 'rubric_mapping' already completed, skipping
+2026-06-28T04:04:57Z [INFO] Phase 'data_generation' already completed, skipping
+2026-06-28T04:04:57Z [INFO] Phase 'response_collection' already completed, skipping
+2026-06-28T04:04:57Z [INFO] Phase 'evaluation' starting (mode=Extend)
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='llama3-8b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-2b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='gemma2-9b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-3b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — Extend mode, 31 new response(s) to evaluate (no new rubric factors)
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='phi3', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-2b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='llama3-8b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-3b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='gemma2-9b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='qwen2.5-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='phi3') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:57Z [INFO] Phase 5: (task='cybersecurity', teacher='mistral-7b', judge='mistral-7b') — Extend mode, no new rubric factors and no new responses, skipping
+2026-06-28T04:04:58Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — evaluating 140 responses with 5 factor(s) in 'single' mode
+2026-06-28T04:06:57Z [ERROR] Phase 5: scoring failed for response 'cybersecurity__qwen2.5-7b__00010__qwen2.5-3b' (judge='phi3'): JSON parse failed after 3 attempts. Last error: Cannot extract JSON from model output: line 1 column 1 (char 0)
+2026-06-28T04:17:10Z [INFO] Phase 5: (task='cybersecurity', teacher='qwen2.5-7b', judge='phi3') — done
+2026-06-28T04:17:10Z [INFO] Phase 'evaluation' completed
+2026-06-28T04:17:10Z [INFO] Experiment cybersecurity-run-C-large completed successfully

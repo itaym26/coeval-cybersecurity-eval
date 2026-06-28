@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 460" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <defs>
+    <linearGradient id="bar" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0ea5e9"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <linearGradient id="barTop" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#16a34a"/>
+      <stop offset="1" stop-color="#4ade80"/>
+    </linearGradient>
+    <linearGradient id="barLast" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#dc2626"/>
+      <stop offset="1" stop-color="#f87171"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="860" height="460" fill="#0b1220"/>
+  <text x="40" y="44" fill="#e2e8f0" font-size="24" font-weight="700">Run C — Cybersecurity Model Ranking</text>
+  <text x="40" y="70" fill="#94a3b8" font-size="14">7 local models · 140 questions · 6,824 valid judgments (99%) · ensemble of 7 judges</text>
+
+  <!-- axis baseline at x=300, scale: score 0.80 -> x=300, 0.90 -> x=780 (480px per 0.10) -->
+  <line x1="300" y1="110" x2="300" y2="430" stroke="#334155" stroke-width="1"/>
+  <text x="300" y="450" fill="#64748b" font-size="11" text-anchor="middle">0.80</text>
+  <line x1="540" y1="110" x2="540" y2="430" stroke="#1e293b" stroke-width="1"/>
+  <text x="540" y="450" fill="#64748b" font-size="11" text-anchor="middle">0.85</text>
+  <line x1="780" y1="110" x2="780" y2="430" stroke="#1e293b" stroke-width="1"/>
+  <text x="780" y="450" fill="#64748b" font-size="11" text-anchor="middle">0.90</text>
+  <text x="630" y="450" fill="#475569" font-size="11" text-anchor="middle">mean normalized score →</text>
+
+  <!-- rows: y start 100, step 46; bar width = (score-0.80)*4800 -->
+  <!-- phi3 0.894 -->
+  <g>
+    <text x="290" y="131" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">phi3 · 3.8B</text>
+    <rect x="300" y="118" width="451" height="22" rx="3" fill="url(#barTop)"/>
+    <text x="759" y="134" fill="#bbf7d0" font-size="13" font-weight="700">0.894</text>
+  </g>
+  <!-- llama3-8b 0.888 -->
+  <g>
+    <text x="290" y="177" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">llama3 · 8B</text>
+    <rect x="300" y="164" width="422" height="22" rx="3" fill="url(#bar)"/>
+    <text x="730" y="180" fill="#a5f3fc" font-size="13" font-weight="700">0.888</text>
+  </g>
+  <!-- mistral-7b 0.885 -->
+  <g>
+    <text x="290" y="223" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">mistral · 7B</text>
+    <rect x="300" y="210" width="408" height="22" rx="3" fill="url(#bar)"/>
+    <text x="716" y="226" fill="#a5f3fc" font-size="13" font-weight="700">0.885</text>
+  </g>
+  <!-- gemma2-9b 0.881 -->
+  <g>
+    <text x="290" y="269" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">gemma2 · 9B</text>
+    <rect x="300" y="256" width="389" height="22" rx="3" fill="url(#bar)"/>
+    <text x="697" y="272" fill="#a5f3fc" font-size="13" font-weight="700">0.881</text>
+  </g>
+  <!-- qwen2.5-3b 0.880 -->
+  <g>
+    <text x="290" y="315" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">qwen2.5 · 3B</text>
+    <rect x="300" y="302" width="384" height="22" rx="3" fill="url(#bar)"/>
+    <text x="692" y="318" fill="#a5f3fc" font-size="13" font-weight="700">0.880</text>
+  </g>
+  <!-- qwen2.5-7b 0.869 -->
+  <g>
+    <text x="290" y="361" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">qwen2.5 · 7B</text>
+    <rect x="300" y="348" width="331" height="22" rx="3" fill="url(#bar)"/>
+    <text x="639" y="364" fill="#a5f3fc" font-size="13" font-weight="700">0.869</text>
+  </g>
+  <!-- gemma2-2b 0.840 -->
+  <g>
+    <text x="290" y="407" fill="#e2e8f0" font-size="14" text-anchor="end" font-weight="600">gemma2 · 2B</text>
+    <rect x="300" y="394" width="192" height="22" rx="3" fill="url(#barLast)"/>
+    <text x="500" y="410" fill="#fecaca" font-size="13" font-weight="700">0.840</text>
+  </g>
+</svg>
