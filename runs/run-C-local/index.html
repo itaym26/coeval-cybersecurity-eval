@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Run C — Large-Scale Local (Complete) · CoEval × Cybersecurity</title>
+<link rel="stylesheet" href="../../site.css"/>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="../../">← Back to all runs</a>
+  <header>
+    <p class="crumb">Run C · Large-scale local — the capstone</p>
+    <h1>Run C</h1>
+    <p class="tag">7 models · 140 questions · 6,860 judgments · <span class="chip g">✅ Complete</span></p>
+  </header>
+
+  <h2>1 · What we set out to test</h2>
+  <p>The final, large run demonstrates that <b>CoEval scales</b> and tests the paper's claims on a pool big
+  enough for <b>controlled comparisons</b> — including two same-vendor <b>size pairs</b> (gemma2 2B↔9B,
+  qwen2.5 3B↔7B) to ask directly: does the bigger model always win?</p>
+
+  <h2>2 · Results</h2>
+  <p>All phases complete; <b>6,824 of 6,860 judgments valid (99%)</b>:</p>
+  <table>
+    <tr><th>#</th><th>Model</th><th>Vendor</th><th>Size</th><th>Score</th></tr>
+    <tr><td>🥇</td><td class="rank1">phi3</td><td>Microsoft</td><td>3.8B</td><td class="s rank1">0.894</td></tr>
+    <tr><td>🥈</td><td>llama3</td><td>Meta</td><td>8B</td><td class="s">0.888</td></tr>
+    <tr><td>🥉</td><td>mistral</td><td>Mistral</td><td>7B</td><td class="s">0.885</td></tr>
+    <tr><td>4</td><td>gemma2</td><td>Google</td><td>9B</td><td class="s">0.881</td></tr>
+    <tr><td>5</td><td>qwen2.5</td><td>Alibaba</td><td>3B</td><td class="s">0.880</td></tr>
+    <tr><td>6</td><td>qwen2.5</td><td>Alibaba</td><td>7B</td><td class="s">0.869</td></tr>
+    <tr><td>7</td><td class="last">gemma2</td><td>Google</td><td>2B</td><td class="s last">0.840</td></tr>
+  </table>
+  <div class="two">
+    <div class="imgwrap"><img src="../../figures/runC_ranking.svg" alt="ranking"/></div>
+    <div class="imgwrap"><img src="../../figures/size_vs_score.svg" alt="size vs score"/></div>
+  </div>
+  <div class="note"><b>Bigger ≠ better, now controlled:</b> Gemma2 9B &gt; 2B (scale helped) but Qwen2.5 <b>3B &gt; 7B</b>
+  (scale hurt), and the 3.8B phi3 tops the field.</div>
+  <div class="imgwrap"><img src="../../figures/judge_strictness.svg" alt="judge strictness"/></div>
+
+  <h2>3 · Example — why the ensemble matters</h2>
+  <div class="qa">
+    <span class="chip">Network Security · Advanced</span>
+    <p class="lab">QUESTION (teacher)</p>
+    <blockquote>A company uses a VPN to secure its remote workforce, but employees experience slow speeds and
+    frequent outages. What security vulnerabilities might contribute, and what steps address them?</blockquote>
+    <p class="lab ans">ANSWER · qwen2.5-3b</p>
+    <blockquote>…weak or outdated encryption protocols, insufficient tunneling capacity causing congestion, and
+    infrastructure issues unrelated to the VPN configuration. Mitigations: update VPN software/protocols, upgrade
+    network hardware, and optimize…</blockquote>
+    <p class="tag">Judge scores: <b>1.00</b> from six judges, <b>0.00</b> from phi3 — the maximum possible
+    disagreement. A single-judge eval would have scored this a flat zero; the <b>ensemble mean (0.80)</b> is the
+    defensible verdict.</p>
+  </div>
+
+  <h2>4 · Quantitative validation</h2>
+  <table>
+    <tr><th>Measure</th><th>Result</th><th>vs. paper</th></tr>
+    <tr><td>Inter-judge agreement (Cohen's κ)</td><td>+0.131 … +0.309 (mean +0.198)</td><td>✅ supports</td></tr>
+    <tr><td>Self-preference (winner phi3)</td><td>−0.042 (self-<i>critical</i>)</td><td>✅ validates ranking</td></tr>
+    <tr><td>Rank stability (Run B ↔ C)</td><td>Spearman ρ = +1.000</td><td>✅ reproducible</td></tr>
+    <tr><td>Verbosity bias (ensemble)</td><td>r = +0.120 (not cancelled)</td><td>⚠️ qualifies</td></tr>
+  </table>
+
+  <h2>5 · Interactive reports</h2>
+  <div class="grid">
+    <a class="card" href="reports/index.html"><span class="badge">DASHBOARD</span><h3>Full dashboard →</h3><p>All reports in one place.</p></a>
+    <a class="card" href="reports/student_report/index.html"><span class="badge">STUDENT</span><h3>Student report →</h3><p>Per-model scores &amp; heatmaps.</p></a>
+    <a class="card" href="reports/judge_report/index.html"><span class="badge">JUDGE</span><h3>Judge report →</h3><p>Bias &amp; reliability.</p></a>
+    <a class="card" href="reports/judge_consistency/index.html"><span class="badge">CONSISTENCY</span><h3>Judge consistency →</h3><p>Inter-judge ICC.</p></a>
+    <a class="card" href="reports/interaction_matrix/index.html"><span class="badge">MATRIX</span><h3>Interaction matrix →</h3><p>Teacher × Student heatmap.</p></a>
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval/tree/main/runs/run-C-local"><span class="badge">DATA</span><h3>Raw data &amp; Q/A →</h3><p>140 questions, 980 answers, 6,860 judgments.</p></a>
+  </div>
+
+  <h2>6 · Conclusions</h2>
+  <p><b>Did it succeed?</b> <b>Complete success</b> — the project's authoritative result: a full 7-model ranking
+  at 99% validity with controlled size-pair comparisons.</p>
+  <p><b>Problems &amp; fixes:</b> a multi-day run surfaced (a) the laptop sleeping → comprehensive no-sleep power
+  policy (fundamental); (b) a Windows <code>Errno 22</code> on the redirected console handle → launch without
+  output redirection (fundamental); recovery throughout via <code>--continue</code> from checkpoints (temporary,
+  applied repeatedly).</p>
+  <p><b>What we concluded:</b> bigger isn't always better (robust across runs and within size pairs); the ensemble
+  ranking is stable (ρ = 1.000 vs Run B); judge bias is real but cancelled by aggregation — <i>except</i> verbosity
+  bias, which our ensemble did <b>not</b> cancel (a principled qualification of the paper).</p>
+  <p class="tag">Full write-up: <a href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/05-run-C-findings.md">docs/05-run-C-findings.md</a> ·
+  Conclusions: <a href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/06-conclusions.md">06-conclusions.md</a></p>
+
+  <footer><a href="../../">← All runs</a> · <a href="https://github.com/itaym26/coeval-cybersecurity-eval">GitHub</a></footer>
+</div>
+</body>
+</html>

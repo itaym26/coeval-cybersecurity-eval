@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Run A — Cloud Free-Tier (Partial) · CoEval × Cybersecurity</title>
+<link rel="stylesheet" href="../../site.css"/>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="../../">← Back to all runs</a>
+  <header>
+    <p class="crumb">Run A · Cloud free-tier + 1 local</p>
+    <h1>Run A</h1>
+    <p class="tag">4 models (2 usable) · 12 questions · <span class="chip a">⚠️ Partial</span></p>
+  </header>
+
+  <h2>1 · What we set out to test</h2>
+  <p>The first experiment used a vendor-diverse pool of <b>free</b> models — one local (Meta
+  <code>llama3-8b</code> via Ollama) and three OpenRouter <code>:free</code> models (OpenAI
+  <code>gpt-oss-20b</code>, Google <code>gemma-4-31b</code>, NVIDIA <code>nemotron-nano-9b</code>).
+  The goal was simply to get CoEval running end-to-end on cybersecurity and obtain a first ranking.</p>
+
+  <h2>2 · Results</h2>
+  <p>Of 384 judgments, <b>194 were valid (51%)</b>; two students completed enough to be ranked:</p>
+  <table>
+    <tr><th>#</th><th>Model</th><th>Vendor</th><th>Score</th></tr>
+    <tr><td>🥇</td><td class="rank1">gpt-oss-20b</td><td>OpenAI</td><td class="s rank1">0.919</td></tr>
+    <tr><td>🥈</td><td>llama3-8b</td><td>Meta</td><td class="s">0.775</td></tr>
+  </table>
+  <div class="note"><b>Judge bias, first sighting:</b> <code>gpt-oss</code> was a harsh judge (0.26 gap between
+  the two students) while <code>llama3</code> was lenient (0.02 gap) — the <i>same</i> answers scored very
+  differently depending on who judged.</div>
+
+  <h2>3 · Example question &amp; answer</h2>
+  <div class="qa">
+    <span class="chip">Identity &amp; Access Management</span>
+    <p class="lab">QUESTION (teacher)</p>
+    <blockquote>A mid-size company is planning to migrate its legacy on-premise Active Directory to Azure AD.
+    They want to preserve existing user identities, enforce MFA, and implement least-privilege access for
+    Azure resources. What IAM steps should they take to achieve secure integration?</blockquote>
+    <p class="lab ans">ANSWER · gpt-oss-20b · ensemble score 1.00</p>
+    <blockquote>Deploy <b>Azure AD Connect</b> with password-hash sync to preserve on-prem identities and enable SSO;
+    enforce MFA via <b>Conditional Access</b> policies and Identity Protection for risk-based sign-in; implement
+    least-privilege with <b>Role-Based Access Control</b>…</blockquote>
+  </div>
+
+  <h2>4 · Interactive reports</h2>
+  <div class="grid">
+    <a class="card" href="reports/index.html"><span class="badge">DASHBOARD</span><h3>Full dashboard →</h3><p>All reports in one place.</p></a>
+    <a class="card" href="reports/student_report/index.html"><span class="badge">STUDENT</span><h3>Student report →</h3><p>Per-model scores &amp; rubric heatmaps.</p></a>
+    <a class="card" href="reports/judge_report/index.html"><span class="badge">JUDGE</span><h3>Judge report →</h3><p>Judge bias &amp; reliability.</p></a>
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval/tree/main/runs/run-A-cloud-free"><span class="badge">DATA</span><h3>Raw data &amp; Q/A →</h3><p>Questions, responses, judgments (JSONL).</p></a>
+  </div>
+
+  <h2>5 · Conclusions</h2>
+  <p><b>Did it succeed?</b> <b>Partial success.</b> The methodology worked end-to-end and produced a valid
+  2-model ranking, but the run did not complete for all models.</p>
+  <p><b>Why?</b> Not an algorithmic failure — OpenRouter's free tier enforces an account-wide cap of
+  <b>50 requests/day and 16/minute</b>, shared across all free models. A full run needs ~1,000 calls, so the
+  cloud students were rate-limited out.</p>
+  <p><b>What we concluded &amp; did next:</b> free cloud tiers cannot sustain ensemble evaluation at scale →
+  we moved to <b>fully-local</b> inference (Ollama) for Run B, and switched to an explicit rubric because the
+  small models could not reliably emit the JSON that automatic provisioning requires.</p>
+  <p class="tag">Full write-up: <a href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/03-run-A-findings.md">docs/03-run-A-findings.md</a></p>
+
+  <footer><a href="../../">← All runs</a> · <a href="https://github.com/itaym26/coeval-cybersecurity-eval">GitHub</a></footer>
+</div>
+</body>
+</html>

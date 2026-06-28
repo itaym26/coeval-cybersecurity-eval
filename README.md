@@ -138,11 +138,13 @@ previous one. Every run has its own fully documented findings file with the stru
 · results · success or failure · problems and how we fixed them (temporary vs. fundamental) ·
 conclusions · how it differs from the previous run*.
 
-| Run | Tier | Models | Questions | Outcome | Detailed write-up |
-|:---:|:-----|:------:|:---------:|:--------|:------------------|
-| **A** | Cloud free-tier + 1 local | 4 (2 usable) | 12 | ⚠️ Partial — revealed the free-API ceiling | [docs/03-run-A-findings.md](docs/03-run-A-findings.md) |
-| **B** | Fully local (Ollama) | 4 | 12 | ✅ Complete — first clean ranking | [docs/04-run-B-findings.md](docs/04-run-B-findings.md) |
-| **C** | Fully local — **large** | **7** | **20** | ✅ Complete — the capstone result | [docs/05-run-C-findings.md](docs/05-run-C-findings.md) |
+| Run | Tier | Models | Questions | Outcome | 🌐 Live page | Detailed write-up |
+|:---:|:-----|:------:|:---------:|:--------|:------------|:------------------|
+| **A** | Cloud free-tier + 1 local | 4 (2 usable) | 12 | ⚠️ Partial — revealed the free-API ceiling | [Run A page](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-A-cloud-free/) | [docs/03-run-A-findings.md](docs/03-run-A-findings.md) |
+| **B** | Fully local (Ollama) | 4 | 12 | ✅ Complete — first clean ranking | [Run B page](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/) | [docs/04-run-B-findings.md](docs/04-run-B-findings.md) |
+| **C** | Fully local — **large** | **7** | **20** | ✅ Complete — the capstone result | [Run C page](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/) | [docs/05-run-C-findings.md](docs/05-run-C-findings.md) |
+
+> 🌐 **Each run has its own page on the [live project site](https://itaym26.github.io/coeval-cybersecurity-eval/)** — summary, results, a sample question/answer, the interactive reports, and that run's conclusions, all in one place.
 
 > The complete chronological log of **every** run — including four early failed configurations and
 > exactly how each was diagnosed and fixed — is in **[docs/00-run-log.md](docs/00-run-log.md)**.
@@ -269,6 +271,11 @@ offset it.
 CoEval emits self-contained interactive HTML dashboards, served here via **GitHub Pages**. The links
 below open each report **fully rendered in your browser** — so anyone visiting this repository can
 *see* the experiment's results directly, with no download and no setup.
+
+> 👉 **Best entry point:** the per-run pages — **[Run A](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-A-cloud-free/)** ·
+> **[Run B](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/)** ·
+> **[Run C](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/)** — each bundles the summary,
+> results, a sample Q&A, reports, and conclusions for that run. Or jump straight to a report below.
 
 ### Run C — the large final run
 | Report | What it shows |

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Run B — Fully Local (Complete) · CoEval × Cybersecurity</title>
+<link rel="stylesheet" href="../../site.css"/>
+</head>
+<body>
+<div class="wrap">
+  <a class="backlink" href="../../">← Back to all runs</a>
+  <header>
+    <p class="crumb">Run B · Fully local (Ollama)</p>
+    <h1>Run B</h1>
+    <p class="tag">4 models · 12 questions · <span class="chip g">✅ Complete</span></p>
+  </header>
+
+  <h2>1 · What we set out to test</h2>
+  <p>After Run A hit the free-cloud ceiling, Run B went <b>fully local</b> (no rate limits) to obtain the
+  first complete, reproducible ranking. Four models across four vendors, each playing all three roles, with an
+  explicit 5-factor rubric distilled from Run A's auto-generated criteria.</p>
+
+  <h2>2 · Results</h2>
+  <p>All five phases completed; <b>764 of 768 judgments valid (99%)</b>:</p>
+  <table>
+    <tr><th>#</th><th>Model</th><th>Vendor</th><th>Size</th><th>Score</th></tr>
+    <tr><td>🥇</td><td class="rank1">phi3</td><td>Microsoft</td><td>3.8B</td><td class="s rank1">0.898</td></tr>
+    <tr><td>🥈</td><td>llama3-8b</td><td>Meta</td><td>8B</td><td class="s">0.860</td></tr>
+    <tr><td>🥉</td><td>qwen2.5-3b</td><td>Alibaba</td><td>3B</td><td class="s">0.856</td></tr>
+    <tr><td>4</td><td class="last">gemma2-2b</td><td>Google</td><td>2B</td><td class="s last">0.798</td></tr>
+  </table>
+  <div class="note"><b>Headline:</b> the 3.8B <code>phi3</code> beat the 8B <code>llama3</code> — the first sign that
+  <b>bigger is not always better</b>. The consensus ranking was stable across all four judges.</div>
+
+  <h2>3 · Example question &amp; answer</h2>
+  <div class="qa">
+    <span class="chip">Defensive Practices · Advanced</span>
+    <p class="lab">QUESTION (teacher)</p>
+    <blockquote>A user is concerned about online privacy on public Wi-Fi networks, specifically regarding data
+    breaches and identity theft. Discuss the risks of public Wi-Fi and outline practical steps to mitigate them.</blockquote>
+    <p class="lab ans">ANSWER · llama3-8b · ensemble score 1.00</p>
+    <blockquote>Public Wi-Fi exposes users to data interception by attackers on the unsecured network, and to
+    identity theft where weak authentication lets attackers capture sensitive information. Mitigations include
+    using a VPN, preferring HTTPS, disabling auto-connect, and avoiding sensitive transactions…</blockquote>
+  </div>
+
+  <h2>4 · Interactive reports</h2>
+  <div class="grid">
+    <a class="card" href="reports/index.html"><span class="badge">DASHBOARD</span><h3>Full dashboard →</h3><p>All reports in one place.</p></a>
+    <a class="card" href="reports/student_report/index.html"><span class="badge">STUDENT</span><h3>Student report →</h3><p>Per-model scores &amp; rubric heatmaps.</p></a>
+    <a class="card" href="reports/judge_report/index.html"><span class="badge">JUDGE</span><h3>Judge report →</h3><p>Judge bias &amp; reliability.</p></a>
+    <a class="card" href="https://github.com/itaym26/coeval-cybersecurity-eval/tree/main/runs/run-B-local"><span class="badge">DATA</span><h3>Raw data &amp; Q/A →</h3><p>Questions, responses, judgments (JSONL).</p></a>
+  </div>
+
+  <h2>5 · Conclusions</h2>
+  <p><b>Did it succeed?</b> <b>Complete success</b> — a full 4-model ranking at 99% validity, fully local and
+  reproducible.</p>
+  <p><b>Problems &amp; fixes:</b> the first attempt failed Phase 1 because small models could not emit the JSON
+  that <i>automatic</i> rubric generation needs → we supplied an <b>explicit rubric</b> (fundamental fix). On the
+  13.7 GB laptop, loading four models at once froze the machine → we capped Ollama to <b>one model in memory at a
+  time</b> (fundamental fix).</p>
+  <p><b>What we concluded &amp; did next:</b> model scale is not destiny, judge bias generalizes, and the ensemble
+  is robust — so we scaled up to <b>Run C</b> (7 models, 20 questions) with controlled same-vendor size pairs to
+  test "bigger isn't better" directly.</p>
+  <p class="tag">Full write-up: <a href="https://github.com/itaym26/coeval-cybersecurity-eval/blob/main/docs/04-run-B-findings.md">docs/04-run-B-findings.md</a></p>
+
+  <footer><a href="../../">← All runs</a> · <a href="https://github.com/itaym26/coeval-cybersecurity-eval">GitHub</a></footer>
+</div>
+</body>
+</html>
