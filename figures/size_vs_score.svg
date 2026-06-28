@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 480" font-family="'Segoe UI',Helvetica,Arial,sans-serif">
+  <rect width="860" height="480" fill="#0b1220"/>
+  <text x="40" y="42" fill="#e2e8f0" font-size="23" font-weight="700">Model Size vs. Cybersecurity Score (Run C)</text>
+  <text x="40" y="66" fill="#94a3b8" font-size="13">If bigger were better, points would rise left→right. They don't — quality is non-monotonic in size.</text>
+
+  <!-- plot area: x = size 0..9B mapped 90..780 ; y = score 0.83..0.90 mapped 410..110 -->
+  <!-- axes -->
+  <line x1="90" y1="410" x2="800" y2="410" stroke="#334155" stroke-width="1.5"/>
+  <line x1="90" y1="110" x2="90" y2="410" stroke="#334155" stroke-width="1.5"/>
+
+  <!-- x ticks (B params): 2,3,4,8 ; map: x=90+size*76.7 (9B->780) -->
+  <g fill="#64748b" font-size="11" text-anchor="middle">
+    <line x1="243" y1="410" x2="243" y2="415" stroke="#334155"/><text x="243" y="430">2B</text>
+    <line x1="320" y1="410" x2="320" y2="415" stroke="#334155"/><text x="320" y="430">3B</text>
+    <line x1="627" y1="410" x2="627" y2="415" stroke="#334155"/><text x="627" y="430">7B</text>
+    <line x1="704" y1="410" x2="704" y2="415" stroke="#334155"/><text x="704" y="430">8B</text>
+    <line x1="780" y1="410" x2="780" y2="415" stroke="#334155"/><text x="780" y="430">9B</text>
+    <text x="445" y="455" fill="#475569" font-size="12">model size (billions of parameters) →</text>
+  </g>
+  <!-- y ticks score: 0.84,0.86,0.88,0.90 ; map y=410-(score-0.83)*4286 -->
+  <g fill="#64748b" font-size="11" text-anchor="end">
+    <line x1="85" y1="367" x2="90" y2="367" stroke="#334155"/><text x="80" y="371">0.84</text>
+    <line x1="85" y1="281" x2="90" y2="281" stroke="#334155"/><text x="80" y="285">0.86</text>
+    <line x1="85" y1="195" x2="90" y2="195" stroke="#334155"/><text x="80" y="199">0.88</text>
+    <line x1="85" y1="110" x2="90" y2="110" stroke="#334155"/><text x="80" y="114">0.90</text>
+  </g>
+
+  <!-- size-pair connectors -->
+  <!-- gemma2: 2B(243,410-(0.840-0.83)*4286=367) -> 9B(780, 410-(0.881-0.83)*4286=191) -->
+  <line x1="243" y1="367" x2="780" y2="191" stroke="#22c55e" stroke-width="2" stroke-dasharray="5 4" opacity="0.7"/>
+  <!-- qwen2.5: 3B(320, 410-(0.880-0.83)*4286=196) -> 7B(627, 410-(0.869-0.83)*4286=243) -->
+  <line x1="320" y1="196" x2="627" y2="243" stroke="#f59e0b" stroke-width="2" stroke-dasharray="5 4" opacity="0.8"/>
+
+  <!-- points -->
+  <!-- gemma2-2b 2B 0.840 -->
+  <circle cx="243" cy="367" r="7" fill="#22c55e"/><text x="243" y="356" fill="#86efac" font-size="11" text-anchor="middle">gemma2-2b · 0.840</text>
+  <!-- gemma2-9b 9B 0.881 -->
+  <circle cx="780" cy="191" r="7" fill="#22c55e"/><text x="775" y="181" fill="#86efac" font-size="11" text-anchor="end">gemma2-9b · 0.881</text>
+  <!-- qwen2.5-3b 3B 0.880 -->
+  <circle cx="320" cy="196" r="7" fill="#f59e0b"/><text x="330" y="190" fill="#fcd34d" font-size="11">qwen2.5-3b · 0.880</text>
+  <!-- qwen2.5-7b 7B 0.869 -->
+  <circle cx="627" cy="243" r="7" fill="#f59e0b"/><text x="622" y="262" fill="#fcd34d" font-size="11" text-anchor="end">qwen2.5-7b · 0.869</text>
+  <!-- phi3 3.8B 0.894 (winner) -->
+  <circle cx="382" cy="135" r="8" fill="#38bdf8" stroke="#e0f2fe" stroke-width="1.5"/><text x="392" y="130" fill="#7dd3fc" font-size="12" font-weight="700">phi3 · 3.8B · 0.894 🥇</text>
+  <!-- llama3-8b 8B 0.888 -->
+  <circle cx="704" cy="161" r="7" fill="#a78bfa"/><text x="699" y="151" fill="#ddd6fe" font-size="11" text-anchor="end">llama3-8b · 0.888</text>
+  <!-- mistral-7b 7B 0.885 -->
+  <circle cx="627" cy="174" r="7" fill="#a78bfa"/><text x="617" y="168" fill="#ddd6fe" font-size="11" text-anchor="end">mistral-7b · 0.885</text>
+
+  <!-- legend -->
+  <g font-size="11">
+    <circle cx="110" cy="92" r="5" fill="#22c55e"/><text x="120" y="96" fill="#94a3b8">Gemma2 pair (bigger wins)</text>
+    <circle cx="300" cy="92" r="5" fill="#f59e0b"/><text x="310" y="96" fill="#94a3b8">Qwen2.5 pair (smaller wins!)</text>
+    <circle cx="520" cy="92" r="5" fill="#38bdf8"/><text x="530" y="96" fill="#94a3b8">overall winner (3.8B)</text>
+  </g>
+</svg>

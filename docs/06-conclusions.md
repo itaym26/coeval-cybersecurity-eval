@@ -91,16 +91,48 @@ several days of checkpointed, resumable execution, constrained to one model in m
 
 ---
 
-## Where we are deliberately cautious
+## Limitations & Threats to Validity
 
-- The paper's **baseline-superiority numbers** (vs. G-Eval, BERTScore, ROUGE) are flagged in the
-  paper itself as **projections**, not measurements. We make no such comparison.
-- We did **not** collect a ground-truth human ranking for cybersecurity. Our ranking therefore has
-  **face validity** (sensible, internally consistent, stable across judges) rather than a verified
-  correlation to human judgment — the same limitation the paper acknowledges.
-- **Self-participation:** like the paper, every model served as teacher, student, and judge, so
-  self-preference is a confound. We mitigate (not eliminate) it through the diverse ensemble, and we
-  observe that self-preference did not overturn the consensus ranking.
+A rigorous study must state where its conclusions are bounded. We group the threats by type.
+
+### Construct validity (are we measuring the right thing?)
+- **No human ground truth.** We did not collect expert human rankings for cybersecurity, so our
+  ranking has **face validity** (sensible, internally consistent, stable across judges) rather than a
+  *verified* correlation to human judgment. This is the same limitation the paper itself
+  acknowledges. The unanimous failure of a factually-wrong RSA answer
+  ([Example 2](08-qualitative-examples.md)) is supporting evidence that the rubric tracks correctness,
+  but it is not a substitute for a human baseline.
+- **Coarse score scale.** Judges emit only High/Medium/Low (mapped to 1.0/0.5/0.0). This is robust
+  but low-resolution; small true differences between strong models may be quantization-limited
+  (visible in the compressed 0.880–0.894 top band of Run C).
+
+### Internal validity (could a confound explain the result?)
+- **Self-participation.** Every model served as teacher, student, and judge, so self-preference is a
+  confound. We *quantified* it ([§2 of the quantitative analysis](07-quantitative-analysis.md)):
+  it is bounded, and critically the winner (phi3) is self-*critical*, so the headline result is not a
+  self-inflation artifact — but the confound is mitigated, not eliminated.
+- **Provisioning difference across runs.** Run A used `auto` attributes/rubric; Runs B and C used an
+  explicit rubric (forced by small-model JSON limits). Absolute scores are therefore **not comparable
+  across runs** — we compare *patterns* and *rank order*, never raw numbers between runs.
+
+### External validity (how far does it generalize?)
+- **One domain, one language.** All results are on English-language cybersecurity. Generalization to
+  other domains/languages is unestablished (the paper shares this limit).
+- **Small, free models only.** Our pool is 2B–9B open models; conclusions may not transfer to
+  frontier-scale models. In particular, the "bigger isn't better" finding is demonstrated *within*
+  this small-model regime.
+
+### Statistical-conclusion validity
+- **No confidence intervals on every metric.** We report point estimates for κ, ρ, and correlations;
+  we did not bootstrap CIs for all of them. The headline rank-stability result (Spearman ρ = 1.000)
+  rests on only four shared models, so it shows *perfect order preservation* on a small set rather
+  than a tightly-estimated population parameter.
+- **A few lost judgments.** 36 of 6,860 Run C judgments (0.5%) failed and were excluded; this is
+  negligible but non-zero.
+
+> These limitations are the natural scope boundaries of a free, single-laptop replication; none
+> undercut the qualitative findings, and several (self-preference, rank stability) are *quantified*
+> rather than merely assumed.
 
 ---
 

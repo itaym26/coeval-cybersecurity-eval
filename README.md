@@ -219,6 +219,8 @@ family the smaller model sometimes won outright:
 | Gemma 2 | 2B → 0.840 | 9B → 0.881 | bigger ⬆️ |
 | Qwen 2.5 | 3B → **0.880** | 7B → 0.869 | **smaller** ⬇️ |
 
+<p align="center"><img src="figures/size_vs_score.svg" alt="Model size vs. score scatter" width="820"/></p>
+
 A generic "bigger/newer is better" leaderboard would mis-rank this domain — strengthening the paper's
 domain-specificity claim. Microsoft's Phi family, trained on dense textbook-style technical data,
 punches far above its parameter count on a knowledge-intensive domain like security.
