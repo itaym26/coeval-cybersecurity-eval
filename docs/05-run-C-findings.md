@@ -1,11 +1,11 @@
 # 05 — Run C Findings: Large-Scale Local Run (7 models · 20 questions)
 
 > **Interactive reports for this run** (rendered in browser):
-> [Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/index.html) ·
-> [Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/student_report/index.html) ·
-> [Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/judge_report/index.html) ·
-> [Judge Consistency](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/judge_consistency/index.html) ·
-> [Interaction Matrix](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/interaction_matrix/index.html)
+> [Dashboard](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/index.html) ·
+> [Student](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/student_report/index.html) ·
+> [Judge](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/judge_report/index.html) ·
+> [Judge Consistency](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/judge_consistency/index.html) ·
+> [Interaction Matrix](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/interaction_matrix/index.html)
 
 ---
 

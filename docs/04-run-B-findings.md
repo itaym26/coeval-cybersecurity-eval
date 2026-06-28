@@ -1,9 +1,9 @@
 # 04 — Run B Findings: Fully Local (Complete)
 
 > **Interactive reports for this run** (rendered in browser):
-> [Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/index.html) ·
-> [Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/student_report/index.html) ·
-> [Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/judge_report/index.html)
+> [Dashboard](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/reports/index.html) ·
+> [Student](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/reports/student_report/index.html) ·
+> [Judge](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/reports/judge_report/index.html)
 
 ## 1. Setup
 

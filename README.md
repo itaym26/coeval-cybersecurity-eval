@@ -228,25 +228,25 @@ ground-truth human ranking for cybersecurity, so — like the paper — our rank
 
 ## 7. Live, viewable reports for every run
 
-CoEval emits self-contained interactive HTML dashboards. Because GitHub does not render HTML inline,
-the links below open each report **rendered in your browser** via `htmlpreview` — so anyone can *see*
-the experiment's results directly, no download required.
+CoEval emits self-contained interactive HTML dashboards, served here via **GitHub Pages**. The links
+below open each report **fully rendered in your browser** — so anyone visiting this repository can
+*see* the experiment's results directly, with no download and no setup.
 
 ### Run C — the large final run
 | Report | What it shows |
 |:-------|:--------------|
-| [📊 Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/index.html) | All reports in one place, with top-line rankings |
-| [🎓 Student Report](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/student_report/index.html) | Per-model scores, rubric-factor heatmaps |
-| [⚖️ Judge Report](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/judge_report/index.html) | Judge bias, calibration, reliability |
-| [🔗 Judge Consistency](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/judge_consistency/index.html) | Inter-judge agreement (ICC) |
-| [🧩 Interaction Matrix](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/interaction_matrix/index.html) | Teacher × Student quality heatmap |
-| [📈 Score Distribution](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-C-local/reports/score_distribution/index.html) | High/Medium/Low histograms |
+| [📊 Dashboard](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/index.html) | All reports in one place, with top-line rankings |
+| [🎓 Student Report](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/student_report/index.html) | Per-model scores, rubric-factor heatmaps |
+| [⚖️ Judge Report](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/judge_report/index.html) | Judge bias, calibration, reliability |
+| [🔗 Judge Consistency](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/judge_consistency/index.html) | Inter-judge agreement (ICC) |
+| [🧩 Interaction Matrix](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/interaction_matrix/index.html) | Teacher × Student quality heatmap |
+| [📈 Score Distribution](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-C-local/reports/score_distribution/index.html) | High/Medium/Low histograms |
 
 ### Run B — first complete local run
-[📊 Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/index.html) · [🎓 Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/student_report/index.html) · [⚖️ Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-B-local/reports/judge_report/index.html)
+[📊 Dashboard](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/reports/index.html) · [🎓 Student](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/reports/student_report/index.html) · [⚖️ Judge](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-B-local/reports/judge_report/index.html)
 
 ### Run A — partial cloud run
-[📊 Dashboard](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/index.html) · [🎓 Student](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/student_report/index.html) · [⚖️ Judge](https://htmlpreview.github.io/?https://raw.githubusercontent.com/itaym26/coeval-cybersecurity-eval/main/runs/run-A-cloud-free/reports/judge_report/index.html)
+[📊 Dashboard](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-A-cloud-free/reports/index.html) · [🎓 Student](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-A-cloud-free/reports/student_report/index.html) · [⚖️ Judge](https://itaym26.github.io/coeval-cybersecurity-eval/runs/run-A-cloud-free/reports/judge_report/index.html)
 
 > An Excel workbook (`complete_report.xlsx`) and all raw JSONL artifacts are included under each
 > run's folder in [`runs/`](runs/).
