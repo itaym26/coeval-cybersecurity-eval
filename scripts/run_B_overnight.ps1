@@ -37,7 +37,7 @@ powercfg /change monitor-timeout-ac 0
 #    Phase 5 judgments are generated.
 Set-Location "C:\Users\itaym\CoEval"
 Write-Output "[$(Get-Date -Format HH:mm:ss)] Resuming CoEval (coeval run --continue)..."
-coeval run --config "C:\Users\itaym\CoEval\cybersecurity_local.yaml" --continue *>> "C:\Users\itaym\CoEval\Runs\run-B-overnight.log"
+coeval run --config "C:\Users\itaym\CoEval\cybersecurity_runB.yaml" --continue *>> "C:\Users\itaym\CoEval\Runs\run-B-overnight.log"
 
 $exit = $LASTEXITCODE
 Write-Output "[$(Get-Date -Format HH:mm:ss)] CoEval finished (exit code $exit)."

@@ -8,7 +8,7 @@
 ## 1. Setup
 
 Run B used a **fully local** pool of four models served through Ollama, eliminating every cloud
-rate-limit. Configuration: [`config/cybersecurity_local.yaml`](../config/cybersecurity_local.yaml).
+rate-limit. Configuration: [`config/cybersecurity_runB.yaml`](../config/cybersecurity_runB.yaml).
 
 | Model | Vendor | Size |
 |-------|--------|------|

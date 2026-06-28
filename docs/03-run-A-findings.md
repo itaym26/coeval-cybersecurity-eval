@@ -9,7 +9,7 @@
 
 Run A used a vendor-diverse pool of four free models — one local (Meta `llama3-8b` via Ollama) and
 three OpenRouter `:free` models (OpenAI `gpt-oss-20b`, Google `gemma-4-31b`, NVIDIA
-`nemotron-nano-9b`). Configuration: [`config/cybersecurity_cloud.yaml`](../config/cybersecurity_cloud.yaml).
+`nemotron-nano-9b`). Configuration: [`config/cybersecurity_runA.yaml`](../config/cybersecurity_runA.yaml).
 Each model held all three roles; each Teacher generated 12 datapoints.
 
 `coeval plan` estimated ~1,008 LLM calls, ~$0.29, ~91 minutes.

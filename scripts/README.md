@@ -4,8 +4,8 @@ This folder documents and automates how the three experiments were executed.
 
 | Run | Config | How it was launched |
 |-----|--------|---------------------|
-| **A** (cloud) | [`config/cybersecurity_cloud.yaml`](../config/cybersecurity_cloud.yaml) | Direct CLI commands (see below) — no persistent script needed |
-| **B** (local) | [`config/cybersecurity_local.yaml`](../config/cybersecurity_local.yaml) | [`run_B_overnight.ps1`](run_B_overnight.ps1) |
+| **A** (cloud) | [`config/cybersecurity_runA.yaml`](../config/cybersecurity_runA.yaml) | Direct CLI commands (see below) — no persistent script needed |
+| **B** (local) | [`config/cybersecurity_runB.yaml`](../config/cybersecurity_runB.yaml) | [`run_B_overnight.ps1`](run_B_overnight.ps1) |
 | **C** (local, large) | [`config/cybersecurity_runC.yaml`](../config/cybersecurity_runC.yaml) | [`run_C_overnight.ps1`](run_C_overnight.ps1) |
 
 ## Why Run A has no script
@@ -15,9 +15,9 @@ standard CoEval command sequence directly — it never needed the resilient over
 multi-hour **local** runs (B and C) require. For completeness, this is exactly how Run A was run:
 
 ```bash
-coeval probe --config config/cybersecurity_cloud.yaml   # verify models reachable (no cost)
-coeval plan  --config config/cybersecurity_cloud.yaml   # estimate calls / cost
-coeval run   --config config/cybersecurity_cloud.yaml   # execute (hit the 50-req/day free cap → partial)
+coeval probe --config config/cybersecurity_runA.yaml   # verify models reachable (no cost)
+coeval plan  --config config/cybersecurity_runA.yaml   # estimate calls / cost
+coeval run   --config config/cybersecurity_runA.yaml   # execute (hit the 50-req/day free cap → partial)
 coeval analyze all --run Runs/cybersecurity-run-05 --out reports
 ```
 
