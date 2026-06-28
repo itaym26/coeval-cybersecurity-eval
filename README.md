@@ -221,8 +221,26 @@ We make no such comparison and report only what we measured. We also did **not**
 ground-truth human ranking for cybersecurity, so — like the paper — our ranking has *face validity*
 (it is sensible and internally consistent) rather than a verified correlation to human judgment.
 
+### Quantitative validation
+
+We put these verdicts on a numerical footing with the same statistics the paper uses
+(full detail + reproducible script in **[docs/07-quantitative-analysis.md](docs/07-quantitative-analysis.md)**):
+
+| Measure (Run C) | Result | Bearing |
+|:----------------|:-------|:-------:|
+| Inter-judge agreement (Cohen's κ) | +0.131 … +0.309 (mean +0.198); lowest pairs involve the 2B model | ✅ supports C1/C3 |
+| Self-preference index | bounded; the winner **phi3 is self-*critical* (−0.042)**, so its #1 rank is not self-inflated | ✅ validates ranking |
+| Rank stability Run B ↔ Run C | **Spearman ρ = +1.000** (4 shared models keep identical order) | ✅ reproducible |
+| Verbosity bias (length↔score) | ensemble r=+0.120 ≈ single-judge mean |r|=0.112 — **not cancelled** | ⚠️ **qualifies** the paper |
+
+The verbosity result is a deliberate, evidence-backed **qualification** of the paper: ensemble
+aggregation cancels bias only when the panel's individual biases point in *different* directions; in
+our pool six of seven judges shared a mild length preference, so averaging reinforced rather than
+offset it.
+
 > The full claim-by-claim analysis, with per-run contributions and the limitations of our own study,
-> is in **[docs/06-conclusions.md](docs/06-conclusions.md)**.
+> is in **[docs/06-conclusions.md](docs/06-conclusions.md)**; the statistics are in
+> **[docs/07-quantitative-analysis.md](docs/07-quantitative-analysis.md)**.
 
 ---
 
@@ -270,7 +288,8 @@ coeval-cybersecurity-eval/
 │   ├── 03-run-A-findings.md        Run A — full write-up
 │   ├── 04-run-B-findings.md        Run B — full write-up
 │   ├── 05-run-C-findings.md        Run C — full write-up
-│   └── 06-conclusions.md           comparative conclusions + paper alignment
+│   ├── 06-conclusions.md           comparative conclusions + paper alignment
+│   └── 07-quantitative-analysis.md κ, self-preference, verbosity, rank stability
 ├── scripts/                        RAM-safe overnight run scripts
 └── figures/                        charts (banner, ranking, judge strictness)
 ```
