@@ -17,6 +17,10 @@
 </p>
 
 <p align="center">
+  🌐 <b><a href="https://itaym26.github.io/coeval-cybersecurity-eval/">View the live project site &amp; interactive reports →</a></b>
+</p>
+
+<p align="center">
   📄 <b>Instructor's paper:</b> <a href="https://apartsinprojects.github.io/CoEval/">CoEval: Ranking Language Models for Custom Tasks Without Labeled Data or Trustworthy Benchmarks</a> · Dr. Alexander Apartsin & Dr. Yehudit Aperstein
 </p>
 
