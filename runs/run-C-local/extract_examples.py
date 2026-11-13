@@ -1,8 +1,12 @@
+from pathlib import Path
+import sys
 import json, glob, os
 from collections import defaultdict
 
-RUN = r"C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large"
+RUN = str(Path(sys.argv[1]).resolve()) if len(sys.argv) > 1 else str(Path(__file__).resolve().parent)
 VAL = {'high': 1.0, 'medium': 0.5, 'low': 0.0}
+if not glob.glob(os.path.join(RUN, "phase5_evaluations", "*.jsonl")):
+    raise SystemExit("No raw evaluation JSONL files found in " + RUN + ". Supply an exported run directory; committed reports alone cannot regenerate analysis.")
 
 # datapoints: id -> {prompt, attrs, teacher, reference}
 dp = {}
@@ -44,6 +48,9 @@ for rid, jd in ev.items():
         avg = sum(ms)/len(ms)
         spread = max(ms)-min(ms)
         scored.append((rid, avg, spread))
+
+if not scored:
+    raise SystemExit("No eligible response has at least five valid judge scores; cannot select examples.")
 
 best = max(scored, key=lambda x: x[1])
 worst = min(scored, key=lambda x: x[1])
