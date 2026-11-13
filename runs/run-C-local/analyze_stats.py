@@ -1,3 +1,5 @@
+from pathlib import Path
+import sys
 r"""Quantitative statistics for the CoEval cybersecurity runs.
 
 Computes, with no external dependencies:
@@ -13,8 +15,10 @@ Default run_dir = the Run C experiment folder.
 import json, glob, os, sys, math, itertools
 from collections import defaultdict
 
-RUN = sys.argv[1] if len(sys.argv) > 1 else r"C:\Users\itaym\CoEval\Runs\cybersecurity-run-C-large"
+RUN = str(Path(sys.argv[1]).resolve()) if len(sys.argv) > 1 else str(Path(__file__).resolve().parent)
 VAL = {'high': 1.0, 'medium': 0.5, 'low': 0.0}
+if not glob.glob(os.path.join(RUN, "phase5_evaluations", "*.jsonl")):
+    raise SystemExit("No raw evaluation JSONL files found in " + RUN + ". Supply an exported run directory; committed reports alone cannot regenerate analysis.")
 
 
 def load_eval(run):
