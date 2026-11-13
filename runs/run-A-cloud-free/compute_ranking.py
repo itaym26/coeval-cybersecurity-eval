@@ -1,12 +1,17 @@
+from pathlib import Path
+import sys
 import json, glob, os
 from collections import defaultdict
 
-os.chdir(os.path.join(os.path.dirname(__file__), 'cybersecurity-run-05'))
+run = str(Path(sys.argv[1]).resolve()) if len(sys.argv) > 1 else str(Path(__file__).resolve().parent)
+evdir = os.path.join(run, "phase5_evaluations")
+if not glob.glob(os.path.join(evdir, "*.jsonl")):
+    raise SystemExit("No raw evaluation JSONL files found in " + evdir + ". Supply an exported run directory; committed reports alone cannot regenerate rankings.")
 val = {'high': 1.0, 'medium': 0.5, 'low': 0.0}
 agg = defaultdict(list)
 byjudge = defaultdict(lambda: defaultdict(list))
 nrec = 0; nvalid = 0
-for f in glob.glob('phase5_evaluations/*.jsonl'):
+for f in glob.glob(os.path.join(evdir, "*.jsonl")):
     for line in open(f, encoding='utf-8'):
         nrec += 1
         try:
