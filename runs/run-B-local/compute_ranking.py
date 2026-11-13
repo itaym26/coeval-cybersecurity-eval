@@ -1,3 +1,5 @@
+from pathlib import Path
+import sys
 """Compute the CoEval student ranking and judge-bias breakdown for Run B.
 
 Usage:
@@ -9,8 +11,10 @@ High/Medium/Low -> 1.0/0.5/0.0 and averages across all judges and rubric factors
 import json, glob, os, sys
 from collections import defaultdict
 
-run = sys.argv[1] if len(sys.argv) > 1 else r"C:\Users\itaym\CoEval\Runs\cybersecurity-run-B-local"
+run = str(Path(sys.argv[1]).resolve()) if len(sys.argv) > 1 else str(Path(__file__).resolve().parent)
 evdir = os.path.join(run, "phase5_evaluations")
+if not glob.glob(os.path.join(evdir, "*.jsonl")):
+    raise SystemExit("No raw evaluation JSONL files found in " + evdir + ". Supply an exported run directory; committed reports alone cannot regenerate rankings.")
 val = {'high': 1.0, 'medium': 0.5, 'low': 0.0}
 
 agg = defaultdict(list)
